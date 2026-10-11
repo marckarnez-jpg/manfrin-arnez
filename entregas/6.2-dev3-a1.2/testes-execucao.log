@@ -1,0 +1,112 @@
+APROVADO: DEV2-HASH-ORIGINAL 
+APROVADO: MODULOS-CODIGO-INTEGRAL-PRESERVADO 
+HTML completo carregado em 28.33 s
+APROVADO: AJ11-DOWNLOAD-SOLICITADO Manfrin-Arnez-backup-PRINCIPAL-2026-10-11.json
+APROVADO: FORMATO-61 ['format', 'version', 'createdAt', 'care', 'ledger', 'rateSettings']
+APROVADO: AJ11-ARQUIVO-VERIFICADO 
+APROVADO: AJ11-ARQUIVO-ERRADO 
+APROVADO: BACKUP-RECUSADO-6 BACKUP PRINCIPAL RECUSADO: Livro-caixa alterado por outra aba; recarregue. Nenhum download foi solicitado.
+APROVADO: CONSOLE-7 []
+APROVADO: ISOLAMENTO-8 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+HTML completo carregado em 27.33 s
+APROVADO: BACKUP-RECUSADO-9 BACKUP PRINCIPAL RECUSADO: livro ilegível/bloqueado, linhas rejeitadas, registros inconsistentes ou quarentenas ativas. Nenhum download foi solicitado. Baixe as cópias BRUTAS do cadastro e do livro, r
+APROVADO: B-100 
+APROVADO: AJ12-CADASTRO-PROTEGIDO 
+APROVADO: QUARENTENA-DOWNLOAD-EXATO 
+APROVADO: B-07 
+APROVADO: B-06 
+APROVADO: B-79 
+APROVADO: BACKUP61-PACIENTE-PAGAMENTO-EVOLUCAO 
+APROVADO: AJ14-PREV-INTOCADO 
+APROVADO: AJ14-SESSAO-ANTERIOR-EXPLICITA 
+APROVADO: BACKUP-RECUSADO-19 BACKUP PRINCIPAL RECUSADO: livro ilegível/bloqueado, linhas rejeitadas, registros inconsistentes ou quarentenas ativas. Nenhum download foi solicitado. Baixe as cópias BRUTAS do cadastro e do livro, r
+APROVADO: ARQUIVAMENTO-REVALIDADO 
+APROVADO: CONSOLE-21 []
+APROVADO: ISOLAMENTO-22 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+HTML completo carregado em 30.26 s
+APROVADO: BACKUP-RECUSADO-23 BACKUP PRINCIPAL RECUSADO: livro ilegível/bloqueado, linhas rejeitadas, registros inconsistentes ou quarentenas ativas. Nenhum download foi solicitado. Baixe as cópias BRUTAS do cadastro e do livro, r
+APROVADO: REJEITADOS-NAO-RECUPERADOS 
+APROVADO: COPIA-ANTES-DE-SEPARAR 
+APROVADO: QUARENTENA-ARQUIVADA-POS-GRAVACAO 
+APROVADO: CONSOLE-27 []
+APROVADO: ISOLAMENTO-28 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+HTML completo carregado em 33.67 s
+APROVADO: B-31 
+APROVADO: B-32 {'esperado': 9000.5, 'obtido': 9000.5, 'metodo': 'agregação correspondente ao contrato 6.1; HTML 6.1 não fornecido'}
+APROVADO: AJ16-VALORES-ORIGINAIS 
+APROVADO: AJ16-IDS-SEM-COLISAO 
+APROVADO: AJ16-CSV-NUMERICO 
+APROVADO: XSS-LEGADO 
+APROVADO: B-37 
+APROVADO: B-09 
+APROVADO: AJ17-VALOR-EXPLICITO 
+APROVADO: AJ17-CONFIRMACAO-ANTES-DE-MUDAR 
+APROVADO: AJ17-CANCELAMENTO-PRESERVA-VALOR 
+APROVADO: AJ17-DATA-EXPLICITA 
+APROVADO: AJ17-INVALIDO-RECUSADO 
+APROVADO: LEGADOS-REABERTURA 
+APROVADO: BACKUP-RECUSADO-43 BACKUP PRINCIPAL RECUSADO: livro ilegível/bloqueado, linhas rejeitadas, registros inconsistentes ou quarentenas ativas. Nenhum download foi solicitado. Baixe as cópias BRUTAS do cadastro e do livro, r
+PENDENTE: A5-RESTAURACAO-LEGADOS Leitura preservada; restauração de IDs numéricos/bancos antigos e backup parcial restaurável não implementados nesta etapa.
+APROVADO: CONSOLE-45 []
+APROVADO: ISOLAMENTO-46 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+HTML completo carregado em 33.15 s
+APROVADO: JSON-CORROMPIDO 
+APROVADO: BACKUP-RECUSADO-48 BACKUP PRINCIPAL RECUSADO: livro ilegível/bloqueado, linhas rejeitadas, registros inconsistentes ou quarentenas ativas. Nenhum download foi solicitado. Baixe as cópias BRUTAS do cadastro e do livro, r
+APROVADO: AJ12-PACIENTES-INDEPENDENTES 
+APROVADO: JSON-CORROMPIDO-COPIA-EXATA 
+APROVADO: JSON-REABERTURA 
+APROVADO: CONSOLE-52 []
+APROVADO: ISOLAMENTO-53 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+HTML completo carregado em 12.12 s
+APROVADO: BACKUP-RECUSADO-54 BACKUP PRINCIPAL RECUSADO: cadastro ilegível ou armazenamento indisponível. Baixe a cópia BRUTA do cadastro; restauração/reparo pendentes para A5.
+APROVADO: CARE-ILEGIVEL-EXATO 
+APROVADO: CONSOLE-56 []
+APROVADO: ISOLAMENTO-57 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+HTML completo carregado em 29.09 s
+APROVADO: AJ15-SEM-PROTECAO-BLOQUEIA 
+APROVADO: EXTERNA-DIVERGENTE-RECUSADA 
+APROVADO: EXTERNA-VERIFICADA 
+APROVADO: B-67 
+APROVADO: B-69 
+APROVADO: EXTERNA-USO-UNICO 
+APROVADO: CONFIRMACAO-MANUAL-DISTINTA 
+APROVADO: MANUAL-PROTEGE-UMA-OPERACAO 
+APROVADO: QUOTA-PRINCIPAL-ORIGINAL-INTOCADO 
+APROVADO: CONSOLE-67 []
+APROVADO: ISOLAMENTO-68 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+HTML completo carregado em 37.08 s
+APROVADO: QUOTA-REAL {'blocos': 29}
+APROVADO: QUOTA-RECUPERACAO 
+APROVADO: CONSOLE-71 []
+APROVADO: ISOLAMENTO-72 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+HTML completo carregado em 41.74 s
+APROVADO: AJ15-12000-LINHAS {'caracteres': 1681780, 'linhas': 12001}
+APROVADO: CONSOLE-74 []
+APROVADO: ISOLAMENTO-75 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+HTML completo carregado em 44.93 s
+APROVADO: DUAS-ABAS 
+APROVADO: DUAS-ABAS-REABERTURA 
+APROVADO: CONSOLE-78 []
+APROVADO: ISOLAMENTO-79 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+HTML completo carregado em 30.2 s
+APROVADO: MODULOS-18-TELAS ['ma56-home', 'dash', 'quick', 'accounting', 'ma55-cost', 'sim', 'ledger', 'ma55-contador', 'sources', 'patients', 'notes', 'tcle', 'ma55-academy', 'ma55-training', 'ma55-materials', 'ma61-sanitary', 
+APROVADO: PACIENTE-CADASTRADO 
+APROVADO: PAGAMENTO-PRESERVACAO 
+APROVADO: CONTABILIDADE-CSV 
+APROVADO: SIMULADOR 
+APROVADO: EVOLUCOES-PRESERVADAS 
+APROVADO: SAN-8-FRENTES-42-SUBTOPICOS 
+APROVADO: SAN-EVIDENCIA-OBRIGATORIA 
+APROVADO: SAN-EXPORTACAO 
+APROVADO: SAN-IMPORTACAO 
+APROVADO: ACADEMIA-IDAEVOLTA 
+APROVADO: DESENVOLVIMENTO-IDAEVOLTA 
+APROVADO: LABORATORIO-EXOCAD 
+APROVADO: EXOCAD-PDF-DOWNLOAD 
+APROVADO: BACKUP-PACIENTES-PAGAMENTOS-EVOLUCOES 
+APROVADO: REABERTURA-PACIENTES-PAGAMENTOS-SANITARIO 
+PENDENTE: 6.1-NAVEGADOR-IDA-E-VOLTA Formato v2 e fixture 6.1 testados; HTML executável 6.1 não foi fornecido. Não declarar validação cruzada em navegador 6.1.
+PENDENTE: A5-RESTAURACAO-FIEL-E-COMPLETA Restaurador preexistente reinjeta 4 registros fictícios; cobertura integral de módulos e proteção pré-restauração permanecem fora de A1.2.
+APROVADO: CONSOLE-98 []
+APROVADO: ISOLAMENTO-99 {'sentinels': {'ma-ledger-v1': 'SENTINELA-FICTICIA-REAL', 'ma-ledger-v1-prev': 'PREV-FICTICIO-REAL', 'ma-care-v2': 'CARE-FICTICIO-REAL', 'ma-ledger-v1-rejeitados-20260101000000': 'QUARENTENA-FICTICIA-
+{"APROVADO": 97, "REPROVADO": 0, "PENDENTE": 3}

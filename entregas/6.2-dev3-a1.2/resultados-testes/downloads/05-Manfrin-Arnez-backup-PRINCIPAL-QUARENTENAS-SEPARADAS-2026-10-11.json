@@ -1,0 +1,182 @@
+{
+  "format": "manfrin-arnez-backup",
+  "version": 2,
+  "createdAt": "2026-10-11T21:24:49.231Z",
+  "care": {
+    "version": 2,
+    "patients": [
+      {
+        "id": "paciente-teste",
+        "name": "Pessoa Fictícia A1.2",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": "",
+        "source": "Cadastro no aplicativo"
+      },
+      {
+        "id": "dev-paciente-11529",
+        "name": "Paciente Fictício 11529",
+        "cpf": "000.011.529-00",
+        "phone": "(00) 00000-1529",
+        "email": "paciente11529@example.test",
+        "address": "",
+        "cep": "",
+        "source": "RECUPERAÇÃO FICTÍCIA",
+        "codentalId": "9011529"
+      },
+      {
+        "id": "dev-paciente-11530",
+        "name": "Paciente Fictício 11530",
+        "cpf": "",
+        "phone": "(00) 00000-1530",
+        "email": "",
+        "address": "",
+        "cep": "",
+        "source": "RECUPERAÇÃO FICTÍCIA",
+        "codentalId": "9011530"
+      },
+      {
+        "id": "dev-paciente-11531",
+        "name": "Paciente Fictício 11531",
+        "cpf": "000.011.531-00",
+        "phone": "(00) 00000-1531",
+        "email": "",
+        "address": "",
+        "cep": "",
+        "source": "RECUPERAÇÃO FICTÍCIA",
+        "codentalId": "9011531"
+      },
+      {
+        "id": "dev-paciente-11532",
+        "name": "Paciente Fictício 11532",
+        "cpf": "000.011.532-01",
+        "phone": "",
+        "email": "",
+        "address": "Endereço fictício, número 332",
+        "cep": "00000-000",
+        "source": "RECUPERAÇÃO FICTÍCIA",
+        "codentalId": "9011532"
+      }
+    ],
+    "records": [
+      {
+        "id": "pagamento-teste",
+        "patientId": "paciente-teste",
+        "date": "2026-10-10",
+        "month": "2026-10",
+        "amount": 43210,
+        "service": "Teste fictício",
+        "payment": "Pix",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "Pessoa Fictícia A1.2",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        },
+        "source": "Teste"
+      },
+      {
+        "id": "dev-recuperacao-1",
+        "patientId": "dev-paciente-11529",
+        "date": "2026-10-02",
+        "month": "2026-10",
+        "amount": 56100,
+        "service": "Procedimento fictício para teste",
+        "payment": "Pix",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "Paciente Fictício 11529",
+          "cpf": "000.011.529-00",
+          "phone": "(00) 00000-1529",
+          "email": "paciente11529@example.test",
+          "address": "",
+          "cep": ""
+        },
+        "source": "DADO FICTÍCIO DE DESENVOLVIMENTO"
+      },
+      {
+        "id": "dev-recuperacao-2",
+        "patientId": "dev-paciente-11530",
+        "date": "2026-10-03",
+        "month": "2026-10",
+        "amount": 74800,
+        "service": "Procedimento fictício para teste",
+        "payment": "Cartão Crédito",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "Paciente Fictício 11530",
+          "cpf": "",
+          "phone": "(00) 00000-1530",
+          "email": "",
+          "address": "",
+          "cep": ""
+        },
+        "source": "DADO FICTÍCIO DE DESENVOLVIMENTO"
+      },
+      {
+        "id": "dev-recuperacao-3",
+        "patientId": "dev-paciente-11531",
+        "date": "2026-10-04",
+        "month": "2026-10",
+        "amount": 93500,
+        "service": "Procedimento fictício para teste",
+        "payment": "Pix",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "Paciente Fictício 11531",
+          "cpf": "000.011.531-00",
+          "phone": "(00) 00000-1531",
+          "email": "",
+          "address": "",
+          "cep": ""
+        },
+        "source": "DADO FICTÍCIO DE DESENVOLVIMENTO"
+      },
+      {
+        "id": "dev-recuperacao-4",
+        "patientId": "dev-paciente-11532",
+        "date": "2026-10-05",
+        "month": "2026-10",
+        "amount": 112200,
+        "service": "Procedimento fictício para teste",
+        "payment": "Cartão Crédito",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "Paciente Fictício 11532",
+          "cpf": "000.011.532-01",
+          "phone": "",
+          "email": "",
+          "address": "Endereço fictício, número 332",
+          "cep": "00000-000"
+        },
+        "source": "DADO FICTÍCIO DE DESENVOLVIMENTO"
+      }
+    ],
+    "notes": [
+      {
+        "id": "evolucao-teste",
+        "patientId": "paciente-teste",
+        "date": "2026-10-10",
+        "tooth": "11",
+        "text": "Evolução exclusivamente fictícia",
+        "done": false
+      }
+    ]
+  },
+  "ledger": [
+    {
+      "id": "restaurado",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "Lançamento fictício restaurado",
+      "amount": 1000,
+      "kind": "Receita"
+    }
+  ],
+  "rateSettings": {}
+}

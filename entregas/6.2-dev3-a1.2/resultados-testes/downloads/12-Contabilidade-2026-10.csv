@@ -1,0 +1,7 @@
+﻿"#";"PACIENTE";"CPF";"DATA";"TELEFONE";"EMAIL";"ENDEREÇO";"CEP";"VALOR (R$)";"TIPO SERVIÇO";"FORMA PAGAMENTO"
+"1";"Paciente Fictício 11529";"000.011.529-00";"02/10/2026";"(00) 00000-1529";"paciente11529@example.test";"";"";"561,00";"Procedimento fictício para teste";"Pix"
+"2";"Paciente Fictício 11530";"";"03/10/2026";"(00) 00000-1530";"";"";"";"748,00";"Procedimento fictício para teste";"Cartão Crédito"
+"3";"Paciente Fictício 11531";"000.011.531-00";"04/10/2026";"(00) 00000-1531";"";"";"";"935,00";"Procedimento fictício para teste";"Pix"
+"4";"Paciente Fictício 11532";"000.011.532-01";"05/10/2026";"";"";"Endereço fictício, número 332";"00000-000";"1122,00";"Procedimento fictício para teste";"Cartão Crédito"
+"5";"Pessoa Fictícia A1.2";"";"10/10/2026";"";"";"";"";"432,10";"Teste fictício";"Pix"
+"6";"Paciente Fictício Novo A1.2";"";"11/10/2026";"";"";"";"";"123,45";"Serviço fictício A1.2";""

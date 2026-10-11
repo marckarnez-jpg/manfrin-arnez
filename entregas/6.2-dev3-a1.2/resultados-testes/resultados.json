@@ -1,0 +1,660 @@
+{
+  "html": "/workspace/entregas-a1.2/Manfrin-Arnez-Dashboard-6.2-DEV-03-A1.2.html",
+  "sha256": "e4e4f49ca37e85cd9c83c67aa79b4e9d2fcb74b11137c387a5692ea8727bcc3f",
+  "scenario": "all",
+  "browser": "/usr/bin/chromium",
+  "transport": "HTTP loopback; file:// bloqueado por política do ambiente",
+  "checks": [
+    {
+      "id": "DEV2-HASH-ORIGINAL",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "MODULOS-CODIGO-INTEGRAL-PRESERVADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ11-DOWNLOAD-SOLICITADO",
+      "status": "APROVADO",
+      "evidence": "Manfrin-Arnez-backup-PRINCIPAL-2026-10-11.json"
+    },
+    {
+      "id": "FORMATO-61",
+      "status": "APROVADO",
+      "evidence": [
+        "format",
+        "version",
+        "createdAt",
+        "care",
+        "ledger",
+        "rateSettings"
+      ]
+    },
+    {
+      "id": "AJ11-ARQUIVO-VERIFICADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ11-ARQUIVO-ERRADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "BACKUP-RECUSADO-6",
+      "status": "APROVADO",
+      "evidence": "BACKUP PRINCIPAL RECUSADO: Livro-caixa alterado por outra aba; recarregue. Nenhum download foi solicitado."
+    },
+    {
+      "id": "CONSOLE-7",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-8",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "BACKUP-RECUSADO-9",
+      "status": "APROVADO",
+      "evidence": "BACKUP PRINCIPAL RECUSADO: livro ilegível/bloqueado, linhas rejeitadas, registros inconsistentes ou quarentenas ativas. Nenhum download foi solicitado. Baixe as cópias BRUTAS do cadastro e do livro, revise/corrija os registros e arquive somente quarentenas já conferidas. Exportação parcial restaurável: PENDENTE A5."
+    },
+    {
+      "id": "B-100",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ12-CADASTRO-PROTEGIDO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "QUARENTENA-DOWNLOAD-EXATO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "B-07",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "B-06",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "B-79",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "BACKUP61-PACIENTE-PAGAMENTO-EVOLUCAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ14-PREV-INTOCADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ14-SESSAO-ANTERIOR-EXPLICITA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "BACKUP-RECUSADO-19",
+      "status": "APROVADO",
+      "evidence": "BACKUP PRINCIPAL RECUSADO: livro ilegível/bloqueado, linhas rejeitadas, registros inconsistentes ou quarentenas ativas. Nenhum download foi solicitado. Baixe as cópias BRUTAS do cadastro e do livro, revise/corrija os registros e arquive somente quarentenas já conferidas. Exportação parcial restaurável: PENDENTE A5."
+    },
+    {
+      "id": "ARQUIVAMENTO-REVALIDADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "CONSOLE-21",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-22",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "BACKUP-RECUSADO-23",
+      "status": "APROVADO",
+      "evidence": "BACKUP PRINCIPAL RECUSADO: livro ilegível/bloqueado, linhas rejeitadas, registros inconsistentes ou quarentenas ativas. Nenhum download foi solicitado. Baixe as cópias BRUTAS do cadastro e do livro, revise/corrija os registros e arquive somente quarentenas já conferidas. Exportação parcial restaurável: PENDENTE A5."
+    },
+    {
+      "id": "REJEITADOS-NAO-RECUPERADOS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "COPIA-ANTES-DE-SEPARAR",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "QUARENTENA-ARQUIVADA-POS-GRAVACAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "CONSOLE-27",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-28",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "B-31",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "B-32",
+      "status": "APROVADO",
+      "evidence": {
+        "esperado": 9000.5,
+        "obtido": 9000.5,
+        "metodo": "agregação correspondente ao contrato 6.1; HTML 6.1 não fornecido"
+      }
+    },
+    {
+      "id": "AJ16-VALORES-ORIGINAIS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ16-IDS-SEM-COLISAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ16-CSV-NUMERICO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "XSS-LEGADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "B-37",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "B-09",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ17-VALOR-EXPLICITO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ17-CONFIRMACAO-ANTES-DE-MUDAR",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ17-CANCELAMENTO-PRESERVA-VALOR",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ17-DATA-EXPLICITA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AJ17-INVALIDO-RECUSADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "LEGADOS-REABERTURA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "BACKUP-RECUSADO-43",
+      "status": "APROVADO",
+      "evidence": "BACKUP PRINCIPAL RECUSADO: livro ilegível/bloqueado, linhas rejeitadas, registros inconsistentes ou quarentenas ativas. Nenhum download foi solicitado. Baixe as cópias BRUTAS do cadastro e do livro, revise/corrija os registros e arquive somente quarentenas já conferidas. Exportação parcial restaurável: PENDENTE A5."
+    },
+    {
+      "id": "A5-RESTAURACAO-LEGADOS",
+      "status": "PENDENTE",
+      "evidence": "Leitura preservada; restauração de IDs numéricos/bancos antigos e backup parcial restaurável não implementados nesta etapa."
+    },
+    {
+      "id": "CONSOLE-45",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-46",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "JSON-CORROMPIDO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "BACKUP-RECUSADO-48",
+      "status": "APROVADO",
+      "evidence": "BACKUP PRINCIPAL RECUSADO: livro ilegível/bloqueado, linhas rejeitadas, registros inconsistentes ou quarentenas ativas. Nenhum download foi solicitado. Baixe as cópias BRUTAS do cadastro e do livro, revise/corrija os registros e arquive somente quarentenas já conferidas. Exportação parcial restaurável: PENDENTE A5."
+    },
+    {
+      "id": "AJ12-PACIENTES-INDEPENDENTES",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "JSON-CORROMPIDO-COPIA-EXATA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "JSON-REABERTURA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "CONSOLE-52",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-53",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "BACKUP-RECUSADO-54",
+      "status": "APROVADO",
+      "evidence": "BACKUP PRINCIPAL RECUSADO: cadastro ilegível ou armazenamento indisponível. Baixe a cópia BRUTA do cadastro; restauração/reparo pendentes para A5."
+    },
+    {
+      "id": "CARE-ILEGIVEL-EXATO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "CONSOLE-56",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-57",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "AJ15-SEM-PROTECAO-BLOQUEIA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "EXTERNA-DIVERGENTE-RECUSADA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "EXTERNA-VERIFICADA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "B-67",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "B-69",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "EXTERNA-USO-UNICO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "CONFIRMACAO-MANUAL-DISTINTA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "MANUAL-PROTEGE-UMA-OPERACAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "QUOTA-PRINCIPAL-ORIGINAL-INTOCADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "CONSOLE-67",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-68",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "QUOTA-REAL",
+      "status": "APROVADO",
+      "evidence": {
+        "blocos": 29
+      }
+    },
+    {
+      "id": "QUOTA-RECUPERACAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "CONSOLE-71",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-72",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "AJ15-12000-LINHAS",
+      "status": "APROVADO",
+      "evidence": {
+        "caracteres": 1681780,
+        "linhas": 12001
+      }
+    },
+    {
+      "id": "CONSOLE-74",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-75",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "DUAS-ABAS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "DUAS-ABAS-REABERTURA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "CONSOLE-78",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-79",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "MODULOS-18-TELAS",
+      "status": "APROVADO",
+      "evidence": [
+        "ma56-home",
+        "dash",
+        "quick",
+        "accounting",
+        "ma55-cost",
+        "sim",
+        "ledger",
+        "ma55-contador",
+        "sources",
+        "patients",
+        "notes",
+        "tcle",
+        "ma55-academy",
+        "ma55-training",
+        "ma55-materials",
+        "ma61-sanitary",
+        "ma56-project",
+        "backup"
+      ]
+    },
+    {
+      "id": "PACIENTE-CADASTRADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "PAGAMENTO-PRESERVACAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "CONTABILIDADE-CSV",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "SIMULADOR",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "EVOLUCOES-PRESERVADAS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "SAN-8-FRENTES-42-SUBTOPICOS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "SAN-EVIDENCIA-OBRIGATORIA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "SAN-EXPORTACAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "SAN-IMPORTACAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "ACADEMIA-IDAEVOLTA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "DESENVOLVIMENTO-IDAEVOLTA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "LABORATORIO-EXOCAD",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "EXOCAD-PDF-DOWNLOAD",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "BACKUP-PACIENTES-PAGAMENTOS-EVOLUCOES",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "REABERTURA-PACIENTES-PAGAMENTOS-SANITARIO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "6.1-NAVEGADOR-IDA-E-VOLTA",
+      "status": "PENDENTE",
+      "evidence": "Formato v2 e fixture 6.1 testados; HTML executável 6.1 não foi fornecido. Não declarar validação cruzada em navegador 6.1."
+    },
+    {
+      "id": "A5-RESTAURACAO-FIEL-E-COMPLETA",
+      "status": "PENDENTE",
+      "evidence": "Restaurador preexistente reinjeta 4 registros fictícios; cobertura integral de módulos e proteção pré-restauração permanecem fora de A1.2."
+    },
+    {
+      "id": "CONSOLE-98",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "ISOLAMENTO-99",
+      "status": "APROVADO",
+      "evidence": {
+        "sentinels": {
+          "ma-ledger-v1": "SENTINELA-FICTICIA-REAL",
+          "ma-ledger-v1-prev": "PREV-FICTICIO-REAL",
+          "ma-care-v2": "CARE-FICTICIO-REAL",
+          "ma-ledger-v1-rejeitados-20260101000000": "QUARENTENA-FICTICIA-REAL",
+          "ma55-modules-v1": "ACADEMIA-FICTICIA-REAL",
+          "ma61-sanitary-checklist-v1": "SANITARIO-FICTICIO-REAL"
+        },
+        "extra": []
+      }
+    }
+  ],
+  "failure": null,
+  "counts": {
+    "APROVADO": 97,
+    "REPROVADO": 0,
+    "PENDENTE": 3
+  }
+}

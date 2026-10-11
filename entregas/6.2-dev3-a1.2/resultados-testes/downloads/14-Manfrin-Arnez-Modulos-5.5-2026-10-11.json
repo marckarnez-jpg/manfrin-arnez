@@ -1,0 +1,21 @@
+{
+  "format": "manfrin-arnez-academy-backup",
+  "exportedAt": "2026-10-11T21:32:42.537Z",
+  "data": {
+    "version": 1,
+    "settings": {
+      "monthly": 0,
+      "hours": 0,
+      "target": 25,
+      "minimum": 10,
+      "tax": 0,
+      "rates": {}
+    },
+    "materials": [],
+    "equipment": [],
+    "sessions": [],
+    "customPops": [],
+    "checks": {},
+    "training": []
+  }
+}
