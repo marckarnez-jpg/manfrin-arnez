@@ -1,0 +1,58 @@
+{
+  "format": "manfrin-arnez-backup",
+  "version": 2,
+  "care": {
+    "version": 2,
+    "patients": [
+      {
+        "id": "pDUAS",
+        "name": "Paciente Fictício DUAS",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": ""
+      }
+    ],
+    "records": [
+      {
+        "id": "rDUAS",
+        "patientId": "pDUAS",
+        "date": "2026-10-10",
+        "month": "2026-10",
+        "amount": 12345,
+        "service": "Serviço fictício DUAS",
+        "payment": "Pix",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "Paciente Fictício DUAS",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        }
+      }
+    ],
+    "notes": [
+      {
+        "id": "nDUAS",
+        "patientId": "pDUAS",
+        "date": "2026-10-10",
+        "tooth": "11",
+        "text": "Evolução fictícia DUAS",
+        "done": false
+      }
+    ]
+  },
+  "ledger": [
+    {
+      "id": "Cora:F5",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "Fictício 5",
+      "amount": 1005,
+      "kind": "Receita"
+    }
+  ]
+}

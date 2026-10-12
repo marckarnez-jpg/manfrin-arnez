@@ -1,0 +1,34 @@
+{
+  "format": "manfrin-arnez-protection-archive",
+  "version": 1,
+  "createdAt": "2026-10-12T01:26:46.963Z",
+  "database": "__MA_DEV61_SANDBOX__:ma5-protection-v1",
+  "records": [
+    {
+      "id": "operation:c660cf42-0781-4a2d-aeff-e16ece56ca48",
+      "kind": "operation",
+      "createdAt": "2026-10-12T01:26:46.887Z",
+      "origin": "Antes de operação do livro-caixa",
+      "session": "20261012012624038-75796d2b-f67d-49a8-9138-02a1405654dc",
+      "key": "ma-ledger-v1",
+      "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]",
+      "sha256": "e0d9a5048e569856c8217c25e15dc7dc1b3a6a361aba4a1f34bff455855c85b4",
+      "storage": "indexedDB"
+    },
+    {
+      "id": "operation:cea10b25-b962-4594-84de-45923bd06243",
+      "kind": "operation",
+      "createdAt": "2026-10-12T01:26:46.914Z",
+      "origin": "Antes de operação do livro-caixa",
+      "session": "20261012012624038-75796d2b-f67d-49a8-9138-02a1405654dc",
+      "key": "ma-ledger-v1",
+      "raw": "[{\"id\":\"Cora:F1\",\"date\":\"2026-10-10\",\"bank\":\"Cora\",\"description\":\"Primeira fictícia\",\"amount\":1001,\"kind\":\"Receita\"}]",
+      "sha256": "18caa4f0c8000edc8d079002050f8bd6cc49049b738e2f3f9fac925642f76268",
+      "storage": "indexedDB"
+    }
+  ],
+  "integrity": {
+    "algorithm": "SHA-256",
+    "digest": "9914eba6315d4c4dc8ae80b2fdf6ae136506d4b86c50a99b9949dc9ceb80e163"
+  }
+}

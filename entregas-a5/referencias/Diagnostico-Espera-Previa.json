@@ -1,0 +1,110 @@
+{
+  "html_sha256": "648bf7fe42427f2dd8cae053971af0db64943937e839de04514464434f8c4951",
+  "group": "from-failure",
+  "failure": "('RECUPERACAO-PREVIA-IDENTIFICA-REMOCAO-BASE-ADICIONADA', '')",
+  "checks": [
+    {
+      "id": "FALHA-MEIO-RESTAURACAO-ROLLBACK-EXATO",
+      "status": "APROVADO",
+      "evidence": "RESTAURAÇÃO RECUSADA/FALHOU: Restauração não concluída; estado anterior recuperado. Falha fictícia durante restauração"
+    },
+    {
+      "id": "FALHA-PREIMAGE-RECUPERAVEL",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "FALHA-REABRIR-SEM-PERDA-OU-SEED",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "INTERRUPCAO-ESTADO-INTERMEDIARIO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "INTERRUPCAO-RECARGA-RECUPERA-ANTES",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AUX-PAGEERROR-5",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "AUX-ISOLAMENTO-6",
+      "status": "APROVADO",
+      "evidence": {
+        "sent": {
+          "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+          "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+          "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+          "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "IDB-FALHA-PROTECAO-BLOQUEIA-OPERACAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "IDB-FALHA-PROTECAO-ALERTA-REAL",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AUX-PAGEERROR-9",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "AUX-ISOLAMENTO-10",
+      "status": "APROVADO",
+      "evidence": {
+        "sent": {
+          "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+          "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+          "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+          "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "RESTAURO-BASE-ANTES-AUSENTE-ADICIONADA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "RECUPERACAO-PREVIA-IDENTIFICA-REMOCAO-BASE-ADICIONADA",
+      "status": "REPROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AUX-PAGEERROR-13",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "AUX-ISOLAMENTO-14",
+      "status": "APROVADO",
+      "evidence": {
+        "sent": {
+          "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+          "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+          "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+          "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+        },
+        "extra": []
+      }
+    }
+  ],
+  "counts": {
+    "APROVADO": 14,
+    "REPROVADO": 1
+  }
+}

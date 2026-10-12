@@ -1,0 +1,14 @@
+{
+  "format": "manfrin-arnez-backup",
+  "version": 2,
+  "ledger": [
+    {
+      "id": "Cora:F99",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "Fictício 99",
+      "amount": 1099,
+      "kind": "Receita"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+[
+  {
+    "original_script": 0,
+    "attributes_original": " id=\"ma-dev-isolation\"",
+    "attributes_dev4": " id=\"ma-dev-isolation\"",
+    "original_sha256": "dbf27583e6456ee4e021e4f62dd9edfb9b846a058537e22d6fa291fb7d342809",
+    "dev4_sha256": "dbf27583e6456ee4e021e4f62dd9edfb9b846a058537e22d6fa291fb7d342809",
+    "changed": false
+  },
+  {
+    "original_script": 1,
+    "attributes_original": "",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app",
+    "original_sha256": "b688e56eeee90387e3b18bfcda57eadbd0e83e45c728d129285c784a19514079",
+    "dev4_sha256": "b688e56eeee90387e3b18bfcda57eadbd0e83e45c728d129285c784a19514079",
+    "changed": false
+  },
+  {
+    "original_script": 2,
+    "attributes_original": "",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app",
+    "original_sha256": "d428a0536b6af8f4cf2b22b7d7c2713c39b3a2190b6234e766966662938a4714",
+    "dev4_sha256": "f103c0b55bf2ce3dfc188dd782a32613a8cc2b066d556a406ddb4aecdb9c317f",
+    "changed": true
+  },
+  {
+    "original_script": 3,
+    "attributes_original": "",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app",
+    "original_sha256": "1d3aaf5e202b3572e6741b24d21e44844ae9011ebe725e7f04ea3cbddb5b1d64",
+    "dev4_sha256": "1d3aaf5e202b3572e6741b24d21e44844ae9011ebe725e7f04ea3cbddb5b1d64",
+    "changed": false
+  },
+  {
+    "original_script": 4,
+    "attributes_original": "",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app",
+    "original_sha256": "2f82eb16b9691207b8b8fc0f5589d50052e4c0cb369f6ebdaded8ecf6d46ad67",
+    "dev4_sha256": "2f82eb16b9691207b8b8fc0f5589d50052e4c0cb369f6ebdaded8ecf6d46ad67",
+    "changed": false
+  },
+  {
+    "original_script": 5,
+    "attributes_original": "",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app",
+    "original_sha256": "98e6041aed7edd599a8c9ec36b1c593b557cea75952032378344b84c3b4b3137",
+    "dev4_sha256": "98e6041aed7edd599a8c9ec36b1c593b557cea75952032378344b84c3b4b3137",
+    "changed": false
+  },
+  {
+    "original_script": 6,
+    "attributes_original": "",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app",
+    "original_sha256": "4cf945eda0bae46edbb90a2815fe567cd50561d17ef4be8497176c847c77d8be",
+    "dev4_sha256": "4cf945eda0bae46edbb90a2815fe567cd50561d17ef4be8497176c847c77d8be",
+    "changed": false
+  },
+  {
+    "original_script": 7,
+    "attributes_original": "",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app",
+    "original_sha256": "56819711c756346665807183d87e4bb2c40e6982802c6f720b945e396f73fd69",
+    "dev4_sha256": "e5be6b73eb06d1d5ada5a77903c259c5801b10a5551c42804d6d2e607d6f47df",
+    "changed": true
+  },
+  {
+    "original_script": 8,
+    "attributes_original": "",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app",
+    "original_sha256": "53cebb9006da10531c33b82c4b5459fa5480f49e6b041428d7f8d107256cc2dd",
+    "dev4_sha256": "53cebb9006da10531c33b82c4b5459fa5480f49e6b041428d7f8d107256cc2dd",
+    "changed": false
+  },
+  {
+    "original_script": 9,
+    "attributes_original": "",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app",
+    "original_sha256": "4223a4ef1a1d10cb4f39af9f974867ac069392af739abff6ae1ad40be0697706",
+    "dev4_sha256": "4223a4ef1a1d10cb4f39af9f974867ac069392af739abff6ae1ad40be0697706",
+    "changed": false
+  },
+  {
+    "original_script": 10,
+    "attributes_original": " id=\"ma-endo41-js\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma-endo41-js\"",
+    "original_sha256": "a3ef1f0786335df1f8c563e2a08c4ad159c4c6b419b8076498dc73efa145f9a6",
+    "dev4_sha256": "a3ef1f0786335df1f8c563e2a08c4ad159c4c6b419b8076498dc73efa145f9a6",
+    "changed": false
+  },
+  {
+    "original_script": 11,
+    "attributes_original": " id=\"ma-endo42-js\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma-endo42-js\"",
+    "original_sha256": "9ba55ba18cc1b98a92d1b09ed25ff864c4e50fd9855df741990d768a85c25979",
+    "dev4_sha256": "9ba55ba18cc1b98a92d1b09ed25ff864c4e50fd9855df741990d768a85c25979",
+    "changed": false
+  },
+  {
+    "original_script": 12,
+    "attributes_original": " id=\"ma-endo43-js\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma-endo43-js\"",
+    "original_sha256": "b11e07e28ff3547dadb0ccc14dd03ca5645bb694835b7058f423aa0c4e9d92d0",
+    "dev4_sha256": "b11e07e28ff3547dadb0ccc14dd03ca5645bb694835b7058f423aa0c4e9d92d0",
+    "changed": false
+  },
+  {
+    "original_script": 13,
+    "attributes_original": "",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app",
+    "original_sha256": "69c83772a2d8a8b86cdd56eee889527955c6c6f9e984d21c5e1126f53114f006",
+    "dev4_sha256": "69c83772a2d8a8b86cdd56eee889527955c6c6f9e984d21c5e1126f53114f006",
+    "changed": false
+  },
+  {
+    "original_script": 14,
+    "attributes_original": " id=\"ma55-extension\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma55-extension\"",
+    "original_sha256": "d013278c47787a3b263d722e5d4fe23773b325400ea16b5989854afe9b850de0",
+    "dev4_sha256": "1bb2a34f5b16b674de002c8ec9611bafe123d08357a6825fe0fdd58ff4e1d844",
+    "changed": true
+  },
+  {
+    "original_script": 15,
+    "attributes_original": " id=\"ma56-nav-js\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma56-nav-js\"",
+    "original_sha256": "cf1bcf94816ac85043759367ae952118e65138e2a22aaf8595ba1b34e2968650",
+    "dev4_sha256": "cf1bcf94816ac85043759367ae952118e65138e2a22aaf8595ba1b34e2968650",
+    "changed": false
+  },
+  {
+    "original_script": 16,
+    "attributes_original": " id=\"ma57-script\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma57-script\"",
+    "original_sha256": "dc8f68fec4cb339a0f26a1c30bdde1d91c74c14eca0dbcc346b3866249e8734b",
+    "dev4_sha256": "dc8f68fec4cb339a0f26a1c30bdde1d91c74c14eca0dbcc346b3866249e8734b",
+    "changed": false
+  },
+  {
+    "original_script": 17,
+    "attributes_original": " id=\"ma58-manuals\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma58-manuals\"",
+    "original_sha256": "66d62740877232d987c5357b6470a8bfd21768b8ed263b26a295e9b5b9ec48e3",
+    "dev4_sha256": "66d62740877232d987c5357b6470a8bfd21768b8ed263b26a295e9b5b9ec48e3",
+    "changed": false
+  },
+  {
+    "original_script": 18,
+    "attributes_original": " id=\"ma58-makeup-js\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma58-makeup-js\"",
+    "original_sha256": "06387830af074f7d1500293ede8e0369d05cdd9b3914398b98dac961abd05fb2",
+    "dev4_sha256": "06387830af074f7d1500293ede8e0369d05cdd9b3914398b98dac961abd05fb2",
+    "changed": false
+  },
+  {
+    "original_script": 19,
+    "attributes_original": " id=\"ma59-docs\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma59-docs\"",
+    "original_sha256": "67980e5de3e277adb564722d9092bf43f5d60374104dc6d8b0a1d6204fbbffc4",
+    "dev4_sha256": "67980e5de3e277adb564722d9092bf43f5d60374104dc6d8b0a1d6204fbbffc4",
+    "changed": false
+  },
+  {
+    "original_script": 20,
+    "attributes_original": " id=\"ma59-workflows-js\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma59-workflows-js\"",
+    "original_sha256": "84aa2e7d962847651e578784abc6c1cbc95277343ec511625d5910cd0a6f70ac",
+    "dev4_sha256": "84aa2e7d962847651e578784abc6c1cbc95277343ec511625d5910cd0a6f70ac",
+    "changed": false
+  },
+  {
+    "original_script": 21,
+    "attributes_original": " id=\"ma60-lab-js\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma60-lab-js\"",
+    "original_sha256": "3b2ca39e815e2ebd43fb99c8c1c0f20036527e0a399953270d82c103c21be0d0",
+    "dev4_sha256": "3b2ca39e815e2ebd43fb99c8c1c0f20036527e0a399953270d82c103c21be0d0",
+    "changed": false
+  },
+  {
+    "original_script": 22,
+    "attributes_original": " id=\"ma61-sanitary-js\"",
+    "attributes_dev4": " type=\"application/x-ma5-app\" data-ma5-app id=\"ma61-sanitary-js\"",
+    "original_sha256": "3c858c4ea31c7d6667aff915ae5feb0e1648c1ed8d15a4c92ee9287afb78ebbe",
+    "dev4_sha256": "3ede5dff74a758c3e5eae9615406b255d62223a0fd2c98843e424cd5092e6b90",
+    "changed": true
+  }
+]

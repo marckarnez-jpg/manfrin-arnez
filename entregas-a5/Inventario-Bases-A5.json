@@ -1,0 +1,132 @@
+{
+  "source_sha256": "e4e4f49ca37e85cd9c83c67aa79b4e9d2fcb74b11137c387a5692ea8727bcc3f",
+  "namespace": "__MA_DEV61_SANDBOX__:",
+  "localStorage": [
+    {
+      "key": "ma-care-v2",
+      "version": 2,
+      "data": [
+        "patients",
+        "records",
+        "notes"
+      ],
+      "module": "Pacientes, pagamentos e evoluções"
+    },
+    {
+      "key": "ma-ledger-v1",
+      "version": "array sem versão",
+      "data": [
+        "lançamentos; IDs numéricos e bancos legados"
+      ],
+      "module": "Livro-caixa"
+    },
+    {
+      "key": "ma-installment-rates-v1",
+      "version": "objeto sem versão",
+      "data": [
+        "taxas de 1 a 10 parcelas"
+      ],
+      "module": "Financeiro"
+    },
+    {
+      "key": "ma-account-month-last-v1",
+      "version": "texto AAAA-MM",
+      "data": [
+        "preferência de mês"
+      ],
+      "module": "Contabilidade"
+    },
+    {
+      "key": "ma-academy-v55",
+      "version": 1,
+      "data": [
+        "settings",
+        "materials",
+        "equipment",
+        "sessions",
+        "customPops",
+        "checks",
+        "training",
+        "ma58",
+        "ma59",
+        "ma60"
+      ],
+      "module": "Academia, materiais e progressos do Laboratório"
+    },
+    {
+      "key": "ma56-project-checklist-v1",
+      "version": 1,
+      "data": [
+        "states",
+        "updated"
+      ],
+      "module": "Checklist de Desenvolvimento (checklist56)"
+    },
+    {
+      "key": "ma61-sanitary-checklist-v1",
+      "version": 1,
+      "data": [
+        "states",
+        "evidence",
+        "notes",
+        "responsible",
+        "due",
+        "updated"
+      ],
+      "module": "Central Sanitária; 8 frentes, 42 subtópicos"
+    },
+    {
+      "pattern": "ma-ledger-v1-rejeitados-*",
+      "version": "JSON ou bruto não reconhecido",
+      "module": "Quarentenas"
+    },
+    {
+      "pattern": "ma-ledger-v1-quarantine-review:*",
+      "version": 1,
+      "data": [
+        "key",
+        "originalBody",
+        "reviewedAt",
+        "acknowledged"
+      ],
+      "module": "Revisões"
+    },
+    {
+      "pattern": "ma-ledger-v1-session-prev-*",
+      "version": "JSON bruto",
+      "module": "Cópias de operações herdadas"
+    },
+    {
+      "key": "ma-ledger-v1-prev",
+      "version": "texto bruto",
+      "module": "Cópia anterior; data não comprovada"
+    },
+    {
+      "key": "ma-storage-check",
+      "version": "texto",
+      "module": "Teste efêmero de disponibilidade; não é base de dados"
+    }
+  ],
+  "assets_embedded": [
+    "PDFs Exocad e biblioteca/manuais; no próprio HTML, sem chave separada"
+  ],
+  "newIndexedDB": {
+    "database": "__MA_DEV61_SANDBOX__:ma5-protection-v1",
+    "store": "records",
+    "version": 1,
+    "record_types": [
+      "operation",
+      "restore",
+      "cleanup"
+    ]
+  },
+  "controlKeys": [
+    "ma5-restore-pending-v1",
+    "ma5-restore-epoch-v1",
+    "ma5-suppress-seeds-v1",
+    "ma5-reservation:*"
+  ],
+  "controlPolicy": "Não importar como bases comuns; metadados incluídos separadamente. Marcadores e reservas transitórios não pertencem ao snapshot.",
+  "unknownKeys": "Chaves DEV observadas sem leitor conhecido são incluídas em bruto; snapshot explicitamente PARCIAL.",
+  "drafts": "Somente notes/rascunhos efetivamente persistidos em ma-care-v2; campos não salvos em memória não são inventados."
+}

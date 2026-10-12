@@ -1,0 +1,42 @@
+[
+  {
+    "file": "Auditoria-Independente-A1.2-6.2-dev.3.md",
+    "bytes": 91751,
+    "sha256": "d61590131888079f2769f0491d0204f173719ac19520baf3b63c07b69298a641"
+  },
+  {
+    "file": "Comando-Usuario-A5.md",
+    "bytes": 10167,
+    "sha256": "421b8fcf8ba3c087c1cb4680c59ac15bf4f64a2a459fb37feb06f5e7cd76dfc3"
+  },
+  {
+    "file": "Diagnostico-Espera-Previa.json",
+    "bytes": 2876,
+    "sha256": "91db5e60c3e4091138e1566e70792736940b22e9255e32a6dfc6244fbdd85e7c"
+  },
+  {
+    "file": "Diagnostico-Harness-IDB.json",
+    "bytes": 7055,
+    "sha256": "bbb57cc942e70c5a65b244e46e1698396e9a32122d2aa73709f3ce7da520d03f"
+  },
+  {
+    "file": "Fase1-N1-N2-N3-Comprovada.html",
+    "bytes": 4090849,
+    "sha256": "34adf3a5409dc66cebef4b4196af875648f3f95996c288bbd33d7bef288ab997"
+  },
+  {
+    "file": "Manfrin-Arnez-Dashboard-6.2-DEV-03-A1.2.html",
+    "bytes": 4077003,
+    "sha256": "e4e4f49ca37e85cd9c83c67aa79b4e9d2fcb74b11137c387a5692ea8727bcc3f"
+  },
+  {
+    "file": "Resultados-Fase1-Anterior-A5.json",
+    "bytes": 3399,
+    "sha256": "3a6f06f34594c1fde64c12407b89255e5f35807d290aaae07a71934ce7ff9b34"
+  },
+  {
+    "file": "Suite-Independente-Original-A1.2.zip",
+    "bytes": 166257,
+    "sha256": "0e719cbf1075fbc73c56959ab834fb341fa7de8e79b84e32dee9bd3518f789ce"
+  }
+]

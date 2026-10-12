@@ -1,0 +1,62 @@
+{
+  "format": "manfrin-arnez-sanitary-checklist",
+  "version": 1,
+  "createdAt": "2026-10-12T01:37:21.588Z",
+  "data": {
+    "version": 1,
+    "states": {
+      "ster-capacity": "ok",
+      "ster-serial": "ok",
+      "ster-cycles": "warn",
+      "ster-bio": "ok",
+      "ster-chem": "ok",
+      "ster-ultra": "ok",
+      "ster-trace": "ok"
+    },
+    "evidence": {
+      "ster-capacity": "Evidencia ficticia 0",
+      "ster-serial": "Evidencia ficticia 1",
+      "ster-cycles": "Evidencia ficticia 2",
+      "ster-bio": "Evidencia ficticia 3",
+      "ster-chem": "Evidencia ficticia 4",
+      "ster-ultra": "Evidencia ficticia 5",
+      "ster-trace": "Evidencia ficticia 6"
+    },
+    "notes": {
+      "ster-capacity": "",
+      "ster-serial": "",
+      "ster-cycles": "",
+      "ster-bio": "",
+      "ster-chem": "",
+      "ster-ultra": "",
+      "ster-trace": ""
+    },
+    "responsible": {
+      "ster-capacity": "",
+      "ster-serial": "",
+      "ster-cycles": "",
+      "ster-bio": "",
+      "ster-chem": "",
+      "ster-ultra": "",
+      "ster-trace": ""
+    },
+    "due": {
+      "ster-capacity": "",
+      "ster-serial": "",
+      "ster-cycles": "",
+      "ster-bio": "",
+      "ster-chem": "",
+      "ster-ultra": "",
+      "ster-trace": ""
+    },
+    "updated": {
+      "ster-capacity": "2026-10-12T01:36:53.927Z",
+      "ster-serial": "2026-10-12T01:36:53.951Z",
+      "ster-cycles": "2026-10-12T01:36:54.133Z",
+      "ster-bio": "2026-10-12T01:36:54.000Z",
+      "ster-chem": "2026-10-12T01:36:54.027Z",
+      "ster-ultra": "2026-10-12T01:36:54.055Z",
+      "ster-trace": "2026-10-12T01:36:54.082Z"
+    }
+  }
+}

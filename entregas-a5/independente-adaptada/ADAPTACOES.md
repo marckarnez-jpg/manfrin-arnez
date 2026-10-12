@@ -1,0 +1,4 @@
+# Origem e adaptações da suíte independente
+T5 e lib vieram da Suite-Testes-A1.2 anexada. Os 13 critérios SAN-01 a SAN-13 permanecem iguais. Alterações: transporte file:// → HTTP local devido à política do ambiente; caminho do Chromium; espera por MA5.appReady; bloqueio de tráfego externo; fixture fictícia vazia sem seed automático. A biblioteca inicializa só chaves DEV de um contexto descartável. Não executa clear(). O teste foi reexecutado pelo Codex, não constitui nova auditoria independente do Claude.
+Os demais scripts originais não são declarados reexecutados. Muitos critérios v2/armazenamento local foram substituídos pelos critérios explícitos A5 em testes_a5.py e testes_n1_n2_n3.py. Auditoria independente completa permanece pendente.
+Executar, com Node e Playwright disponíveis: `python3 independente-adaptada/executar.py`. NODE_PATH pode apontar ao diretório node_modules que contém playwright.

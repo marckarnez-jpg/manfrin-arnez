@@ -1,0 +1,48 @@
+{
+  "format": "manfrin-arnez-backup",
+  "version": 2,
+  "care": {
+    "version": 2,
+    "patients": [
+      {
+        "id": "pNOVO",
+        "name": "Paciente Fictício NOVO",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": ""
+      }
+    ],
+    "records": [
+      {
+        "id": "rNOVO",
+        "patientId": "pNOVO",
+        "date": "2026-10-10",
+        "month": "2026-10",
+        "amount": 12345,
+        "service": "Serviço fictício NOVO",
+        "payment": "Pix",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "Paciente Fictício NOVO",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        }
+      }
+    ],
+    "notes": [
+      {
+        "id": "nNOVO",
+        "patientId": "pNOVO",
+        "date": "2026-10-10",
+        "tooth": "11",
+        "text": "Evolução fictícia NOVO",
+        "done": false
+      }
+    ]
+  }
+}

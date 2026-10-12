@@ -1,0 +1,162 @@
+{
+  "phase": "Regressão N1/N2/N3 na versão entregue",
+  "failure": null,
+  "checks": [
+    {
+      "id": "N1-220-OPERACOES-500",
+      "status": "APROVADO",
+      "evidence": {
+        "linhas": 500,
+        "operações": 220,
+        "históricos": 220,
+        "erro": null
+      }
+    },
+    {
+      "id": "N1-SEM-CRESCIMENTO-COPIAS-LOCAL-500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-COPIA-ORIGINAL-RECUPERAVEL-500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N3-SEM-FAIXA-ROTINEIRA-500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-ARQUIVO-EXTERNO-VERIFICADO-500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-LIMPEZA-SELETIVA-500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-EXTERNO-PRESERVA-ESTADOS-500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-LIVRO-ATUAL-INALTERADO-PELA-LIMPEZA-500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-RETENCAO-MINIMA-500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "JS-FASE1-500",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "N1-220-OPERACOES-1500",
+      "status": "APROVADO",
+      "evidence": {
+        "linhas": 1500,
+        "operações": 220,
+        "históricos": 220,
+        "erro": null
+      }
+    },
+    {
+      "id": "N1-SEM-CRESCIMENTO-COPIAS-LOCAL-1500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-COPIA-ORIGINAL-RECUPERAVEL-1500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N3-SEM-FAIXA-ROTINEIRA-1500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-ARQUIVO-EXTERNO-VERIFICADO-1500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-LIMPEZA-SELETIVA-1500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-EXTERNO-PRESERVA-ESTADOS-1500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-LIVRO-ATUAL-INALTERADO-PELA-LIMPEZA-1500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-RETENCAO-MINIMA-1500",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "JS-FASE1-1500",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "N1-COTA-REAL-SATURADA",
+      "status": "APROVADO",
+      "evidence": 83
+    },
+    {
+      "id": "N1-QUARENTENA-REVISAO-PRESERVADAS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-QUARENTENA-NAO-ELEGIVEL",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N1-PAGAMENTO-POS-LIBERACAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N3-RISCO-REAL-CONTINUA-VISIVEL",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "JS-COTA",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "N2-BRUTO-ACESSIVEL-SEM-FAIXA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N2-ID-NUMERICO-ORIGINAL",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "JS-N2",
+      "status": "APROVADO",
+      "evidence": []
+    }
+  ],
+  "html_sha256": "cc1da21a717db0e2f2bd7303284a3fd0b3af4c14be8638abb71741bfddc5fcbb"
+}

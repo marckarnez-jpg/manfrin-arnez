@@ -1,0 +1,13 @@
+[APROVADO] SAN-01 8 frentes e 42 subtópicos renderizados :: grupos=8; subtópicos=42; por frente=6+5+6+7+4+5+4+5; painel="8 frentes / 42 subtópicos"
+[APROVADO] SAN-02 Contadores do semáforo somam 42 e coincidem com a lista :: verde=4 amarelo=29 vermelho=9; luzes das frentes=VERMELHO,VERMELHO,AMARELO,VERMELHO,AMARELO,AMARELO,VERMELHO,VERMELHO
+[APROVADO] SAN-03 Cor de cada subtópico no DOM = contadores :: DOM {"ok":4,"warn":29,"bad":9} vs painel 4/29/9
+[APROVADO] SAN-04 Marcar VERDE sem evidência é bloqueado :: mensagem="Para marcar verde, preencha primeiro a evidência de "Testes biológicos semanais""; cor do item=warn
+[APROVADO] SAN-05 Semáforo da frente: todos verdes→VERDE; um vermelho→VERMELHO; sem vermelho e nem todos verdes→AMARELO :: sequência observada: VERDE → VERMELHO → AMARELO
+[APROVADO] SAN-06 Estados, evidências e luzes persistem após recarregar a página :: antes 9/25/8 → depois 9/25/8; JSON idêntico=true
+[APROVADO] SAN-07 Filtros por semáforo, frente e busca :: filtro vermelho=8 (esperado 8); frente PGRSS=4 (esperado 4); busca "autoclave"=8
+[APROVADO] SAN-08 Exportação do checklist (formato, versão, dados) :: format=manfrin-arnez-sanitary-checklist version=1; estados exportados=7; arquivo=Manfrin-Arnez-Checklist-Sanitario-6.1.json
+[APROVADO] SAN-09 Importação restaura exatamente o estado exportado (ida e volta) :: estado do item alterado antes de importar=bad; após importar=(padrão); estados iguais ao exportado=true
+[APROVADO] SAN-10 Importação rejeita arquivos inválidos sem alterar os dados :: formato errado:rejeitado; semáforo inválido:rejeitado; id inexistente:rejeitado; __proto__:rejeitado; versão 2:rejeitado; grande >400KB:rejeitado; poluição de protótipo: ({}).ok=undefined
+[APROVADO] SAN-11 Texto com HTML/script em evidência, observação e responsável não executa (XSS armazenado) :: window.__xss=undefined; <img> injetadas=0; <script> injetados=0; item encontrado pela busca=1
+[APROVADO] SAN-12 Links externos da Central usam noopener/noreferrer :: links=2
+[APROVADO] SAN-13 Console sem erros durante uso do checklist :: erros=0 

@@ -1,0 +1,174 @@
+{
+  "format": "manfrin-arnez-dashboard-backup",
+  "version": 3,
+  "id": "6695044a-66e6-415b-a408-688ac3c84413",
+  "createdAt": "2026-10-12T01:41:01.003Z",
+  "namespace": "__MA_DEV61_SANDBOX__:",
+  "environment": "DEV_FICTITIOUS_ONLY",
+  "appVersion": "6.2-dev.4",
+  "baseHTMLSha256": "e4e4f49ca37e85cd9c83c67aa79b4e9d2fcb74b11137c387a5692ea8727bcc3f",
+  "coverage": {
+    "status": "PARCIAL",
+    "included": [
+      {
+        "key": "ma-academy-v55",
+        "module": "Academia, materiais, equipamentos, sessões, POPs e Laboratório",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "materials": 1,
+          "equipment": 0,
+          "sessions": 0,
+          "customPops": 0,
+          "training": 0,
+          "labProgress": 3
+        },
+        "warning": ""
+      },
+      {
+        "key": "ma-account-month-last-v1",
+        "module": "Preferência de mês",
+        "present": true,
+        "health": "healthy",
+        "counts": {},
+        "warning": ""
+      },
+      {
+        "key": "ma-care-v2",
+        "module": "Pacientes, pagamentos e evoluções",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "patients": 1,
+          "records": 1,
+          "notes": 1
+        },
+        "warning": ""
+      },
+      {
+        "key": "ma-installment-rates-v1",
+        "module": "Taxas financeiras",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "rates": 2
+        },
+        "warning": ""
+      },
+      {
+        "key": "ma-ledger-v1",
+        "module": "Livro-caixa",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "rows": 1,
+          "legacy": 0,
+          "numericIDs": 0
+        },
+        "warning": ""
+      },
+      {
+        "key": "ma56-project-checklist-v1",
+        "module": "Checklist de Desenvolvimento (checklist56)",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "states": 0
+        },
+        "warning": ""
+      },
+      {
+        "key": "ma61-sanitary-checklist-v1",
+        "module": "Central Sanitária",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "states": 0,
+          "fronts": 8,
+          "subtopics": 42
+        },
+        "warning": ""
+      }
+    ],
+    "absent": [],
+    "quarantines": [],
+    "separateExports": [
+      {
+        "name": "11-Manfrin-Arnez-HISTORICO-PROTECAO-A5-2026-10-12.json",
+        "sha256": "b4118b6cbc5b2cbe1b22029a26cbc825c5babb212c78b457f6e2dd48616c05d4",
+        "scope": "Estados históricos liberados somente após exportação externa verificada; mantenha este arquivo junto ao snapshot."
+      }
+    ],
+    "warnings": [
+      "Existem estados históricos arquivados fora do navegador. Este arquivo não os recria; guarde os 1 arquivos externos identificados."
+    ],
+    "scope": "Todas as chaves DEV persistidas e registros IndexedDB de proteção; arquivos fixos/rascunhos não salvos permanecem no HTML e não são inventados."
+  },
+  "state": [
+    {
+      "key": "ma-academy-v55",
+      "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}",
+      "sha256": "9b315668fe99ae634ffaf1e5f1583ede86605d9d49a3fc27bb379f1d588a6b5a"
+    },
+    {
+      "key": "ma-account-month-last-v1",
+      "raw": "2026-10",
+      "sha256": "b61370e4075604a892de71e93d48b5550b020ec626d60259f8f70b3bff29535f"
+    },
+    {
+      "key": "ma-care-v2",
+      "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}",
+      "sha256": "ef3ae5bae34415299d75bd8fd9ac9e6db15bf0bd1d182e1df363971d7149cffa"
+    },
+    {
+      "key": "ma-installment-rates-v1",
+      "raw": "{\"5\":3.1,\"10\":5.2}",
+      "sha256": "9bc6dc8d5779de930a57886fde7da5e2f89d49941449abe0806541ac5b362fa6"
+    },
+    {
+      "key": "ma-ledger-v1",
+      "raw": "[{\"id\":\"Cora:F1\",\"date\":\"2026-10-10\",\"bank\":\"Cora\",\"description\":\"Segunda fictícia\",\"amount\":1001,\"kind\":\"Receita\"}]",
+      "sha256": "24c7fd97c98ef483e069157b7b8deda3b9522e2564bcc1dd7de44c528dabb495"
+    },
+    {
+      "key": "ma56-project-checklist-v1",
+      "raw": "{\"version\":1,\"states\":{},\"updated\":{}}",
+      "sha256": "333bc3eb64123bb0ba22af0ed08d33baece7dcdaa77317675877703f2f938ab2"
+    },
+    {
+      "key": "ma61-sanitary-checklist-v1",
+      "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}",
+      "sha256": "2043e14e7695b420e2f95b27a6c72a13e39a8242d0d27e47c456989740fa2bc9"
+    }
+  ],
+  "protection": [
+    {
+      "id": "cleanup:c632d1d3-affa-4a30-976a-336a04e48164",
+      "kind": "cleanup",
+      "createdAt": "2026-10-12T01:41:00.977Z",
+      "origin": "Liberação expressamente autorizada com arquivo externo verificado",
+      "key": "external-protection-archive",
+      "raw": "{\"archiveDigest\":\"b4118b6cbc5b2cbe1b22029a26cbc825c5babb212c78b457f6e2dd48616c05d4\",\"archiveName\":\"11-Manfrin-Arnez-HISTORICO-PROTECAO-A5-2026-10-12.json\",\"createdAt\":\"2026-10-12T01:41:00.977Z\",\"entries\":[{\"id\":\"operation:d25d00da-fd74-492f-8ae0-2018793db4dc\",\"key\":\"ma-ledger-v1\",\"sha256\":\"e0d9a5048e569856c8217c25e15dc7dc1b3a6a361aba4a1f34bff455855c85b4\",\"storage\":\"indexedDB\"}],\"version\":1}",
+      "sha256": "91bd1f1026c515dd1d7ec6706ef2639f896f647f555c9b1e1f0829bde5ed0221"
+    },
+    {
+      "id": "operation:e6224c69-2ca1-4185-95b5-1724290d74b0",
+      "kind": "operation",
+      "createdAt": "2026-10-12T01:41:00.703Z",
+      "origin": "Antes de operação do livro-caixa",
+      "session": "20261012014034337-592f253a-7f55-4083-8580-c0b219bb187e",
+      "key": "ma-ledger-v1",
+      "raw": "[{\"id\":\"Cora:F1\",\"date\":\"2026-10-10\",\"bank\":\"Cora\",\"description\":\"Primeira fictícia\",\"amount\":1001,\"kind\":\"Receita\"}]",
+      "sha256": "18caa4f0c8000edc8d079002050f8bd6cc49049b738e2f3f9fac925642f76268"
+    }
+  ],
+  "metadata": {
+    "suppressEmbeddedSeeds": true,
+    "restoreEpoch": null,
+    "database": "__MA_DEV61_SANDBOX__:ma5-protection-v1"
+  },
+  "integrity": {
+    "algorithm": "SHA-256",
+    "digest": "d889c60fff4b976cee1836b12da77d86639d59c7acc2218428b56ca3ae3a9989"
+  }
+}

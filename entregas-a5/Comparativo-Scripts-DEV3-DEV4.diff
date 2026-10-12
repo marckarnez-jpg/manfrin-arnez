@@ -1,0 +1,233 @@
+Linhas >1200 caracteres abreviadas com SHA; originais completos em referencias/. Novos componentes separados em fontes/.
+--- DEV3-script-2
++++ DEV4-script-2
+@@ -41,5 +41,5 @@
+ /* MA62-A1.2 — Integridade do livro-caixa, modo DEV e leitura retrocompatível.
+    Não usar em produção sem concluir Gate 1 e migrar backups verificados. */
+-let rows=[],storageOK=true;
++let rows=[],storageOK=true,ma62WritePending=false;
+ const ma62LedgerKey='ma-ledger-v1';
+ const ma62QuarantinePrefix='ma-ledger-v1-rejeitados-';
+@@ -70,5 +70,5 @@
+ }
+ function ma62ArchiveQuarantine(item){
+-  if(!confirm('Arquivar como REVISADA? O original permanece intacto e NÃO recupera lançamentos. O backup principal NÃO inclui esta quarentena. Baixe e confira o arquivo separadamente antes de confirmar.'))return;
++  if(!confirm('Arquivar como REVISADA? O original permanece intacto e NÃO recupera lançamentos. O backup unificado v3 inclui esta quarentena e sua revisão; arquivar não recupera lançamentos. Baixe e confira o arquivo separadamente antes de confirmar.'))return;
+   try{
+     if(localStorage.getItem(item.key)!==item.body)throw Error('Quarentena mudou; revise novamente');
+@@ -102,5 +102,5 @@
+   const legacyCount=rows.reduce((n,r)=>n+(ma62LegacyIssue(r)?1:0),0);
+   let previous=null,snapshots=[];try{previous=localStorage.getItem('ma-ledger-v1-prev');snapshots=ma62ReadSnapshots();}catch(_){}
+-  const hasRisk=ma62LedgerBlocked||ma62LedgerRejected.length||problems.length||legacyCount||ma62LedgerManualOnly||ma62Protection||previous!==null||snapshots.length||ma62QuarantineReadError;
++  const hasRisk=ma62LedgerBlocked||ma62LedgerRejected.length||problems.some(q=>!q.archived)||legacyCount||ma62LedgerManualOnly||ma62QuarantineReadError;
+   if(!hasRisk){if(el)el.remove();return;}
+   if(!el){el=document.createElement('section');el.id='ma62-ledger-alert';el.setAttribute('role','alert');
+@@ -115,8 +115,8 @@
+   const active=problems.filter(q=>!q.archived).length,archived=problems.length-active;
+   if(active)parts.push(active+' quarentena(s) ativa(s): revise e guarde uma cópia separada.');
+-  if(archived)parts.push(archived+' quarentena(s) revisada(s)/arquivada(s), NÃO recuperadas e NÃO incluídas no backup principal. Exporte-as separadamente.');
++  if(archived)parts.push(archived+' quarentena(s) revisada(s)/arquivada(s), NÃO recuperadas; preservadas no backup unificado v3.');
+   if(ma62QuarantineReadError)parts.push('Não foi possível verificar todas as quarentenas; backup principal bloqueado.');
+   if(previous!==null)parts.push('A chave -prev é uma cópia anterior, de sessão/data não comprovadas. Conteúdo preservado; NÃO é apresentada como anterior à gravação atual.');
+-  if(snapshots.length)parts.push(snapshots.length+' cópia(s) local(is) de operações, fora do backup principal.');
++  if(snapshots.length)parts.push(snapshots.length+' cópia(s) local(is) herdada(s), incluídas no snapshot unificado A5.');
+   if(ma62Protection)parts.push(ma62Protection);
+   if(legacyCount)parts.push(legacyCount+' lançamento(s) antigos fora do padrão atual permanecem visíveis, preservados e marcados para conferência.');
+@@ -126,5 +126,5 @@
+   const makeButton=(label,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=fn;actions.append(b);return b;};
+   makeButton('Abrir Conciliação',()=>{const b=document.querySelector('nav button[data-page="ledger"]');if(b)b.click();else{document.querySelectorAll('.page').forEach(x=>x.hidden=x.id!=='ledger');}});
+-  if(ma62LedgerRaw!==null)makeButton('Baixar original bruto',()=>download('MA62-DEV3-Livro-Caixa-Original-BRUTO.json',ma62LedgerRaw));
++  if(ma62LedgerRaw!==null)makeButton('Baixar original bruto',()=>download('MA62-DEV4-Livro-Caixa-Original-BRUTO.json',ma62LedgerRaw));
+   if(problems.length){
+     const details=document.createElement('details');details.style.cssText='margin-top:8px;width:100%';
+@@ -133,12 +133,12 @@
+     problems.forEach((item,i)=>{const r=document.createElement('div');r.style.cssText='display:flex;flex-wrap:wrap;gap:8px;align-items:center';
+       const name=document.createElement('span');name.textContent=(i+1)+'. '+item.key+' — '+(item.archived?'ARQUIVADA (não recuperada) · ':'ATIVA · ')+(item.count===null?'conteúdo não reconhecido':item.count+' linha(s)');r.append(name);
+-      const b=document.createElement('button');b.type='button';b.textContent='Baixar';b.onclick=()=>download('MA62-DEV3-Quarentena-'+(i+1)+'.json',item.body);r.append(b);
++      const b=document.createElement('button');b.type='button';b.textContent='Baixar';b.onclick=()=>download('MA62-DEV4-Quarentena-'+(i+1)+'.json',item.body);r.append(b);
+       if(!item.archived){const archive=document.createElement('button');archive.type='button';archive.textContent='Revisar e arquivar (sem recuperar)';archive.onclick=()=>ma62ArchiveQuarantine(item);r.append(archive);}
+       list.append(r);});
+     el.append(details);
+   }
+-  if(previous!==null)makeButton('Baixar -prev de sessão anterior/não comprovada',()=>download('MA62-DEV3-PREV-SESSAO-NAO-COMPROVADA.json',previous));
++  if(previous!==null)makeButton('Baixar -prev de sessão anterior/não comprovada',()=>download('MA62-DEV4-PREV-SESSAO-NAO-COMPROVADA.json',previous));
+   if(snapshots.length){
+-    const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='Cópias locais por operação (não incluídas no backup principal)';details.append(summary);
++    const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='Cópias locais herdadas (incluídas no snapshot A5)';details.append(summary);
+     snapshots.forEach(item=>{const line=document.createElement('p');line.textContent=(item.current?'Sessão atual · antes da operação indicada: ':'Outra sessão: ')+item.key+' ';
+       const b=document.createElement('button');b.type='button';b.textContent='Baixar cópia';b.onclick=()=>download(item.key+'.json',item.body);line.append(b);details.append(line);});el.append(details);
+@@ -147,5 +147,5 @@
+     makeButton('Baixar cópia externa e confirmar',()=>{
+       const raw=ma62LedgerRaw;
+-      download('MA62-DEV3-ANTES-GRAVAR-LIVRO-BRUTO.json',raw);
++      download('MA62-DEV4-ANTES-GRAVAR-LIVRO-BRUTO.json',raw);
+       if(confirm('Download solicitado ao navegador. O aplicativo ainda NÃO verificou o arquivo. Confirma que VOCÊ conferiu a cópia externa, abriu o arquivo e verificou seu conteúdo? Esta confirmação vale somente para o estado atual e uma operação.')){
+         if(localStorage.getItem(ma62LedgerKey)!==raw){ma62BlockLedger('Livro alterado durante a confirmação externa; recarregue.');return;}
+@@ -201,38 +201,24 @@
+   ma62LedgerBanner();
+ }
+-function persist(){
+-  const msg=$('ledger-message');
+-  if(ma62LedgerBlocked){msg.textContent='Gravação BLOQUEADA para proteger o livro-caixa original. '+ma62LedgerWarning;return false;}
+-  try{
+-    const current=localStorage.getItem(ma62LedgerKey);
+-    if(current!==ma62LedgerRaw){ma62BlockLedger('Os lançamentos foram modificados por outra aba ou módulo. Recarregue após preservar os dados.');
+-      msg.textContent='Alteração externa detectada; nada foi gravado.';return false;}
+-    // AJ-14/15: preservar os bytes antes de CADA operação, sem limite arbitrário.
+-    const initial=ma62LedgerRaw===null?'[]':ma62LedgerRaw;
+-    if(!(ma62LedgerManualApproved&&ma62ExternalRaw===ma62LedgerRaw)){
+-      const copyKey=ma62SnapshotPrefix+ma62Session+'-'+(++ma62SnapshotSequence);
+-      try{
+-        localStorage.setItem(copyKey,initial);
+-        if(localStorage.getItem(copyKey)!==initial)throw Error('Cópia local não verificável');
+-        ma62LedgerPrevSaved=true;ma62LedgerManualOnly=false;
+-        ma62Protection='Cópia local verificada: '+copyKey+' (estado anterior à operação '+ma62SnapshotSequence+' desta sessão). A chave -prev permanece intacta.';
+-      }catch(err){
+-        ma62LedgerManualOnly=true;ma62LedgerManualApproved=false;ma62LedgerBanner();
+-        msg.textContent='Gravação bloqueada: não foi possível proteger a operação com cópia local. Original intacto. Baixe e verifique uma cópia externa.';return false;
+-      }
+-    }else{
+-      ma62Protection='Operação protegida por cópia externa '+ma62ExternalMode+' do estado anterior. Sem cópia local desta operação; faça nova cópia do estado atualizado.';
+-    }
+-    const next=JSON.stringify(rows);
+-    localStorage.setItem(ma62LedgerKey,next);
+-    ma62LedgerRaw=next;storageOK=true;msg.textContent='';
+-    ma62LedgerManualOnly=false;ma62LedgerManualApproved=false;ma62ExternalRaw=null;ma62ExternalMode='';
+-    ma62LedgerBanner();return true;
+-  }catch(err){storageOK=false;
+-    ma62LedgerManualApproved=false;ma62ExternalRaw=null;ma62ExternalMode='';ma62LedgerManualOnly=false;
+-    ma62LedgerBanner('Gravação recusada; livro original preservado. A cópia de proteção, se criada, permanece guardada.');
+-    msg.textContent='Não foi possível salvar: armazenamento cheio ou indisponível. As alterações desta tentativa não foram registradas.';
+-    return false;
+-  }
++async function persist(){
++ const msg=$('ledger-message');
++ if(ma62LedgerBlocked){msg.textContent='Gravação BLOQUEADA para proteger o livro-caixa original. '+ma62LedgerWarning;return false;}
++ if(ma62WritePending){msg.textContent='Aguarde a operação protegida em andamento.';return false;}
++ const next=JSON.stringify(rows),expected=ma62LedgerRaw;ma62WritePending=true;
++ try{return await MA5.lock(async()=>{
++  if(localStorage.getItem(ma62LedgerKey)!==expected){ma62BlockLedger('Os lançamentos foram modificados por outra aba ou módulo. Recarregue após preservar os dados.');msg.textContent='Alteração externa detectada; nada foi gravado.';return false;}
++  const initial=expected===null?'[]':expected;
++  if(!(ma62LedgerManualApproved&&ma62ExternalRaw===expected)){
++   try{const copy=await MA5.captureOperation(initial,'Antes de operação do livro-caixa',ma62Session);ma62Protection='Cópia de operação verificada em IndexedDB: '+copy.id;ma62LedgerManualOnly=false;}
++   catch(err){ma62LedgerManualOnly=true;ma62LedgerBanner();msg.textContent='Gravação bloqueada: histórico indisponível ou cheio. Original intacto. Exporte/verifique proteção externa ou libere cópias verificadas: '+err.message;return false;}
++  }else ma62Protection='Operação protegida por cópia externa '+ma62ExternalMode+'. Faça nova cópia do estado atualizado.';
++  if(localStorage.getItem(ma62LedgerKey)!==expected){ma62BlockLedger('Livro mudou durante a proteção; nada será gravado.');return false;}
++  localStorage.setItem(ma62LedgerKey,next);
++  if(localStorage.getItem(ma62LedgerKey)!==next)throw Error('Gravação principal não conferida');
++  ma62LedgerRaw=next;ma62LedgerRejected=[];storageOK=true;ma62LedgerManualOnly=false;ma62LedgerManualApproved=false;ma62ExternalRaw=null;ma62ExternalMode='';msg.textContent='';
++  const note=$('ma5-operation-status');if(note)note.textContent=ma62Protection;ma62LedgerBanner();return true;
++ });}catch(err){storageOK=false;ma62LedgerManualApproved=false;ma62ExternalRaw=null;ma62LedgerManualOnly=true;ma62LedgerBanner('Falha de gravação/proteção: '+err.message);
++  msg.textContent='Não foi possível salvar. Original preservado; cópias protegidas permanecem no histórico. '+err.message;return false;
++ }finally{ma62WritePending=false;}
+ }
+ $('storage-note').textContent='Simulações não registram vendas nem alteram extratos. Lançamentos são salvos somente neste navegador. A exportação CSV contém os lançamentos cadastrados, prontos para reimportação.';
+@@ -268,10 +254,11 @@
+   if(['amount','kind'].includes(field)&&issues.includes('sinal do valor/categoria'))throw Error('Receita deve ser positiva; despesa e retirada devem ser negativas. Corrija explicitamente o valor ou selecione categoria compatível.');
+ }
+-function ma62ApplyCorrection(index,field,value){
++async function ma62ApplyCorrection(index,field,value){
++  if(ma62WritePending)throw Error("Aguarde a operação protegida em andamento");
+   const original=rows[index];if(!original)throw Error('Lançamento não encontrado');
+   const next={...original,[field]:value};ma62ValidateChangedField(next,field);
+   if(field==='amount'&&value!==original.amount&&!confirm('ALTERAÇÃO FINANCEIRA EXPLÍCITA: '+JSON.stringify(original.amount)+' → '+JSON.stringify(value)+' centavos. Esta mudança afeta os totais. Confirma?'))return false;
+   if(field==='kind'&&value!==original.kind&&!confirm('Alterar categoria de '+JSON.stringify(original.kind??null)+' para '+JSON.stringify(value)+'? O valor original será preservado; os totais por categoria podem mudar.'))return false;
+-  rows[index]=next;if(!persist()){rows[index]=original;return false;}
++  rows[index]=next;if(!await persist()){rows[index]=original;return false;}
+   renderLedger();$('ledger-message').textContent='Campo '+field+' corrigido explicitamente. Outros campos preservados.'+(ma62LegacyIssue(next)?' Ainda requer revisão: '+ma62LegacyIssue(next):'');return true;
+ }
+@@ -288,7 +275,7 @@
+   const save=document.createElement('button');save.type='submit';save.textContent='Confirmar correção';const cancel=document.createElement('button');cancel.type='button';cancel.textContent='Cancelar';cancel.onclick=()=>d.close();
+   form.append(label,valueLabel,save,cancel,msg);d.append(title,info,form);document.body.append(d);d.onclose=()=>d.remove();
+-  form.onsubmit=e=>{e.preventDefault();try{if(rows[index]!==original)throw Error('Lançamento mudou; feche e abra novamente');
++  form.onsubmit=async e=>{e.preventDefault();try{if(rows[index]!==original)throw Error('Lançamento mudou; feche e abra novamente');
+     const v=field.value==='amount'?Number(input.value):input.value;
+-    if(ma62ApplyCorrection(index,field.value,v))d.close();else msg.textContent=$('ledger-message').textContent||'Correção cancelada; nada foi alterado.';
++    if(await ma62ApplyCorrection(index,field.value,v))d.close();else msg.textContent=$('ledger-message').textContent||'Correção cancelada; nada foi alterado.';
+   }catch(err){msg.textContent=err.message;}};d.showModal();
+ }
+@@ -296,12 +283,12 @@
+ function renderLedger(){const rowPositions=new Map(rows.map((r,i)=>[r,i]));const month=$('month').value,a=F.aggregate(ro … [linha longa: 2092 caracteres; SHA-256 05358427115fbabce8f97252c1146254596069939109bee27687fd32b08b9468]
+ let d=$('dashboard-ledger');if(!d){d=document.createElement('article');d.id='dashboard-ledger';d.className='panel sections';$('dash').append(d);}d.innerHTML='<h2>Consolidação dos lançamentos cadastrados</h2><p class="caption">'+(month?'Período: '+month:'Todos os períodos cadastrados')+' · base parcial, sem os totais históricos acima.</p>'+$('ledger-metrics').innerHTML.replace(/<article>/g,'<div class="line">').replace(/<\/article>/g,'</div>')+'<p class="caption">'+esc($('transfer-check').textContent)+'</p>';
+-$('transactions').querySelectorAll('[data-row]').forEach(s=>s.onchange=()=>{const index=Number(s.dataset.row);try{ma62ApplyCorrection(index,'kind',s.value);renderLedger();}catch(err){renderLedger();$('ledger-message').textContent=err.message;}});
++$('transactions').querySelectorAll('[data-row]').forEach(s=>s.onchange=async()=>{const index=Number(s.dataset.row);try{await ma62ApplyCorrection(index,'kind',s.value);renderLedger();}catch(err){renderLedger();$('ledger-message').textContent=err.message;}});
+ $('transactions').querySelectorAll('[data-edit-legacy]').forEach(b=>b.onclick=()=>ma62EditLegacy(Number(b.dataset.editLegacy)));
+-$('transactions').querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{const index=Number(b.dataset.delete);if(!confirm('Excluir somente este lançamento? A cópia de proteção preservará o estado anterior.'))return;const oldRows=rows;rows=rows.filter((x,i)=>i!==index);if(!persist())rows=oldRows;renderLedger();});}
++$('transactions').querySelectorAll('[data-delete]').forEach(b=>b.onclick=async()=>{if(ma62WritePending)return;const index=Number(b.dataset.delete);if(!confirm('Excluir somente este lançamento? A cópia de proteção preservará o estado anterior.'))return;const oldRows=rows;rows=rows.filter((x,i)=>i!==index);if(!await persist())rows=oldRows;renderLedger();});}
+ 
+ $('month').oninput=renderLedger;
+-$('transaction').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target);try{let r=validRow({id:f.get('bank')+':manual-'+crypto.randomUUID(),date:f.get('date'),bank:f.get('bank'),description:f.get('description').trim(),amount:Math.round(Number(f.get('amount'))*100),kind:f.get('kind')});rows.push(r);if(!persist()){rows.pop();renderLedger();return;}renderLedger();$('ledger-message').textContent='Lançamento salvo neste navegador DEV.';e.target.reset();}catch(err){$('ledger-message').textContent=err.message;}};
++$('transaction').onsubmit=async e=>{e.preventDefault();if(ma62WritePending){$('ledger-message').textContent='Aguarde a operação protegida em andamento.';return;}let f=new FormData(e.target);try{let r=validRow({id:f.get('bank')+':manual-'+crypto.randomUUID(),date:f.get('date'),bank:f.get('bank'),description:f.get('description').trim(),amount:Math.round(Number(f.get('amount'))*100),kind:f.get('kind')});rows.push(r);if(!await persist()){rows.pop();renderLedger();return;}renderLedger();$('ledger-message').textContent='Lançamento salvo neste navegador DEV.';e.target.reset();}catch(err){$('ledger-message').textContent=err.message;}};
+ function csvParse(text){let result=[],row=[],field='',quoted=false;for(let i=0;i<text.length;i++){let c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){field+='"';i++;}else quoted=!quoted;}else if(c===';'&&!quoted){row.push(field);field='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(field);if(row.some(x=>x.trim()))result.push(row);row=[];field='';}else field+=c;}if(quoted)throw Error('CSV contém aspas sem fechamento.');row.push(field);if(row.some(x=>x.trim()))result.push(row);return result;}
+-$('csv').onchange=async e=>{try{const file=e.target.files[0];if(!file)return;if(file.size>2000000)throw Error('Use um CS … [linha longa: 1342 caracteres; SHA-256 f5b9fd12b5a96e2fe193b523c88875a8031fb6fc3e099970a206962856c735a3]
++$('csv').onchange=async e=>{try{const file=e.target.files[0];if(!file)return;if(file.size>2000000)throw Error('Use um CS … [linha longa: 1425 caracteres; SHA-256 58627fba5a9cd7932ce6f827c8e74c3e24bf7b7cfa5cd7d13676c745be4fef5e]
+ function download(name,body,type='application/json'){let u=URL.createObjectURL(new Blob([body],{type})),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
+ $('template').onclick=()=>download('modelo-lancamentos.csv','id;data;banco;descricao;valor;categoria\n','text/csv;charset=utf-8');
+--- DEV3-script-7
++++ DEV4-script-7
+@@ -1,9 +1,10 @@
+-(()=>{'use strict';const el=id=>document.getElementById(id),key='ma-care-v2',seed=window.mergeCodental(window.MA_SEED,window.MA_CODENTAL).db,clone=x=>JSON.parse(JSON.stringify(x)),money=c=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(c/100),html=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(),digits=s=>String(s||'').replace(/\D/g,''),today=()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'America/Sao_Paulo'}).format(new Date()),id=()=>crypto.randomUUID(),dateOK=s=>/^\d{4}-\d{2}-\d{2}$/.test(s)&&Number.isFinite(Date.parse(s))&&new Date(s).toISOString().slice(0,10)===s;let db=clone(seed),storage=false,readError=false,activePatient=null,editPatient=null,editRecord=null,notePatient=null,editNote=null;
++(()=>{'use strict';const el=id=>document.getElementById(id),key='ma-care-v2',seed=localStorage.getItem('ma5-suppress-seeds-v1')==='1'?{version:2,patients:[],records:[],notes:[]}:window.mergeCodental(window.MA_SEED,window.MA_CODENTAL).db,clone=x=>JSON.parse(JSON.stringify(x)),money=c=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(c/100),html=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(),digits=s=>String(s||'').replace(/\D/g,''),today=()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'America/Sao_Paulo'}).format(new Date()),id=()=>crypto.randomUUID(),dateOK=s=>/^\d{4}-\d{2}-\d{2}$/.test(s)&&Number.isFinite(Date.parse(s))&&new Date(s).toISOString().slice(0,10)===s;let db=clone(seed),storage=false,readError=false,activePatient=null,editPatient=null,editRecord=null,notePatient=null,editNote=null;
+ function validate(d){if(d?.version!==2||!Array.isArray(d.patients)||!Array.isArray(d.records)||!Array.isArray(d.notes))t … [linha longa: 1409 caracteres; SHA-256 a1474751e54cf5640070cc0c956733ce51806831720973dcb29213994a67c881]
++MA5.validateCare=validate;
+ try{let old=localStorage.getItem(key);if(old)db=validate(JSON.parse(old));localStorage.setItem('ma-storage-check','ok');localStorage.removeItem('ma-storage-check');storage=true;}catch(e){readError=true;}
+ // 5.4: Non-destructive recovery of the four October payments from the user's verified backup.
+ try{
+  const source=window.MA54_OCT_RECOVERY||{}, records=Array.isArray(source.records)?source.records:[], patients=Array.isArray(source.patients)?source.patients:[];
+- if(storage&&!readError&&records.length){
++ if(storage&&!readError&&records.length&&localStorage.getItem('ma5-suppress-seeds-v1')!=='1'){
+    const next=clone(db), oldRecordIds=new Set(next.records.map(r=>r.id)),oldPatientIds=new Set(next.patients.map(p=>p.id));
+    let added=0,already=0,similar=0;
+@@ -31,5 +32,10 @@
+ }catch(err){window.MA54_OCT_STATUS={added:0,error:String(err.message||err)};}
+ const patientById=pid=>db.patients.find(p=>p.id===pid);const snapshot=p=>Object.fromEntries(['name','cpf','phone','email','address','cep'].map(k=>[k,p[k]||'']));
+-function persist(next){validate(next);if(readError)throw Error('Armazenamento indisponível ou backup local inválido. Exporte uma cópia e restaure o backup antes de continuar.');try{localStorage.setItem(key,JSON.stringify(next));}catch{storage=false;storageStatus();throw Error('Não foi possível salvar. O registro não foi alterado. Faça backup e libere espaço no navegador.');}db=next;storage=true;storageStatus();}
++let ma5CareExpected=localStorage.getItem(key);
++function persist(next){validate(next);if(readError)throw Error('Cadastro ilegível ou armazenamento indisponível: dados preservados. Use a proteção A5.');
++ if(localStorage.getItem(key)!==ma5CareExpected)throw Error('Cadastro modificado por outra aba. Recarregue; nenhum pagamento/cadastro foi sobrescrito.');
++ const text=JSON.stringify(next);try{localStorage.setItem(key,text);if(localStorage.getItem(key)!==text)throw Error('Gravação não conferida');}catch(e){storage=false;storageStatus();throw Error('Não foi possível salvar. Registro não alterado. '+e.message);}
++ ma5CareExpected=text;db=next;storage=true;storageStatus();
++}
+ function storageStatus(){el('storage-status').textContent=storage?'Dados salvos somente neste navegador. Limpar os dados do navegador ou mudar de arquivo, perfil ou computador pode separar ou apagar seus registros. Use o backup para transportar e recuperar.':'Não foi possível validar o armazenamento local. Não feche a página sem baixar uma cópia. Nenhum salvamento será apresentado como concluído enquanto houver falha.';}
+ function show(page){document.querySelectorAll('.page').forEach(p=>p.hidden=p.id!==page);document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));window.scrollTo(0,0);}
+--- DEV3-script-14
++++ DEV4-script-14
+@@ -5,5 +5,6 @@
+ try{const raw=localStorage.getItem(K);if(raw){const v=JSON.parse(raw);if(v&&v.version===1){data={...defaultData(),...v,settings:{...defaultData().settings,...v.settings},materials:Array.isArray(v.materials)?v.materials:[],equipment:Array.isArray(v.equipment)?v.equipment:[],sessions:Array.isArray(v.sessions)?v.sessions:[],customPops:Array.isArray(v.customPops)?v.customPops:[],checks:v.checks||{},training:Array.isArray(v.training)?v.training:[]};}}}catch(e){storeOK=false;}
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const id=s=>document.getElementById(s);const BR=x=>Number(x||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});const num=x=>{if(typeof x==='number')return x;let t=String(x??'').trim();if(!t)return NaN;return Number(t.replace(/\s/g,'').replace(',','.'))};const val=x=>num(id(x)?.value);const str=x=>id(x)?.value?.trim()||'';const field=(label,input,extra='')=>`<label class="ma55-field">${label}${input}${extra&&`<span class="ma55-small">${extra}</span>`}</label>`;const inp=(i,type='number',opt='')=>`<input id="${i}" type="${type}" ${type==='number'?'step="any" min="0"':''} ${opt}>`;const validPrice=x=>Number.isFinite(x)&&x>=0;const uid=()=>('id'+Date.now().toString(36)+Math.random().toString(36).slice(2,7));
+-function save(){try{const s=JSON.stringify(data);localStorage.setItem(K,s);if(localStorage.getItem(K)!==s)throw Error('Falha de verificação');storeOK=true;status('Dados destas abas salvos neste navegador. Faça backup regularmente.',false);}catch(e){storeOK=false;status('Falha ao salvar. Exporte uma cópia antes de fechar. '+e.message,true)}return storeOK}
++let ma5AcademyExpected=localStorage.getItem(K);
++function save(){try{if(localStorage.getItem(K)!==ma5AcademyExpected)throw Error('Academia alterada por outra aba; recarregue');const s=JSON.stringify(data);localStorage.setItem(K,s);ma5AcademyExpected=s;if(localStorage.getItem(K)!==s)throw Error('Falha de verificação');storeOK=true;status('Dados destas abas salvos neste navegador. Faça backup regularmente.',false);}catch(e){storeOK=false;status('Falha ao salvar. Exporte uma cópia antes de fechar. '+e.message,true)}return storeOK}
+ function status(m,error){const x=id('ma55-status');if(x){x.textContent=m;x.style.color=error?'#972b22':'#486334'}}
+ function go(page){document.querySelectorAll('main .page').forEach(p=>p.hidden=p.id!==page);document.querySelectorAll('aside nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));window.scrollTo(0,0)}
+@@ -75,5 +76,5 @@
+ id('m55-cont-export').onclick=()=>{renderContador();const month=str('m55-cont-month');const csv='Forma de pagamento;Quantidade;Total (R$)\r\n'+contRows.map(r=>`"${r.payment.replaceAll('"','""')}";${r.count};${(r.amount/100).toFixed(2).replace('.',',')}`).join('\r\n');download('Manfrin-Arnez-contador-'+month+'.csv','\ufeff'+csv,'text/csv;charset=utf-8');};
+ // Backup separado e restaurável para NOVAS abas, sem mexer no backup 5.4.
+-const ribbon=document.createElement('section');ribbon.className='ma55 ma55-card ma55-bottom';ribbon.innerHTML=`<div class="ma55-row spread"><div><h2>Backup das abas novas — 5.5</h2><p class="ma55-small">Inclui custos, materiais, equipamentos, POPs personalizados e treinamentos. Não substitui o backup completo antigo, que continua obrigatório para pacientes, evoluções e recebimentos.</p></div><div class="ma55-row"><button class="ma55-outline" id="m55-export">Baixar backup 5.5</button><label class="ma55-outline" style="cursor:pointer">Importar backup 5.5<input style="display:none" type="file" id="m55-import" accept="application/json,.json"></label></div></div><p id="ma55-status" class="ma55-small" role="status"></p>`;id('ma55-cost').appendChild(ribbon);
++const ribbon=document.createElement('section');ribbon.className='ma55 ma55-card ma55-bottom';ribbon.innerHTML=`<div class="ma55-row spread"><div><h2>Backup das abas novas — 5.5</h2><p class="ma55-small">Inclui custos, materiais, equipamentos, POPs personalizados e treinamentos. É uma exportação específica dessas abas. O backup unificado A5 v3 também inclui esta base, além de pacientes, evoluções e recebimentos quando persistidos.</p></div><div class="ma55-row"><button class="ma55-outline" id="m55-export">Baixar backup 5.5</button><label class="ma55-outline" style="cursor:pointer">Importar backup 5.5<input style="display:none" type="file" id="m55-import" accept="application/json,.json"></label></div></div><p id="ma55-status" class="ma55-small" role="status"></p>`;id('ma55-cost').appendChild(ribbon);
+ id('m55-export').onclick=()=>{download('Manfrin-Arnez-Modulos-5.5-'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify({format:'manfrin-arnez-academy-backup',exportedAt:new Date().toISOString(),data},null,2),'application/json')};
+ id('m55-import').onchange=async(e)=>{const f=e.target.files[0];if(!f)return;try{if(f.size>5e6)throw Error('Arquivo maior que 5 MB');const j=JSON.parse(await f.text());if(j.format!=='manfrin-arnez-academy-backup'||j.data?.version!==1||!Array.isArray(j.data.materials)||!Array.isArray(j.data.equipment)||!Array.isArray(j.data.sessions)||!Array.isArray(j.data.customPops)||!Array.isArray(j.data.training)||typeof j.data.settings!=='object')throw Error('Backup não reconhecido.');if(!confirm('Isto SUBSTITUI somente os dados das abas novas da versão 5.5. Seus pacientes, recebimentos e evoluções da 5.4 não são modificados. Continuar?'))return;const old=data;data=j.data;if(!save()){data=old;throw Error('Falha ao salvar')}loadConfig();renderSavedSessions();renderMaterialOptions();renderInventory();renderPops();renderTraining();status('Backup 5.5 importado. O banco antigo não foi alterado.',false)}catch(err){status('Importação não concluída: '+err.message,true)}finally{e.target.value=''}};
+--- DEV3-script-22
++++ DEV4-script-22
+@@ -68,5 +68,5 @@
+  const key='ma61-sanitary-checklist-v1';
+  const items=DATA.flatMap(g=>g.tasks.map(t=>({id:g.id+'-'+t[0],group:g.id,title:t[1],initial:t[2],context:t[3],action:t[4]})));
+- const validIds=new Set(items.map(t=>t.id));
++ const validIds=new Set(items.map(t=>t.id));MA5.sanitaryIDs=validIds;
+  const blank=()=>({version:1,states:{},evidence:{},notes:{},responsible:{},due:{},updated:{}});
+  let state=blank();let loadWarning='';
+@@ -77,5 +77,5 @@
+  <div class="ma61-note"><b>Prioridades atuais:</b> obter o protocolo da renovação da licença; definir caixa vedada para transporte; conferir bancada e barreira na Sala 02; revisar ciclos/testes da autoclave Dabi 19 L; localizar o PGRSS atualizado. Confirmações verbais não substituem comprovantes.</div>
+  <div class="ma61-toolbar"><label>Buscar subtópico<input type="search" id="ma61-search" placeholder="Ex.: autoclave, PGRSS, barreira"></label><label>Frente<select id="ma61-group"><option value="all">Todas</option></select></label><label>Semáforo<select id="ma61-filter"><option value="all">Todos</option><option value="bad">🔴 Vermelho</option><option value="warn">🟡 Amarelo</option><option value="ok">🟢 Verde</option></select></label><button type="button" id="ma61-export">↓ Exportar checklist</button><label class="ma61-upload">↑ Importar checklist<input type="file" id="ma61-import" accept=".json,application/json"></label><button type="button" id="ma61-print">Imprimir visão atual</button></div>
+- <p class="ma61-note ma61-interaction">Os estados e anotações são salvos <b>somente no navegador deste arquivo</b> quando o armazenamento permite. O backup geral antigo <b>não inclui automaticamente</b> este novo checklist; exporte-o separadamente. Fotos, anexos e trilha de auditoria são etapas futuras. Evite inserir dados pessoais de pacientes neste painel.</p>
++ <p class="ma61-note ma61-interaction">Os estados e anotações são salvos <b>somente no navegador deste arquivo</b> quando o armazenamento permite. O backup unificado A5 v3 inclui este checklist quando persistido. A exportação específica continua disponível. Fotos, anexos e trilha de auditoria são etapas futuras. Evite inserir dados pessoais de pacientes neste painel.</p>
+  <p id="ma61-message" role="status" aria-live="polite" style="font-size:12px;font-weight:650"></p><div id="ma61-groups" class="ma61-groups"></div>
+  <div class="ma61-note ma61-links"><b>Referências para conferência:</b> <a href="https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto%26cod_menu=9451%26cod_modulo=134%26link=S%26numeroAto=00001002%26orgao=ANVISA%2FMS%26seqAto=222%26tipo=RDC%26valorAno=2025" target="_blank" rel="noopener noreferrer">RDC Anvisa 1.002/2025</a> · <a href="https://www.gov.br/anvisa/pt-br/assuntos/servicosdesaude/temas-em-destaque/PR__1002_2025_versao2_2026.pdf" target="_blank" rel="noopener noreferrer">Perguntas e respostas da Anvisa, versão 2/2026</a>. Valide os requisitos estaduais/municipais e as particularidades das duas salas.</div>`;
+@@ -87,5 +87,6 @@
+  const groupTone=g=>{const tones=g.tasks.map(t=>getTone(items.find(i=>i.id===g.id+'-'+t[0])));return tones.every(x=>x==='ok')?'ok':tones.some(x=>x==='bad')?'bad':'warn'};
+  const status=(msg,bad=false)=>{const e=byId('ma61-message');e.textContent=msg;e.style.color=bad?'#a02d24':'#31573b'};
+- function persist(){try{const json=JSON.stringify(state);localStorage.setItem(key,json);if(localStorage.getItem(key)!==json)throw Error('Dados não puderam ser verificados');return true;}catch(e){status('Erro ao salvar: '+e.message+'. Exporte os dados antes de fechar!',true);return false;}}
++ let ma5SanitaryExpected=localStorage.getItem(key);
++function persist(){try{if(localStorage.getItem(key)!==ma5SanitaryExpected)throw Error('Checklist alterado por outra aba; recarregue');const json=JSON.stringify(state);localStorage.setItem(key,json);ma5SanitaryExpected=json;if(localStorage.getItem(key)!==json)throw Error('Dados não puderam ser verificados');return true;}catch(e){status('Erro ao salvar: '+e.message+'. Exporte os dados antes de fechar!',true);return false;}}
+  const when=v=>v?new Date(v).toLocaleDateString('pt-BR'):'sem edição';
+  function draw(){

@@ -1,0 +1,3 @@
+﻿"#";"PACIENTE";"CPF";"DATA";"TELEFONE";"EMAIL";"ENDEREÇO";"CEP";"VALOR (R$)";"TIPO SERVIÇO";"FORMA PAGAMENTO"
+"1";"Paciente Fictício A";"";"10/10/2026";"";"";"";"";"123,45";"Serviço fictício A";"Pix"
+"2";"Paciente Novo Fictício A5";"";"11/10/2026";"";"";"";"";"123,45";"Pagamento A5";""

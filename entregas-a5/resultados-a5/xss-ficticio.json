@@ -1,0 +1,58 @@
+{
+  "format": "manfrin-arnez-backup",
+  "version": 2,
+  "care": {
+    "version": 2,
+    "patients": [
+      {
+        "id": "pXSS",
+        "name": "<img src=x onerror=\"window.xssA5=1\">",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": ""
+      }
+    ],
+    "records": [
+      {
+        "id": "rXSS",
+        "patientId": "pXSS",
+        "date": "2026-10-10",
+        "month": "2026-10",
+        "amount": 12345,
+        "service": "Serviço fictício XSS",
+        "payment": "Pix",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "<img src=x onerror=\"window.xssA5=1\">",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        }
+      }
+    ],
+    "notes": [
+      {
+        "id": "nXSS",
+        "patientId": "pXSS",
+        "date": "2026-10-10",
+        "tooth": "11",
+        "text": "Evolução fictícia XSS",
+        "done": false
+      }
+    ]
+  },
+  "ledger": [
+    {
+      "id": "Cora:F1",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "<svg onload=\"window.xssA5=1\"></svg>",
+      "amount": 1001,
+      "kind": "Receita"
+    }
+  ]
+}

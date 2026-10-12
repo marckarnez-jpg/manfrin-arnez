@@ -1,0 +1,300 @@
+{
+  "format": "manfrin-arnez-dashboard-backup",
+  "version": 3,
+  "id": "2c20f3dc-f356-411f-88e7-3a5bc026a7b0",
+  "createdAt": "2026-10-12T01:32:06.029Z",
+  "namespace": "__MA_DEV61_SANDBOX__:",
+  "environment": "DEV_FICTITIOUS_ONLY",
+  "appVersion": "6.2-dev.4",
+  "baseHTMLSha256": "e4e4f49ca37e85cd9c83c67aa79b4e9d2fcb74b11137c387a5692ea8727bcc3f",
+  "coverage": {
+    "status": "COMPLETO_ESTADO_PERSISTIDO",
+    "included": [
+      {
+        "key": "ma-academy-v55",
+        "module": "Academia, materiais, equipamentos, sessões, POPs e Laboratório",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "materials": 1,
+          "equipment": 0,
+          "sessions": 0,
+          "customPops": 0,
+          "training": 0,
+          "labProgress": 3
+        },
+        "warning": ""
+      },
+      {
+        "key": "ma-account-month-last-v1",
+        "module": "Preferência de mês",
+        "present": true,
+        "health": "healthy",
+        "counts": {},
+        "warning": ""
+      },
+      {
+        "key": "ma-care-v2",
+        "module": "Pacientes, pagamentos e evoluções",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "patients": 1,
+          "records": 1,
+          "notes": 1
+        },
+        "warning": ""
+      },
+      {
+        "key": "ma-installment-rates-v1",
+        "module": "Taxas financeiras",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "rates": 1
+        },
+        "warning": ""
+      },
+      {
+        "key": "ma-ledger-v1",
+        "module": "Livro-caixa",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "rows": 2,
+          "legacy": 1,
+          "numericIDs": 1
+        },
+        "warning": ""
+      },
+      {
+        "key": "ma56-project-checklist-v1",
+        "module": "Checklist de Desenvolvimento (checklist56)",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "states": 0
+        },
+        "warning": ""
+      },
+      {
+        "key": "ma61-sanitary-checklist-v1",
+        "module": "Central Sanitária",
+        "present": true,
+        "health": "healthy",
+        "counts": {
+          "states": 0,
+          "fronts": 8,
+          "subtopics": 42
+        },
+        "warning": ""
+      }
+    ],
+    "absent": [],
+    "quarantines": [],
+    "separateExports": [],
+    "warnings": [],
+    "scope": "Todas as chaves DEV persistidas e registros IndexedDB de proteção; arquivos fixos/rascunhos não salvos permanecem no HTML e não são inventados."
+  },
+  "state": [
+    {
+      "key": "ma-academy-v55",
+      "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}",
+      "sha256": "9b315668fe99ae634ffaf1e5f1583ede86605d9d49a3fc27bb379f1d588a6b5a"
+    },
+    {
+      "key": "ma-account-month-last-v1",
+      "raw": "2026-10",
+      "sha256": "b61370e4075604a892de71e93d48b5550b020ec626d60259f8f70b3bff29535f"
+    },
+    {
+      "key": "ma-care-v2",
+      "raw": "{\n    \"version\": 2,\n    \"patients\": [\n      {\n        \"id\": \"pLEGADO\",\n        \"name\": \"Paciente Fictício LEGADO\",\n        \"cpf\": \"\",\n        \"phone\": \"\",\n        \"email\": \"\",\n        \"address\": \"\",\n        \"cep\": \"\"\n      }\n    ],\n    \"records\": [\n      {\n        \"id\": \"rLEGADO\",\n        \"patientId\": \"pLEGADO\",\n        \"date\": \"2026-10-10\",\n        \"month\": \"2026-10\",\n        \"amount\": 12345,\n        \"service\": \"Serviço fictício LEGADO\",\n        \"payment\": \"Pix\",\n        \"status\": \"Recebido\",\n        \"snapshot\": {\n          \"name\": \"Paciente Fictício LEGADO\",\n          \"cpf\": \"\",\n          \"phone\": \"\",\n          \"email\": \"\",\n          \"address\": \"\",\n          \"cep\": \"\"\n        }\n      }\n    ],\n    \"notes\": [\n      {\n        \"id\": \"nLEGADO\",\n        \"patientId\": \"pLEGADO\",\n        \"date\": \"2026-10-10\",\n        \"tooth\": \"11\",\n        \"text\": \"Evolução fictícia LEGADO\",\n        \"done\": false\n      }\n    ]\n  }",
+      "sha256": "05a7c9e8f146437e973caf644e1eedb99a951c1d41a97fc1464ed40f50bd3f68"
+    },
+    {
+      "key": "ma-installment-rates-v1",
+      "raw": "{\n    \"5\": \"3.1\"\n  }",
+      "sha256": "b1b08983bb7b5d9d2057edbc22316185fef4bd9b0f4b58657fb4123447797a2b"
+    },
+    {
+      "key": "ma-ledger-v1",
+      "raw": "[\n    {\n      \"id\": 123,\n      \"date\": \"2026-10-10\",\n      \"bank\": \"Itau\",\n      \"description\": \"Fictício 1\",\n      \"amount\": 1000.5,\n      \"kind\": \"Receita\",\n      \"extra\": \"preservado\"\n    },\n    {\n      \"id\": \"123\",\n      \"date\": \"2026-10-10\",\n      \"bank\": \"Cora\",\n      \"description\": \"Fictício 2\",\n      \"amount\": 1002,\n      \"kind\": \"Receita\"\n    }\n  ]",
+      "sha256": "75d3b0438d8a494e8f8a829b2fb1b67b7e4becd3a8971f32da0a25b11a5670d7"
+    },
+    {
+      "key": "ma56-project-checklist-v1",
+      "raw": "{\"version\":1,\"states\":{},\"updated\":{}}",
+      "sha256": "333bc3eb64123bb0ba22af0ed08d33baece7dcdaa77317675877703f2f938ab2"
+    },
+    {
+      "key": "ma61-sanitary-checklist-v1",
+      "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}",
+      "sha256": "2043e14e7695b420e2f95b27a6c72a13e39a8242d0d27e47c456989740fa2bc9"
+    }
+  ],
+  "protection": [
+    {
+      "id": "restore:5a85c8ef-d9b0-49c2-a013-df3d0a63e563",
+      "kind": "restore",
+      "phase": "committed",
+      "createdAt": "2026-10-12T01:31:18.736Z",
+      "origin": "Antes de restauração A5",
+      "key": "dashboard-state",
+      "raw": "{\"historyIDs\":[],\"preimage\":[{\"key\":\"ma-academy-v55\",\"raw\":\"{\\\"version\\\": 1, \\\"settings\\\": {\\\"monthly\\\": 100, \\\"hours\\\": 20, \\\"target\\\": 25, \\\"minimum\\\": 10, \\\"tax\\\": 0, \\\"rates\\\": {}}, \\\"materials\\\": [{\\\"id\\\": \\\"mA\\\", \\\"name\\\": \\\"Material fictício\\\", \\\"price\\\": 10, \\\"size\\\": 100, \\\"unit\\\": \\\"g\\\", \\\"category\\\": \\\"Teste\\\"}], \\\"equipment\\\": [], \\\"sessions\\\": [], \\\"customPops\\\": [], \\\"checks\\\": {}, \\\"training\\\": [], \\\"ma58\\\": {\\\"version\\\": 1, \\\"kind\\\": \\\"anterior\\\", \\\"base\\\": \\\"A2\\\", \\\"target\\\": \\\"A2\\\", \\\"step\\\": {\\\"anterior\\\": 0, \\\"posterior\\\": 0}, \\\"checks\\\": {\\\"anterior\\\": [false, false, false, false, false, false], \\\"posterior\\\": [false, false, false, false, false, false]}}, \\\"ma59\\\": {\\\"version\\\": 1, \\\"checks\\\": {}, \\\"step\\\": {}, \\\"current\\\": \\\"crown\\\", \\\"filter\\\": \\\"Todas\\\", \\\"search\\\": \\\"\\\"}, \\\"ma60\\\": {\\\"version\\\": 1, \\\"kind\\\": \\\"crown\\\", \\\"material\\\": {\\\"crown\\\": \\\"onx\\\", \\\"model\\\": \\\"acqua\\\", \\\"splint\\\": \\\"cosmos\\\"}, \\\"washStage\\\": 0, \\\"blastMaterial\\\": \\\"printed\\\", \\\"blastStage\\\": 0, \\\"colorZone\\\": {\\\"anterior\\\": \\\"cervical\\\", \\\"posterior\\\": \\\"cervical\\\"}, \\\"washChecks\\\": {}, \\\"blastChecks\\\": {}}}\"},{\"key\":\"ma-account-month-last-v1\",\"raw\":\"2026-10\"},{\"key\":\"ma-care-v2\",\"raw\":\"{\\\"version\\\": 2, \\\"patients\\\": [{\\\"id\\\": \\\"pA\\\", \\\"name\\\": \\\"Paciente Fictício A\\\", \\\"cpf\\\": \\\"\\\", \\\"phone\\\": \\\"\\\", \\\"email\\\": \\\"\\\", \\\"address\\\": \\\"\\\", \\\"cep\\\": \\\"\\\"}], \\\"records\\\": [{\\\"id\\\": \\\"rA\\\", \\\"patientId\\\": \\\"pA\\\", \\\"date\\\": \\\"2026-10-10\\\", \\\"month\\\": \\\"2026-10\\\", \\\"amount\\\": 12345, \\\"service\\\": \\\"Serviço fictício A\\\", \\\"payment\\\": \\\"Pix\\\", \\\"status\\\": \\\"Recebido\\\", \\\"snapshot\\\": {\\\"name\\\": \\\"Paciente Fictício A\\\", \\\"cpf\\\": \\\"\\\", \\\"phone\\\": \\\"\\\", \\\"email\\\": \\\"\\\", \\\"address\\\": \\\"\\\", \\\"cep\\\": \\\"\\\"}}], \\\"notes\\\": [{\\\"id\\\": \\\"nA\\\", \\\"patientId\\\": \\\"pA\\\", \\\"date\\\": \\\"2026-10-10\\\", \\\"tooth\\\": \\\"11\\\", \\\"text\\\": \\\"Evolução fictícia A\\\", \\\"done\\\": false}]}\"},{\"key\":\"ma-installment-rates-v1\",\"raw\":\"{\\\"5\\\":3.1,\\\"10\\\":5.2}\"},{\"key\":\"ma-ledger-v1\",\"raw\":\"[{\\\"id\\\": \\\"Cora:F1\\\", \\\"date\\\": \\\"2026-10-10\\\", \\\"bank\\\": \\\"Cora\\\", \\\"description\\\": \\\"Fict\\\\u00edcio 1\\\", \\\"amount\\\": 1001, \\\"kind\\\": \\\"Receita\\\"}]\"},{\"key\":\"ma5-suppress-seeds-v1\",\"raw\":\"1\"},{\"key\":\"ma56-project-checklist-v1\",\"raw\":\"{\\\"version\\\":1,\\\"states\\\":{},\\\"updated\\\":{}}\"},{\"key\":\"ma61-sanitary-checklist-v1\",\"raw\":\"{\\\"version\\\":1,\\\"states\\\":{},\\\"evidence\\\":{},\\\"notes\\\":{},\\\"responsible\\\":{},\\\"due\\\":{},\\\"updated\\\":{}}\"}],\"skipped\":[],\"sourceDigest\":\"4521b8e99ab052d360209ea339ea22ee2efaa146c98280294f56cebf4dacc950\",\"summary\":[{\"action\":\"SUBSTITUIR COM PREIMAGE RECUPERÁVEL\",\"before\":{\"notes\":1,\"patients\":1,\"records\":1},\"changedSameIDs\":0,\"duplicateIDs\":0,\"incoming\":{\"notes\":1,\"patients\":1,\"records\":1},\"key\":\"ma-care-v2\",\"warning\":\"\"},{\"action\":\"SUBSTITUIR COM PREIMAGE RECUPERÁVEL\",\"before\":{\"legacy\":0,\"numericIDs\":0,\"rows\":1},\"changedSameIDs\":0,\"duplicateIDs\":0,\"incoming\":{\"legacy\":1,\"numericIDs\":1,\"rows\":2},\"key\":\"ma-ledger-v1\",\"warning\":\"\"},{\"action\":\"SUBSTITUIR COM PREIMAGE RECUPERÁVEL\",\"before\":{\"rates\":2},\"changedSameIDs\":0,\"duplicateIDs\":0,\"incoming\":{\"rates\":1},\"key\":\"ma-installment-rates-v1\",\"warning\":\"\"},{\"action\":\"AUSENTE NO ARQUIVO: MANTER ATUAL\",\"before\":{},\"incoming\":{\"absent\":true},\"key\":\"ma-account-month-last-v1\"},{\"action\":\"AUSENTE NO ARQUIVO: MANTER ATUAL\",\"before\":{\"customPops\":0,\"equipment\":0,\"labProgress\":3,\"materials\":1,\"sessions\":0,\"training\":0},\"incoming\":{\"absent\":true},\"key\":\"ma-academy-v55\"},{\"action\":\"AUSENTE NO ARQUIVO: MANTER ATUAL\",\"before\":{\"states\":0},\"incoming\":{\"absent\":true},\"key\":\"ma56-project-checklist-v1\"},{\"action\":\"AUSENTE NO ARQUIVO: MANTER ATUAL\",\"before\":{\"fronts\":8,\"states\":0,\"subtopics\":42},\"incoming\":{\"absent\":true},\"key\":\"ma61-sanitary-checklist-v1\"}],\"targets\":[{\"key\":\"ma-care-v2\",\"raw\":\"{\\n    \\\"version\\\": 2,\\n    \\\"patients\\\": [\\n      {\\n        \\\"id\\\": \\\"pLEGADO\\\",\\n        \\\"name\\\": \\\"Paciente Fictício LEGADO\\\",\\n        \\\"cpf\\\": \\\"\\\",\\n        \\\"phone\\\": \\\"\\\",\\n        \\\"email\\\": \\\"\\\",\\n        \\\"address\\\": \\\"\\\",\\n        \\\"cep\\\": \\\"\\\"\\n      }\\n    ],\\n    \\\"records\\\": [\\n      {\\n        \\\"id\\\": \\\"rLEGADO\\\",\\n        \\\"patientId\\\": \\\"pLEGADO\\\",\\n        \\\"date\\\": \\\"2026-10-10\\\",\\n        \\\"month\\\": \\\"2026-10\\\",\\n        \\\"amount\\\": 12345,\\n        \\\"service\\\": \\\"Serviço fictício LEGADO\\\",\\n        \\\"payment\\\": \\\"Pix\\\",\\n        \\\"status\\\": \\\"Recebido\\\",\\n        \\\"snapshot\\\": {\\n          \\\"name\\\": \\\"Paciente Fictício LEGADO\\\",\\n          \\\"cpf\\\": \\\"\\\",\\n          \\\"phone\\\": \\\"\\\",\\n          \\\"email\\\": \\\"\\\",\\n          \\\"address\\\": \\\"\\\",\\n          \\\"cep\\\": \\\"\\\"\\n        }\\n      }\\n    ],\\n    \\\"notes\\\": [\\n      {\\n        \\\"id\\\": \\\"nLEGADO\\\",\\n        \\\"patientId\\\": \\\"pLEGADO\\\",\\n        \\\"date\\\": \\\"2026-10-10\\\",\\n        \\\"tooth\\\": \\\"11\\\",\\n        \\\"text\\\": \\\"Evolução fictícia LEGADO\\\",\\n        \\\"done\\\": false\\n      }\\n    ]\\n  }\",\"sha256\":\"05a7c9e8f146437e973caf644e1eedb99a951c1d41a97fc1464ed40f50bd3f68\"},{\"key\":\"ma-ledger-v1\",\"raw\":\"[\\n    {\\n      \\\"id\\\": 123,\\n      \\\"date\\\": \\\"2026-10-10\\\",\\n      \\\"bank\\\": \\\"Itau\\\",\\n      \\\"description\\\": \\\"Fictício 1\\\",\\n      \\\"amount\\\": 1000.5,\\n      \\\"kind\\\": \\\"Receita\\\",\\n      \\\"extra\\\": \\\"preservado\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"123\\\",\\n      \\\"date\\\": \\\"2026-10-10\\\",\\n      \\\"bank\\\": \\\"Cora\\\",\\n      \\\"description\\\": \\\"Fictício 2\\\",\\n      \\\"amount\\\": 1002,\\n      \\\"kind\\\": \\\"Receita\\\"\\n    }\\n  ]\",\"sha256\":\"75d3b0438d8a494e8f8a829b2fb1b67b7e4becd3a8971f32da0a25b11a5670d7\"},{\"key\":\"ma-installment-rates-v1\",\"raw\":\"{\\n    \\\"5\\\": \\\"3.1\\\"\\n  }\",\"sha256\":\"b1b08983bb7b5d9d2057edbc22316185fef4bd9b0f4b58657fb4123447797a2b\"}],\"version\":1}",
+      "sha256": "5389d55520852aa8e8984ce2f2e04f5c041d9e3070b00c4a508e609bf6d11130",
+      "receipt": {
+        "version": 1,
+        "journalId": "restore:5a85c8ef-d9b0-49c2-a013-df3d0a63e563",
+        "completedAt": "2026-10-12T01:31:18.746Z",
+        "sourceDigest": "4521b8e99ab052d360209ea339ea22ee2efaa146c98280294f56cebf4dacc950",
+        "summary": [
+          {
+            "key": "ma-care-v2",
+            "action": "SUBSTITUIR COM PREIMAGE RECUPERÁVEL",
+            "before": {
+              "patients": 1,
+              "records": 1,
+              "notes": 1
+            },
+            "incoming": {
+              "patients": 1,
+              "records": 1,
+              "notes": 1
+            },
+            "duplicateIDs": 0,
+            "changedSameIDs": 0,
+            "warning": ""
+          },
+          {
+            "key": "ma-ledger-v1",
+            "action": "SUBSTITUIR COM PREIMAGE RECUPERÁVEL",
+            "before": {
+              "rows": 1,
+              "legacy": 0,
+              "numericIDs": 0
+            },
+            "incoming": {
+              "rows": 2,
+              "legacy": 1,
+              "numericIDs": 1
+            },
+            "duplicateIDs": 0,
+            "changedSameIDs": 0,
+            "warning": ""
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "action": "SUBSTITUIR COM PREIMAGE RECUPERÁVEL",
+            "before": {
+              "rates": 2
+            },
+            "incoming": {
+              "rates": 1
+            },
+            "duplicateIDs": 0,
+            "changedSameIDs": 0,
+            "warning": ""
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "action": "AUSENTE NO ARQUIVO: MANTER ATUAL",
+            "before": {},
+            "incoming": {
+              "absent": true
+            }
+          },
+          {
+            "key": "ma-academy-v55",
+            "action": "AUSENTE NO ARQUIVO: MANTER ATUAL",
+            "before": {
+              "materials": 1,
+              "equipment": 0,
+              "sessions": 0,
+              "customPops": 0,
+              "training": 0,
+              "labProgress": 3
+            },
+            "incoming": {
+              "absent": true
+            }
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "action": "AUSENTE NO ARQUIVO: MANTER ATUAL",
+            "before": {
+              "states": 0
+            },
+            "incoming": {
+              "absent": true
+            }
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "action": "AUSENTE NO ARQUIVO: MANTER ATUAL",
+            "before": {
+              "states": 0,
+              "fronts": 8,
+              "subtopics": 42
+            },
+            "incoming": {
+              "absent": true
+            }
+          }
+        ],
+        "after": [
+          {
+            "key": "ma-care-v2",
+            "module": "Pacientes, pagamentos e evoluções",
+            "present": true,
+            "health": "healthy",
+            "counts": {
+              "patients": 1,
+              "records": 1,
+              "notes": 1
+            },
+            "warning": ""
+          },
+          {
+            "key": "ma-ledger-v1",
+            "module": "Livro-caixa",
+            "present": true,
+            "health": "healthy",
+            "counts": {
+              "rows": 2,
+              "legacy": 1,
+              "numericIDs": 1
+            },
+            "warning": ""
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "module": "Taxas financeiras",
+            "present": true,
+            "health": "healthy",
+            "counts": {
+              "rates": 1
+            },
+            "warning": ""
+          }
+        ],
+        "maintained": [
+          "ma-account-month-last-v1",
+          "ma-academy-v55",
+          "ma56-project-checklist-v1",
+          "ma61-sanitary-checklist-v1"
+        ],
+        "skipped": []
+      }
+    }
+  ],
+  "metadata": {
+    "suppressEmbeddedSeeds": true,
+    "restoreEpoch": "de63f943-aac6-4730-a2ac-39a42274bfd4",
+    "database": "__MA_DEV61_SANDBOX__:ma5-protection-v1"
+  },
+  "integrity": {
+    "algorithm": "SHA-256",
+    "digest": "f7bc33c42d864726760cca28509619d79f680cd8bb3752af05c3ebaa91292da5"
+  }
+}

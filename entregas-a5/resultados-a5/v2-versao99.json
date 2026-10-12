@@ -1,0 +1,70 @@
+{
+  "format": "manfrin-arnez-backup",
+  "version": 99,
+  "care": {
+    "version": 2,
+    "patients": [
+      {
+        "id": "pLEGADO",
+        "name": "Paciente Fictício LEGADO",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": ""
+      }
+    ],
+    "records": [
+      {
+        "id": "rLEGADO",
+        "patientId": "pLEGADO",
+        "date": "2026-10-10",
+        "month": "2026-10",
+        "amount": 12345,
+        "service": "Serviço fictício LEGADO",
+        "payment": "Pix",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "Paciente Fictício LEGADO",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        }
+      }
+    ],
+    "notes": [
+      {
+        "id": "nLEGADO",
+        "patientId": "pLEGADO",
+        "date": "2026-10-10",
+        "tooth": "11",
+        "text": "Evolução fictícia LEGADO",
+        "done": false
+      }
+    ]
+  },
+  "ledger": [
+    {
+      "id": 123,
+      "date": "2026-10-10",
+      "bank": "Itau",
+      "description": "Fictício 1",
+      "amount": 1000.5,
+      "kind": "Receita",
+      "extra": "preservado"
+    },
+    {
+      "id": "123",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "Fictício 2",
+      "amount": 1002,
+      "kind": "Receita"
+    }
+  ],
+  "rateSettings": {
+    "5": "3.1"
+  }
+}

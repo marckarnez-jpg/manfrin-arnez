@@ -1,0 +1,58 @@
+{
+  "format": "manfrin-arnez-backup",
+  "version": 2,
+  "care": {
+    "version": 2,
+    "patients": [
+      {
+        "id": "pCOTA",
+        "name": "Paciente Fictício COTA",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": ""
+      }
+    ],
+    "records": [
+      {
+        "id": "rCOTA",
+        "patientId": "pCOTA",
+        "date": "2026-10-10",
+        "month": "2026-10",
+        "amount": 12345,
+        "service": "Serviço fictício COTA",
+        "payment": "Pix",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "Paciente Fictício COTA",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        }
+      }
+    ],
+    "notes": [
+      {
+        "id": "nCOTA",
+        "patientId": "pCOTA",
+        "date": "2026-10-10",
+        "tooth": "11",
+        "text": "Evolução fictícia COTA",
+        "done": false
+      }
+    ]
+  },
+  "ledger": [
+    {
+      "id": "Cora:F20",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "Fictício 20",
+      "amount": 1020,
+      "kind": "Receita"
+    }
+  ]
+}

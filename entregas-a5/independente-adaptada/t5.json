@@ -1,0 +1,80 @@
+[
+ {
+  "id": "SAN-01",
+  "titulo": "8 frentes e 42 subtópicos renderizados",
+  "resultado": "APROVADO",
+  "evidencia": "grupos=8; subtópicos=42; por frente=6+5+6+7+4+5+4+5; painel=\"8 frentes / 42 subtópicos\""
+ },
+ {
+  "id": "SAN-02",
+  "titulo": "Contadores do semáforo somam 42 e coincidem com a lista",
+  "resultado": "APROVADO",
+  "evidencia": "verde=4 amarelo=29 vermelho=9; luzes das frentes=VERMELHO,VERMELHO,AMARELO,VERMELHO,AMARELO,AMARELO,VERMELHO,VERMELHO"
+ },
+ {
+  "id": "SAN-03",
+  "titulo": "Cor de cada subtópico no DOM = contadores",
+  "resultado": "APROVADO",
+  "evidencia": "DOM {\"ok\":4,\"warn\":29,\"bad\":9} vs painel 4/29/9"
+ },
+ {
+  "id": "SAN-04",
+  "titulo": "Marcar VERDE sem evidência é bloqueado",
+  "resultado": "APROVADO",
+  "evidencia": "mensagem=\"Para marcar verde, preencha primeiro a evidência de \"Testes biológicos semanais\"\"; cor do item=warn"
+ },
+ {
+  "id": "SAN-05",
+  "titulo": "Semáforo da frente: todos verdes→VERDE; um vermelho→VERMELHO; sem vermelho e nem todos verdes→AMARELO",
+  "resultado": "APROVADO",
+  "evidencia": "sequência observada: VERDE → VERMELHO → AMARELO"
+ },
+ {
+  "id": "SAN-06",
+  "titulo": "Estados, evidências e luzes persistem após recarregar a página",
+  "resultado": "APROVADO",
+  "evidencia": "antes 9/25/8 → depois 9/25/8; JSON idêntico=true"
+ },
+ {
+  "id": "SAN-07",
+  "titulo": "Filtros por semáforo, frente e busca",
+  "resultado": "APROVADO",
+  "evidencia": "filtro vermelho=8 (esperado 8); frente PGRSS=4 (esperado 4); busca \"autoclave\"=8"
+ },
+ {
+  "id": "SAN-08",
+  "titulo": "Exportação do checklist (formato, versão, dados)",
+  "resultado": "APROVADO",
+  "evidencia": "format=manfrin-arnez-sanitary-checklist version=1; estados exportados=7; arquivo=Manfrin-Arnez-Checklist-Sanitario-6.1.json"
+ },
+ {
+  "id": "SAN-09",
+  "titulo": "Importação restaura exatamente o estado exportado (ida e volta)",
+  "resultado": "APROVADO",
+  "evidencia": "estado do item alterado antes de importar=bad; após importar=(padrão); estados iguais ao exportado=true"
+ },
+ {
+  "id": "SAN-10",
+  "titulo": "Importação rejeita arquivos inválidos sem alterar os dados",
+  "resultado": "APROVADO",
+  "evidencia": "formato errado:rejeitado; semáforo inválido:rejeitado; id inexistente:rejeitado; __proto__:rejeitado; versão 2:rejeitado; grande >400KB:rejeitado; poluição de protótipo: ({}).ok=undefined"
+ },
+ {
+  "id": "SAN-11",
+  "titulo": "Texto com HTML/script em evidência, observação e responsável não executa (XSS armazenado)",
+  "resultado": "APROVADO",
+  "evidencia": "window.__xss=undefined; <img> injetadas=0; <script> injetados=0; item encontrado pela busca=1"
+ },
+ {
+  "id": "SAN-12",
+  "titulo": "Links externos da Central usam noopener/noreferrer",
+  "resultado": "APROVADO",
+  "evidencia": "links=2"
+ },
+ {
+  "id": "SAN-13",
+  "titulo": "Console sem erros durante uso do checklist",
+  "resultado": "APROVADO",
+  "evidencia": "erros=0 "
+ }
+]

@@ -1,0 +1,277 @@
+{
+  "html_sha256": "648bf7fe42427f2dd8cae053971af0db64943937e839de04514464434f8c4951",
+  "group": "all",
+  "failure": "Page.evaluate: QuotaExceededError: Cota fictícia IndexedDB",
+  "checks": [
+    {
+      "id": "METODO-FILE-OU-BLOQUEIO-DOCUMENTADO",
+      "status": "APROVADO",
+      "evidence": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/entregas-a5/Manfrin-Arnez-Dashboard-6.2-DEV-04-A5.html"
+    },
+    {
+      "id": "BKP02-UNIFICADO-TODAS-BASES",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "BKP02-LAB-CHECKLISTS-QUARENTENAS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "BACKUP-SOLICITADO-NAO-VERIFICADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "BACKUP-ARQUIVO-EFETIVAMENTE-VERIFICADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "BACKUP-HASH-ERRADO-RECUSADO",
+      "status": "APROVADO",
+      "evidence": "Prévia RECUSADA: Integridade SHA-256 não confere"
+    },
+    {
+      "id": "RESTAURAR-V3-TODAS-BASES",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "P17B-PREIMAGE-INTEGRAL",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "B123-SEM-REINJECAO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "A148-RECUPERAR-ESTADO-ANTERIOR",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AUX-PAGEERROR-10",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "AUX-ISOLAMENTO-11",
+      "status": "APROVADO",
+      "evidence": {
+        "sent": {
+          "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+          "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+          "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+          "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "V2-PREVIA-NAO-ALTERA",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "V2-CANCELAR-MANTEM-TUDO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "B119-V2-LEGADO-NUMERICO-BANCO-VALOR",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "V2-MODULOS-ADMIN-AUSENTES-MANTIDOS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "LEGADO-CATEGORIA-TOTAIS-PRESERVADOS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N2-V3-INCLUI-NUMERICOS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "V2-PARCIAL-CARE-AUSENTE-PRESERVADO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "VERSAO-DESCONHECIDA-RECUSADA",
+      "status": "APROVADO",
+      "evidence": "Prévia RECUSADA: Versão legada não suportada: 99"
+    },
+    {
+      "id": "AUX-PAGEERROR-20",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "AUX-ISOLAMENTO-21",
+      "status": "APROVADO",
+      "evidence": {
+        "sent": {
+          "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+          "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+          "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+          "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "CARE-ILEGIVEL-BACKUP-PARCIAL-SEM-SEED",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "CHECKLIST56-OPACO-INCLUIDO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AUX-PAGEERROR-24",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "AUX-ISOLAMENTO-25",
+      "status": "APROVADO",
+      "evidence": {
+        "sent": {
+          "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+          "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+          "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+          "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "BASES-AUSENTES-IDENTIFICADAS-NAO-INVENTADAS",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AUX-PAGEERROR-27",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "AUX-ISOLAMENTO-28",
+      "status": "APROVADO",
+      "evidence": {
+        "sent": {
+          "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+          "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+          "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+          "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "LIVRO-JSON-CORROMPIDO-PRESERVADO-EM-PARCIAL",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "N2-BRUTO-CORROMPIDO-EXATO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AUX-PAGEERROR-31",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "AUX-ISOLAMENTO-32",
+      "status": "APROVADO",
+      "evidence": {
+        "sent": {
+          "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+          "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+          "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+          "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "FALHA-MEIO-RESTAURACAO-ROLLBACK-EXATO",
+      "status": "APROVADO",
+      "evidence": "RESTAURAÇÃO RECUSADA/FALHOU: Restauração não concluída; estado anterior recuperado. Falha fictícia durante restauração"
+    },
+    {
+      "id": "FALHA-PREIMAGE-RECUPERAVEL",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "FALHA-REABRIR-SEM-PERDA-OU-SEED",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "INTERRUPCAO-ESTADO-INTERMEDIARIO",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "INTERRUPCAO-RECARGA-RECUPERA-ANTES",
+      "status": "APROVADO",
+      "evidence": ""
+    },
+    {
+      "id": "AUX-PAGEERROR-38",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "AUX-ISOLAMENTO-39",
+      "status": "APROVADO",
+      "evidence": {
+        "sent": {
+          "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+          "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+          "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+          "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+        },
+        "extra": []
+      }
+    },
+    {
+      "id": "AUX-PAGEERROR-40",
+      "status": "APROVADO",
+      "evidence": []
+    },
+    {
+      "id": "AUX-ISOLAMENTO-41",
+      "status": "APROVADO",
+      "evidence": {
+        "sent": {
+          "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+          "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+          "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+          "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+        },
+        "extra": []
+      }
+    }
+  ],
+  "counts": {
+    "APROVADO": 42,
+    "REPROVADO": 0
+  }
+}

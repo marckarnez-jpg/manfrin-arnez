@@ -1,0 +1,10 @@
+{
+  "name": "manfrin-arnez-a5-regressao-sanitaria",
+  "private": true,
+  "scripts": {
+    "test": "python3 executar.py"
+  },
+  "devDependencies": {
+    "playwright": "1.62.0"
+  }
+}

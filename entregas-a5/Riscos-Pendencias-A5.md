@@ -1,0 +1,15 @@
+# Riscos residuais e pendências
+
+- **○ Auditoria independente da DEV.4:** obrigatória antes de qualquer implantação. Execuções do Codex não substituem o Claude.
+- **○ file:// no Mac/Chrome real:** bloqueado neste ambiente por `ERR_BLOCKED_BY_ADMINISTRATOR`. Testes de comportamento foram executados por HTTP somente em 127.0.0.1, com contextos descartáveis. Não se pode inferir funcionamento de IndexedDB, Web Locks, Web Crypto e persistência por file:// no navegador do usuário.
+- **○ Compatibilidade de arquivos antigos reais:** apenas v2 fictícios testados. Backups reais são proibidos neste ambiente. O HTML 6.1 original não foi fornecido para uma comparação independente de comportamento.
+- **⚠ Limites de origem e memória:** IndexedDB não é ilimitado nem backup físico. Evicção do navegador, perda do perfil, disco cheio e arquivos externos posteriormente apagados continuam riscos. Históricos de restauração/comprovantes não têm limpeza automática; precisam de capacidade disponível.
+- **⚠ Coordenação entre abas:** exclusão de restauração funciona entre DEV.4 cooperantes na mesma origem. Outras versões e console não participam. Fechar todas as outras abas/versões. Detecção de estado desatualizado foi adicionada ao livro, clínico, Academia e Sanitária; não é isolamento transacional universal de todos os editores legados.
+- **⚠ Sem transação única entre localStorage e IndexedDB:** há journal, marcador, reserva e rollback, testados para falha/interrupção. Falha persistente na recuperação mantém bloqueio e preimage; não promete recuperação automática se todo o armazenamento se perder/corromper.
+- **⚠ Históricos herdados:** um hash calculado hoje confirma os bytes lidos/exportados, não prova a validade clínica nem a integridade histórica de um arquivo que já estivesse corrompido antes da DEV.4. Cópias ilegíveis permanecem disponíveis em bruto para avaliação.
+- **⚠ Integridade não é autenticidade:** SHA-256 detecta corrupção involuntária. Quem altera o conteúdo e recalcula hashes pode produzir outro arquivo íntegro; não há assinatura digital.
+- **⚠ Escopo persistido:** campos ainda não salvos e documentos externos não estão no snapshot. PDFs/ativos fixos continuam no HTML. Chaves desconhecidas são preservadas em bruto e tornam o backup PARCIAL. Bases inválidas não são aplicadas; arquivo/journal conservam seus bytes para avaliação.
+- **✗ Fora desta etapa:** problemas A4 de merge/atualização visual e critérios antigos que exigiam apenas três bases v2 ou cópias por operação no localStorage não constituem correções A5 aprovadas. Não foi declarada reexecução integral das 253 verificações anteriores.
+- **○ Publicação para download:** exige confirmação expressa do usuário antes de push de uma nova branch de desenvolvimento. Sem alteração da main, site institucional ou instalação em produção.
+
+Não pronta para uso clínico. Nenhum dado ou backup real foi utilizado; as sentinelas chamadas “REAL” nos testes são strings fictícias para verificar o espaço fora do namespace DEV.
