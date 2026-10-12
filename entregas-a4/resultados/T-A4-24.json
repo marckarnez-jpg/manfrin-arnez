@@ -1,0 +1,33 @@
+{
+  "id": "T-A4-24",
+  "ids_originais": "B-123 (regressão A5)",
+  "problemas": "D-A4-05",
+  "cenario_ficticio": "Sincronizar mesmo feed duas vezes, depois restaurar e abrir novamente",
+  "oraculo_independente": "Idempotência do feed, pagamentos/evoluções preservados; supressão de seeds mantida; sync manual não reativa reinjeção automática.",
+  "estado": "✓ APROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "APROVADO",
+  "observado": {
+    "firstCounts": {
+      "patients": 4893,
+      "records": 1,
+      "notes": 1
+    },
+    "secondCounts": {
+      "patients": 4893,
+      "records": 1,
+      "notes": 1
+    },
+    "restoredCounts": {
+      "patients": 1,
+      "records": 1,
+      "notes": 1
+    },
+    "suppressSeeds": "1",
+    "backup": "downloads/12001-Manfrin-Arnez-BACKUP-COMPLETO_ESTADO_PERSISTIDO-V3-2026-10-12.json",
+    "scope": "Duas sincronizações pelo botão original com feed integral fictício; restauração v3 e recarga sem reinjeção."
+  },
+  "execucao_principal": "resultados-grupo12.json",
+  "resumo_observado": "Duas sincronizações pelo botão original mantêm IDs e vínculos; restore v3 e reload preservam base original e supressão de seeds.",
+  "evidencia_individual": "resultados/T-A4-24.json"
+}

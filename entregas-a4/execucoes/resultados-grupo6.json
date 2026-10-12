@@ -1,0 +1,65 @@
+[
+  {
+    "id": "T-A4-32",
+    "ids_originais": "P1-6; SEC-01; ISO-05 (dependências)",
+    "problemas": "D-A4-06",
+    "cenario_ficticio": "file:// suportado, localhost e APIs/locks indisponíveis em perfil descartável",
+    "oraculo_independente": "Registrar protocolo/origem e capacidade; preservar bloqueio quando segurança indisponível. Sentinelas fictícias fora do prefixo intactas; não usar perfil principal ou flags para contornar política.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "NÃO TESTADO",
+    "observado": {
+      "cases": [
+        {
+          "protocol": "file",
+          "available": false,
+          "error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/manfrin-arnez/entregas-a5/Manfrin-Arnez-Dashboard-6.2-DEV-04-A5.html"
+        },
+        {
+          "featureUnavailable": "locks",
+          "result": {
+            "ready": false,
+            "guard": "Navegador sem Web Locks: restauração e gravações protegidas indisponíveis",
+            "text": "⚠️ AMBIENTE DEV — PACIENTES E FINANÇAS FICTÍCIOS — NÃO USAR PARA ATENDIMENTOS REAIS OU RESTAURAR BACKUPS REAIS\nGESTÃO DA CLÍNICA\n+\nLançamento rápido\n○\nPacientes\n▤\nContabilidade mensal\n✎\nEvoluções\n▣\nTCLE · Termos\n◈\nSimulador de vendas\n▥\nVisão financeira\n⇄\nConciliação\n☷\nDados e condições\n↓\nBackup e restauração\n Versão 6.1 DEV · dados fictícios\n\nAtualizada em 07 out 2026\nSem conexão automática aos bancos\nMANFRIN ARNEZ / INTELIGÊNCIA FINANCEIRA\n↓ Exportar dados\n\nNEGOCIE COM CLAREZA\n\nO preço da venda.\nO valor que fica.\n\nCompare condições e veja o impacto no caixa antes de fechar.\n\nSicredi · com antecipação\nBase fictícia DEV: 3 simulações FICTÍCIAS. Valores transcritos da conversa; comprovantes originais ainda não conferidos nesta versão.\nTaxas do cartão · 1x a 10x Clique para editar as taxas Sicredi\n\nInforme o custo total efetivo de cada parcelamento COM antecipação (taxa da venda + antecipação, calculadas sobre o valor bruto). Somente 5x e 10x têm exemplos anteriores documentados; as demais taxas ficam em branco até serem informadas. Você também pode calcular sua taxa real pelos valores do extrato no formulário abaixo. As taxas preenchidas são salvas neste navegador e usadas automaticamente no simulador. Confira seus valores contratados na Sicredi.\n\nLimpar somente taxas personalizadas\n📄 Descubra a taxa pela venda real\nPASSO 1\n\nUse uma venda do seu extrato Sicredi: o valor cobrado no cartão e o líquido que a adquirente creditou após todas as taxas. Não inclua uma entrada Pix nestes dois valores.\n\nParcelamento\n1x com antecipação\n2x com antecipação\n3x com antecipação\n4x com antec",
+            "stored": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          "errors": [],
+          "baseline": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+        },
+        {
+          "featureUnavailable": "indexedDB",
+          "result": {
+            "ready": false,
+            "guard": "Cannot read properties of undefined (reading 'open')",
+            "text": "⚠️ AMBIENTE DEV — PACIENTES E FINANÇAS FICTÍCIOS — NÃO USAR PARA ATENDIMENTOS REAIS OU RESTAURAR BACKUPS REAIS\nGESTÃO DA CLÍNICA\n+\nLançamento rápido\n○\nPacientes\n▤\nContabilidade mensal\n✎\nEvoluções\n▣\nTCLE · Termos\n◈\nSimulador de vendas\n▥\nVisão financeira\n⇄\nConciliação\n☷\nDados e condições\n↓\nBackup e restauração\n Versão 6.1 DEV · dados fictícios\n\nAtualizada em 07 out 2026\nSem conexão automática aos bancos\nMANFRIN ARNEZ / INTELIGÊNCIA FINANCEIRA\n↓ Exportar dados\n\nNEGOCIE COM CLAREZA\n\nO preço da venda.\nO valor que fica.\n\nCompare condições e veja o impacto no caixa antes de fechar.\n\nSicredi · com antecipação\nBase fictícia DEV: 3 simulações FICTÍCIAS. Valores transcritos da conversa; comprovantes originais ainda não conferidos nesta versão.\nTaxas do cartão · 1x a 10x Clique para editar as taxas Sicredi\n\nInforme o custo total efetivo de cada parcelamento COM antecipação (taxa da venda + antecipação, calculadas sobre o valor bruto). Somente 5x e 10x têm exemplos anteriores documentados; as demais taxas ficam em branco até serem informadas. Você também pode calcular sua taxa real pelos valores do extrato no formulário abaixo. As taxas preenchidas são salvas neste navegador e usadas automaticamente no simulador. Confira seus valores contratados na Sicredi.\n\nLimpar somente taxas personalizadas\n📄 Descubra a taxa pela venda real\nPASSO 1\n\nUse uma venda do seu extrato Sicredi: o valor cobrado no cartão e o líquido que a adquirente creditou após todas as taxas. Não inclua uma entrada Pix nestes dois valores.\n\nParcelamento\n1x com antecipação\n2x com antecipação\n3x com antecipação\n4x com antec",
+            "stored": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          "errors": [],
+          "baseline": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+        }
+      ],
+      "reason": "file:// bloqueado pela política ERR_BLOCKED_BY_ADMINISTRATOR; não foi contornada. Localhost e ausência de APIs foram efetivamente executados. Sentinelas verificadas nos demais contextos."
+    }
+  },
+  {
+    "id": "T-A4-33",
+    "ids_originais": "A1-56/57 como referência",
+    "problemas": "D-A4-07",
+    "cenario_ficticio": "Cota real e erro de storage ao salvar taxa e configuração",
+    "oraculo_independente": "Tela/status não afirmam salvo; confirmado não muda; rascunho pode ser mantido mas marcado. Recalcular estimativa não cria taxa persistida fictícia.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "realQuota": {
+        "keys": 39,
+        "chars": 5239046,
+        "quotaReached": true,
+        "persisted": "{\"5\":3.1,\"10\":5.2}",
+        "before": "{\"5\":3.1,\"10\":5.2}",
+        "status": "Não foi possível salvar taxas. Faça backup dos seus dados.",
+        "label": "3x Personalizada · salva %"
+      }
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "AUX-PAGEERROR-0",
+    "ok": true,
+    "evidence": []
+  },
+  {
+    "id": "AUX-ISOLAMENTO-1",
+    "ok": true,
+    "evidence": {
+      "sent": {
+        "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+        "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+        "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+        "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+      },
+      "extra": []
+    }
+  },
+  {
+    "id": "AUX-PAGEERROR-2",
+    "ok": true,
+    "evidence": []
+  },
+  {
+    "id": "AUX-ISOLAMENTO-3",
+    "ok": true,
+    "evidence": {
+      "sent": {
+        "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+        "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+        "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+        "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+      },
+      "extra": []
+    }
+  },
+  {
+    "id": "AUX-PAGEERROR-4",
+    "ok": true,
+    "evidence": []
+  },
+  {
+    "id": "AUX-ISOLAMENTO-5",
+    "ok": true,
+    "evidence": {
+      "sent": {
+        "ma-care-v2": "SENTINELA-REAL-FICTICIA",
+        "ma-ledger-v1": "SENTINELA-REAL-FICTICIA-LIVRO",
+        "ma-ledger-v1-prev": "SENTINELA-REAL-FICTICIA-PREV",
+        "ma61-sanitary-checklist-v1": "SENTINELA-REAL-FICTICIA-SAN"
+      },
+      "extra": []
+    }
+  }
+]

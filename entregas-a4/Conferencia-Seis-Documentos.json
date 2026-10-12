@@ -1,0 +1,32 @@
+[
+  {
+    "arquivo": "A-Relatorio-Completo-A4.md",
+    "sha256_original": "1410fce4f71b48279d363a6a87b23b6b60a195dee661aef0ac1212798fbe07d6",
+    "sha256_copia": "1410fce4f71b48279d363a6a87b23b6b60a195dee661aef0ac1212798fbe07d6"
+  },
+  {
+    "arquivo": "B-Matriz-Riscos-A4.md",
+    "sha256_original": "4797baaf6b7c5e4af584eb598bd12fdfffe2b17c6cf3fdbf98132cd005c8cf51",
+    "sha256_copia": "4797baaf6b7c5e4af584eb598bd12fdfffe2b17c6cf3fdbf98132cd005c8cf51"
+  },
+  {
+    "arquivo": "C-Plano-Tecnico-A4.md",
+    "sha256_original": "15bf74c4f6412133f377ae823557af43387baf7505bb5f5f8002553bf2854a66",
+    "sha256_copia": "15bf74c4f6412133f377ae823557af43387baf7505bb5f5f8002553bf2854a66"
+  },
+  {
+    "arquivo": "D-Plano-Testes-Regressoes-A4.md",
+    "sha256_original": "3c8ff336f4f47773e6a716f66e3a12b80072a35fd6b796d4cd36ee4bd47f1c78",
+    "sha256_copia": "3c8ff336f4f47773e6a716f66e3a12b80072a35fd6b796d4cd36ee4bd47f1c78"
+  },
+  {
+    "arquivo": "E-Decisoes-Auditoria-Claude.md",
+    "sha256_original": "ee1eb4abea0cb02276225765759afbb4ee324185380c82b937a33b1546e392f4",
+    "sha256_copia": "ee1eb4abea0cb02276225765759afbb4ee324185380c82b937a33b1546e392f4"
+  },
+  {
+    "arquivo": "F-Sequencia-Segura-A4.md",
+    "sha256_original": "193bfd6ad6f8c24e7db314c3bd314a20a6db3baf348f014f6bc855d8d663cbc8",
+    "sha256_copia": "193bfd6ad6f8c24e7db314c3bd314a20a6db3baf348f014f6bc855d8d663cbc8"
+  }
+]

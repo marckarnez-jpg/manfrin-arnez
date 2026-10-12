@@ -1,0 +1,34 @@
+{
+  "id": "T-A4-28",
+  "ids_originais": "P1-3",
+  "problemas": "D-A4-06",
+  "cenario_ficticio": "Duas abas mudam tarefas diferentes do checklist56 e fazem importação específica",
+  "oraculo_independente": "Não perder a tarefa da outra aba; revisão/mutex aplicados também à importação. Backup unificado e lista concordam.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "beforeB": {
+      "version": 1,
+      "states": {
+        "estrutura-menus": "done"
+      },
+      "updated": {
+        "estrutura-menus": "2026-10-12T03:16:08.843Z"
+      }
+    },
+    "afterA": {
+      "version": 1,
+      "states": {
+        "estrutura-navtest": "progress"
+      },
+      "updated": {
+        "estrutura-navtest": "2026-10-12T03:16:08.875Z"
+      }
+    },
+    "scope": "Tarefas diferentes; importação é substituição explícita e não união."
+  },
+  "execucao_principal": "resultados-grupo3.json",
+  "resumo_observado": "Tarefa salva em B desaparece quando A salva outra tarefa do checklist56.",
+  "evidencia_individual": "resultados/T-A4-28.json"
+}

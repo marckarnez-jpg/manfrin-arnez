@@ -1,0 +1,71 @@
+{
+  "id": "T-A4-38",
+  "ids_originais": "Sem ID histórico específico",
+  "problemas": "D-A4-08",
+  "cenario_ficticio": "Depois da importação B, interagir em um filho para obter B-prime",
+  "oraculo_independente": "Persistido fica B-prime naquele campo e B nos outros, nunca volta ao cache A. Conferir todos os subcampos e nova cópia de proteção.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "before": {
+      "version": 1,
+      "kind": "anterior",
+      "base": "A3",
+      "target": "A1",
+      "step": {
+        "anterior": 0,
+        "posterior": 0
+      },
+      "checks": {
+        "anterior": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "posterior": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    "after": {
+      "version": 1,
+      "kind": "anterior",
+      "step": {
+        "anterior": 0,
+        "posterior": 0
+      },
+      "base": "A2",
+      "target": "A2",
+      "checks": {
+        "anterior": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "posterior": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    }
+  },
+  "execucao_principal": "resultados-grupo4.json",
+  "resumo_observado": "Interagir no filho58 depois de importar B grava base/checks antigos sobre o progresso importado.",
+  "evidencia_individual": "resultados/T-A4-38.json"
+}

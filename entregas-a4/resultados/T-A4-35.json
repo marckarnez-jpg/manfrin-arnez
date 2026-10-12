@@ -1,0 +1,36 @@
+{
+  "id": "T-A4-35",
+  "ids_originais": "MA61-1 (escopo distinto); P1-3",
+  "problemas": "D-A4-07",
+  "cenario_ficticio": "Falha/quota/stale ao alterar cor e anotação sanitária",
+  "oraculo_independente": "Nenhum selo de sucesso para edição recusada; contadores confirmados e arquivo oficial seguem a base persistida. Preservar texto não salvo de modo explícito.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "persisted": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}",
+    "export": {
+      "format": "manfrin-arnez-sanitary-checklist",
+      "version": 1,
+      "createdAt": "2026-10-12T03:17:16.556Z",
+      "data": {
+        "version": 1,
+        "states": {},
+        "evidence": {},
+        "notes": {
+          "docs-visa": "Anotação fictícia recusada"
+        },
+        "responsible": {},
+        "due": {},
+        "updated": {
+          "docs-visa": "2026-10-12T03:17:16.546Z"
+        }
+      }
+    },
+    "download": "downloads/3003-Manfrin-Arnez-Checklist-Sanitario-6.1.json",
+    "scope": "Texto sanitário após falha, não cor."
+  },
+  "execucao_principal": "resultados-grupo3.json",
+  "resumo_observado": "Anotação sanitária recusada aparece no export específico apesar de base persistida inalterada.",
+  "evidencia_individual": "resultados/T-A4-35.json"
+}

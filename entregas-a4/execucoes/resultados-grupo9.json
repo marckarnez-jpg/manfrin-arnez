@@ -1,0 +1,475 @@
+[
+  {
+    "id": "T-A4-22",
+    "ids_originais": "P0-4 (algoritmo)",
+    "problemas": "D-A4-05",
+    "cenario_ficticio": "Match Codental exato por ID; fallback CPF; nome igual com CPF vazio",
+    "oraculo_independente": "Precedência e resultado conforme política aprovada; nome isolado não funde pessoas silenciosamente. Ambiguidades são contadas e permanecem pendentes.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "result": {
+        "db": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": "",
+              "codentalId": null
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ],
+          "codentalImport": {
+            "date": null,
+            "total": 1,
+            "stats": {
+              "added": 0,
+              "matched": 1,
+              "updated": 0,
+              "manual": 0,
+              "ambiguous": 0
+            },
+            "pending": []
+          }
+        },
+        "stats": {
+          "added": 0,
+          "matched": 1,
+          "updated": 0,
+          "manual": 0,
+          "ambiguous": 0
+        }
+      },
+      "action": "Nome igual, CPF vazio, IDs distintos"
+    }
+  },
+  {
+    "id": "T-A4-23",
+    "ids_originais": "Sem ID histórico específico",
+    "problemas": "D-A4-05",
+    "cenario_ficticio": "Campo manual não vazio, campo vazio, origens históricas diversas e fonte recebida vazia",
+    "oraculo_independente": "Vazio não apaga valor; política manual por campo é demonstrável; casos sem proveniência ficam para revisão, não recebem suposição automática.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "APROVADO",
+    "observado": {
+      "manual": {
+        "db": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "(00) 00000-0000",
+              "email": "",
+              "address": "",
+              "cep": "",
+              "source": "Cadastro no aplicativo",
+              "codentalId": "X"
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ],
+          "codentalImport": {
+            "date": null,
+            "total": 1,
+            "stats": {
+              "added": 0,
+              "matched": 0,
+              "updated": 0,
+              "manual": 0,
+              "ambiguous": 1
+            },
+            "pending": [
+              {
+                "codentalId": null,
+                "name": "Paciente Fictício A",
+                "reason": "Mais de um cadastro compatível; revisar antes de unir."
+              }
+            ]
+          }
+        },
+        "stats": {
+          "added": 0,
+          "matched": 0,
+          "updated": 0,
+          "manual": 0,
+          "ambiguous": 1
+        }
+      },
+      "empty": {
+        "db": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "(00) 00000-0000",
+              "email": "",
+              "address": "",
+              "cep": "",
+              "source": "Cadastro no aplicativo",
+              "codentalId": "X"
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ],
+          "codentalImport": {
+            "date": null,
+            "total": 1,
+            "stats": {
+              "added": 0,
+              "matched": 0,
+              "updated": 0,
+              "manual": 0,
+              "ambiguous": 1
+            },
+            "pending": [
+              {
+                "codentalId": null,
+                "name": "Paciente Fictício A",
+                "reason": "Mais de um cadastro compatível; revisar antes de unir."
+              }
+            ]
+          }
+        },
+        "stats": {
+          "added": 0,
+          "matched": 0,
+          "updated": 0,
+          "manual": 0,
+          "ambiguous": 1
+        }
+      },
+      "note": "Política de origens históricas indefinidas permanece decisão pendente; proteção manual explícita e vazio executados."
+    }
+  },
+  {
+    "id": "T-A4-24",
+    "ids_originais": "B-123 (regressão A5)",
+    "problemas": "D-A4-05",
+    "cenario_ficticio": "Sincronizar mesmo feed duas vezes, depois restaurar e abrir novamente",
+    "oraculo_independente": "Idempotência do feed, pagamentos/evoluções preservados; supressão de seeds mantida; sync manual não reativa reinjeção automática.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "APROVADO",
+    "observado": {
+      "first": {
+        "db": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": "",
+              "codentalId": null
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ],
+          "codentalImport": {
+            "date": null,
+            "total": 1,
+            "stats": {
+              "added": 0,
+              "matched": 1,
+              "updated": 0,
+              "manual": 0,
+              "ambiguous": 0
+            },
+            "pending": []
+          }
+        },
+        "stats": {
+          "added": 0,
+          "matched": 1,
+          "updated": 0,
+          "manual": 0,
+          "ambiguous": 0
+        }
+      },
+      "second": {
+        "db": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": "",
+              "codentalId": null
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ],
+          "codentalImport": {
+            "date": null,
+            "total": 1,
+            "stats": {
+              "added": 0,
+              "matched": 1,
+              "updated": 0,
+              "manual": 0,
+              "ambiguous": 0
+            },
+            "pending": []
+          }
+        },
+        "stats": {
+          "added": 0,
+          "matched": 1,
+          "updated": 0,
+          "manual": 0,
+          "ambiguous": 0
+        }
+      },
+      "scope": "Idempotência do feed executada; restore/reabertura testados T39."
+    }
+  },
+  {
+    "id": "T-A4-25",
+    "ids_originais": "Sem ID histórico específico",
+    "problemas": "D-A4-05",
+    "cenario_ficticio": "Dois candidatos por CPF/nome e CodentalId conflitante",
+    "oraculo_independente": "Nenhuma fusão arbitrária; prévia/pending lista conflito; original e vínculos clínicos permanecem íntegros.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "APROVADO",
+    "observado": {
+      "db": {
+        "version": 2,
+        "patients": [
+          {
+            "id": "pA",
+            "name": "Paciente Fictício A",
+            "cpf": "",
+            "phone": "",
+            "email": "",
+            "address": "",
+            "cep": ""
+          },
+          {
+            "id": "pOutro",
+            "name": "Paciente Fictício A",
+            "cpf": "",
+            "phone": "",
+            "email": "",
+            "address": "",
+            "cep": ""
+          }
+        ],
+        "records": [
+          {
+            "id": "rA",
+            "patientId": "pA",
+            "date": "2026-10-10",
+            "month": "2026-10",
+            "amount": 12345,
+            "service": "Serviço fictício A",
+            "payment": "Pix",
+            "status": "Recebido",
+            "snapshot": {
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": ""
+            }
+          }
+        ],
+        "notes": [
+          {
+            "id": "nA",
+            "patientId": "pA",
+            "date": "2026-10-10",
+            "tooth": "11",
+            "text": "Evolução fictícia A",
+            "done": false
+          }
+        ],
+        "codentalImport": {
+          "date": null,
+          "total": 1,
+          "stats": {
+            "added": 0,
+            "matched": 0,
+            "updated": 0,
+            "manual": 0,
+            "ambiguous": 1
+          },
+          "pending": [
+            {
+              "codentalId": null,
+              "name": "Paciente Fictício A",
+              "reason": "Mais de um cadastro compatível; revisar antes de unir."
+            }
+          ]
+        }
+      },
+      "stats": {
+        "added": 0,
+        "matched": 0,
+        "updated": 0,
+        "manual": 0,
+        "ambiguous": 1
+      }
+    }
+  }
+]

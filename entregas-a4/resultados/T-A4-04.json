@@ -1,0 +1,115 @@
+{
+  "id": "T-A4-04",
+  "ids_originais": "B-102; C-92/C-93/C-94",
+  "problemas": "D-A4-01",
+  "cenario_ficticio": "Cache clínico antigo e estado persistido mais novo antes de merge",
+  "oraculo_independente": "Preimage contém bytes do estado persistido atual, não somente care do cache. Quarentena/revisão/history existentes continuam exatos; arquivo solicitado não é declarado verificado.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "downloadCare": {
+      "version": 2,
+      "patients": [
+        {
+          "id": "pA",
+          "name": "Paciente Fictício A",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        }
+      ],
+      "records": [
+        {
+          "id": "rA",
+          "patientId": "pA",
+          "date": "2026-10-10",
+          "month": "2026-10",
+          "amount": 12345,
+          "service": "Serviço fictício A",
+          "payment": "Pix",
+          "status": "Recebido",
+          "snapshot": {
+            "name": "Paciente Fictício A",
+            "cpf": "",
+            "phone": "",
+            "email": "",
+            "address": "",
+            "cep": ""
+          }
+        }
+      ],
+      "notes": [
+        {
+          "id": "nA",
+          "patientId": "pA",
+          "date": "2026-10-10",
+          "tooth": "11",
+          "text": "Evolução fictícia A",
+          "done": false
+        }
+      ]
+    },
+    "actualPreimage": {
+      "version": 2,
+      "patients": [
+        {
+          "id": "pA",
+          "name": "Paciente Fictício A",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        },
+        {
+          "id": "8b2c4e64-f17c-4756-ac7b-4a96267f04b3",
+          "name": "Paciente Fictício recente A",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": "",
+          "source": "Cadastro no aplicativo"
+        }
+      ],
+      "records": [
+        {
+          "id": "rA",
+          "patientId": "pA",
+          "date": "2026-10-10",
+          "month": "2026-10",
+          "amount": 98765,
+          "service": "Serviço fictício A",
+          "payment": "Pix",
+          "status": "Recebido",
+          "snapshot": {
+            "name": "Paciente Fictício A",
+            "cpf": "",
+            "phone": "",
+            "email": "",
+            "address": "",
+            "cep": ""
+          }
+        }
+      ],
+      "notes": [
+        {
+          "id": "nA",
+          "patientId": "pA",
+          "date": "2026-10-10",
+          "tooth": "11",
+          "text": "Evolução fictícia A",
+          "done": true
+        }
+      ]
+    },
+    "historyBefore": [],
+    "historyAfter": []
+  },
+  "execucao_principal": "resultados-grupo1.json",
+  "resumo_observado": "Cópia ANTES-MESCLAR contém care antigo; não captura o estado clínico autoritativo mais recente.",
+  "evidencia_individual": "resultados/T-A4-04.json"
+}

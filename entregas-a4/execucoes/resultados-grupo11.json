@@ -1,0 +1,352 @@
+[
+  {
+    "id": "T-A4-42",
+    "ids_originais": "P0-4; PERF-01",
+    "problemas": "D-A4-10",
+    "cenario_ficticio": "Volumes fictícios seed/feed originais, vazio, grande, ambiguidades e nomes acentuados",
+    "oraculo_independente": "Medir baseline/candidata em condições iguais; união, campos, pending e estatísticas equivalentes. Índices não alteram política por normalização/colisão.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "NÃO TESTADO",
+    "observado": {
+      "baseline": [
+        {
+          "label": "seed-feed-original",
+          "ms": 12355.300000000745,
+          "patients": 4892,
+          "pending": 0,
+          "stats": {
+            "added": 271,
+            "matched": 4636,
+            "updated": 0,
+            "manual": 0,
+            "ambiguous": 0
+          }
+        },
+        {
+          "label": "vazio",
+          "ms": 0.10000000149011612,
+          "patients": 0,
+          "pending": 0,
+          "stats": {
+            "added": 0,
+            "matched": 0,
+            "updated": 0,
+            "manual": 0,
+            "ambiguous": 0
+          }
+        }
+      ],
+      "reason": "Nenhuma candidata de correção autorizada/existente; equivalência baseline/candidata não executável nesta etapa."
+    }
+  },
+  {
+    "id": "T-A4-41",
+    "ids_originais": "Sem ID histórico específico",
+    "problemas": "D-A4-09",
+    "cenario_ficticio": "Cadastro muda mas pagamento antigo tem snapshot; taxa manual diverge da automática",
+    "oraculo_independente": "Distinguir histórico e atual com rótulo; não reescrever snapshot ou input manual para uniformizar aparência. Provar consistência de IDs e origem.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "patientBefore": {
+        "id": "pA",
+        "name": "Paciente Fictício A",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": ""
+      },
+      "patientAfter": {
+        "id": "pA",
+        "name": "Paciente Fictício A atualizado",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": "",
+        "source": "Cadastro no aplicativo"
+      },
+      "snapshotBefore": {
+        "name": "Paciente Fictício A",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": ""
+      },
+      "snapshotAfter": {
+        "name": "Paciente Fictício A",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": ""
+      },
+      "clinicalMessage": "Cadastro salvo. Pagamentos anteriores mantêm os dados da época; edite o pagamento para atualizá-los.",
+      "manualFeeBefore": "12.34",
+      "feeAfter": "10",
+      "feeSourceAfter": "true"
+    }
+  },
+  {
+    "id": "T-A4-16",
+    "ids_originais": "Sem ID histórico específico",
+    "problemas": "D-A4-03",
+    "cenario_ficticio": "Duplicados internos no arquivo e referências inexistentes",
+    "oraculo_independente": "Validação/preflight impede escrita inconsistente; bytes originais do arquivo permanecem disponíveis; nenhum subconjunto é descartado silenciosamente.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "result": {
+        "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+        "downloads": [
+          "downloads/11004-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+        ]
+      },
+      "persistedLedger": [
+        {
+          "id": "Cora:F1",
+          "date": "2026-10-10",
+          "bank": "Cora",
+          "description": "Fictício 1",
+          "amount": 1001,
+          "kind": "Receita"
+        },
+        {
+          "id": "Cora:F2",
+          "date": "2026-10-10",
+          "bank": "Cora",
+          "description": "Fictício 2",
+          "amount": 1002,
+          "kind": "Receita"
+        }
+      ],
+      "action": "Duas linhas internas com mesmo ID e conteúdos divergentes; primeiro vence sem conflito. Cadastro duplicado e vínculo ausente são recusados em subcasos anteriores."
+    }
+  },
+  {
+    "id": "T-A4-30",
+    "ids_originais": "A1-45; navegação 18 telas",
+    "problemas": "D-A4-09",
+    "cenario_ficticio": "Abrir as 18 telas pelo menu, atalhos, ações internas e após merge",
+    "oraculo_independente": "Uma página/menu ativos coerentes; projeções dependentes atualizam; navegar não grava clínico ou duplica listeners/ações. Rascunhos e filtros preservados.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "menuPages": [
+        "ma56-home",
+        "dash",
+        "quick",
+        "accounting",
+        "ma55-cost",
+        "sim",
+        "ledger",
+        "ma55-contador",
+        "sources",
+        "patients",
+        "notes",
+        "tcle",
+        "ma55-academy",
+        "ma55-training",
+        "ma55-materials",
+        "ma61-sanitary",
+        "ma56-project",
+        "backup"
+      ],
+      "navigation": [
+        {
+          "pages": [
+            "ma56-home"
+          ],
+          "menu": [
+            "ma56-home"
+          ]
+        },
+        {
+          "pages": [
+            "dash"
+          ],
+          "menu": [
+            "dash"
+          ]
+        },
+        {
+          "pages": [
+            "quick"
+          ],
+          "menu": [
+            "quick"
+          ]
+        },
+        {
+          "pages": [
+            "accounting"
+          ],
+          "menu": [
+            "accounting"
+          ]
+        },
+        {
+          "pages": [
+            "ma55-cost"
+          ],
+          "menu": [
+            "ma55-cost"
+          ]
+        },
+        {
+          "pages": [
+            "sim"
+          ],
+          "menu": [
+            "sim"
+          ]
+        },
+        {
+          "pages": [
+            "ledger"
+          ],
+          "menu": [
+            "ledger"
+          ]
+        },
+        {
+          "pages": [
+            "ma55-contador"
+          ],
+          "menu": [
+            "ma55-contador"
+          ]
+        },
+        {
+          "pages": [
+            "sources"
+          ],
+          "menu": [
+            "sources"
+          ]
+        },
+        {
+          "pages": [
+            "patients"
+          ],
+          "menu": [
+            "patients"
+          ]
+        },
+        {
+          "pages": [
+            "notes"
+          ],
+          "menu": [
+            "notes"
+          ]
+        },
+        {
+          "pages": [
+            "tcle"
+          ],
+          "menu": [
+            "tcle"
+          ]
+        },
+        {
+          "pages": [
+            "ma55-academy"
+          ],
+          "menu": [
+            "ma55-academy"
+          ]
+        },
+        {
+          "pages": [
+            "ma55-training"
+          ],
+          "menu": [
+            "ma55-training"
+          ]
+        },
+        {
+          "pages": [
+            "ma55-materials"
+          ],
+          "menu": [
+            "ma55-materials"
+          ]
+        },
+        {
+          "pages": [
+            "ma61-sanitary"
+          ],
+          "menu": [
+            "ma61-sanitary"
+          ]
+        },
+        {
+          "pages": [
+            "ma56-project"
+          ],
+          "menu": [
+            "ma56-project"
+          ]
+        },
+        {
+          "pages": [
+            "backup"
+          ],
+          "menu": [
+            "backup"
+          ]
+        }
+      ],
+      "ledgerPersisted": 2,
+      "ledgerModel": 1,
+      "scope": "18 telas pelo menu, depois merge; atalhos não cobertos. Navegar não reidrata modelo bancário."
+    }
+  },
+  {
+    "id": "T-A4-10",
+    "ids_originais": "Sem ID histórico específico",
+    "problemas": "D-A4-02; D-A4-09",
+    "cenario_ficticio": "Formulário clínico, taxa manual e texto de evolução não salvos durante atualização",
+    "oraculo_independente": "Rascunhos, foco e seleção não são descartados; conflito explícito bloqueia commit inseguro. Qualquer descarte exige confirmação expressa.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "APROVADO",
+    "observado": {
+      "result": {
+        "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+        "downloads": [
+          "downloads/11005-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+        ]
+      },
+      "drafts": [
+        "Cadastro fictício rascunho",
+        "Serviço fictício em edição",
+        "Evolução fictícia não salva"
+      ],
+      "scope": "Campos montados cadastro/pagamento/evolução legada, esta última oculta pela interface estruturada; taxa personalizada persistida."
+    }
+  },
+  {
+    "id": "T-A4-31",
+    "ids_originais": "P1-7b; P1-3 (regressões A5)",
+    "problemas": "D-A4-06",
+    "cenario_ficticio": "Restore com duas DEV.4 abertas e tentativa de gravar estado de epoch antigo",
+    "oraculo_independente": "Restore continua recusado com outra aba; páginas/ações obsoletas não ganham permissão por refresh de UI. Testar também operação assíncrona iniciada em revisão anterior.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "APROVADO",
+    "observado": {
+      "asyncOldEpochSave": false,
+      "ledgerPreserved": true,
+      "guard": "O estado foi restaurado por outra aba. Recarregue antes de editar.",
+      "method": "Troca sintética de epoch durante await de captura de preimage da operação bancária. Bloqueio de restore duas abas já testado grupo3."
+    }
+  }
+]

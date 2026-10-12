@@ -1,0 +1,19 @@
+T-A4-12 REPROVADO
+T-A4-13 REPROVADO
+T-A4-14 REPROVADO
+T-A4-15 REPROVADO
+T-A4-16 APROVADO
+T-A4-19 REPROVADO
+T-A4-20 REPROVADO
+T-A4-18 APROVADO
+T-A4-17 APROVADO
+T-A4-21 REPROVADO
+DIAGNOSTICO {'guard': '', 'restore': '', 'backup': ''}
+Traceback (most recent call last):
+  File "/workspace/reproducao-a4/executar.py", line 94, in main
+    s.fault(p,'ma-installment-rates-v1');before=s.get(p,'ma-installment-rates-v1');s.rate(p,3,4.5);detail=dict(persisted=s.get(p,'ma-installment-rates-v1'),before=before,status=p.locator('#ma53-rates-status').text_content(),label=p.locator('[data-rate="3"]').locator('xpath=../..').inner_text(),value=p.locator('[data-rate="3"]').input_value());record(33,'salva' not in detail['label'].lower(),dict(**detail,limitation='Erro QuotaExceededError injetado; preenchimento físico da quota do navegador não executado.'));s.unfault(p)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/reproducao-a4/executar.py", line 83, in group2
+    out=mergepure(m.care(),feed);save('T22-codental',out);record(22,len(out['db']['patients'])==2 or len(out['db']['codentalImport']['pending'])>0,dict(result=out,action='Nome igual, CPF vazio, IDs distintos'))
+                                                                                                         ^^^^^^^^^^^^^^
+KeyError: 'pending'

@@ -1,0 +1,40 @@
+{
+  "id": "T-A4-16",
+  "ids_originais": "Sem ID histórico específico",
+  "problemas": "D-A4-03",
+  "cenario_ficticio": "Duplicados internos no arquivo e referências inexistentes",
+  "oraculo_independente": "Validação/preflight impede escrita inconsistente; bytes originais do arquivo permanecem disponíveis; nenhum subconjunto é descartado silenciosamente.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "result": {
+      "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+      "downloads": [
+        "downloads/11004-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+      ]
+    },
+    "persistedLedger": [
+      {
+        "id": "Cora:F1",
+        "date": "2026-10-10",
+        "bank": "Cora",
+        "description": "Fictício 1",
+        "amount": 1001,
+        "kind": "Receita"
+      },
+      {
+        "id": "Cora:F2",
+        "date": "2026-10-10",
+        "bank": "Cora",
+        "description": "Fictício 2",
+        "amount": 1002,
+        "kind": "Receita"
+      }
+    ],
+    "action": "Duas linhas internas com mesmo ID e conteúdos divergentes; primeiro vence sem conflito. Cadastro duplicado e vínculo ausente são recusados em subcasos anteriores."
+  },
+  "execucao_principal": "resultados-grupo11.json",
+  "resumo_observado": "Duplicados clínicos/vínculo ausente são recusados; duplicados internos bancários divergentes são aceitos, primeiro vence silenciosamente.",
+  "evidencia_individual": "resultados/T-A4-16.json"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "T-A4-10",
+  "ids_originais": "Sem ID histórico específico",
+  "problemas": "D-A4-02; D-A4-09",
+  "cenario_ficticio": "Formulário clínico, taxa manual e texto de evolução não salvos durante atualização",
+  "oraculo_independente": "Rascunhos, foco e seleção não são descartados; conflito explícito bloqueia commit inseguro. Qualquer descarte exige confirmação expressa.",
+  "estado": "✓ APROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "APROVADO",
+  "observado": {
+    "result": {
+      "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+      "downloads": [
+        "downloads/11005-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+      ]
+    },
+    "drafts": [
+      "Cadastro fictício rascunho",
+      "Serviço fictício em edição",
+      "Evolução fictícia não salva"
+    ],
+    "scope": "Campos montados cadastro/pagamento/evolução legada, esta última oculta pela interface estruturada; taxa personalizada persistida."
+  },
+  "execucao_principal": "resultados-grupo11.json",
+  "resumo_observado": "Rascunhos montados de cadastro/pagamento/evolução legada e taxa personalizada sobreviveram ao merge na amostra.",
+  "evidencia_individual": "resultados/T-A4-10.json"
+}

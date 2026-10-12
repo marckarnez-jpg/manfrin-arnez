@@ -1,0 +1,88 @@
+{
+  "id": "T-A4-25",
+  "ids_originais": "Sem ID histórico específico",
+  "problemas": "D-A4-05",
+  "cenario_ficticio": "Dois candidatos por CPF/nome e CodentalId conflitante",
+  "oraculo_independente": "Nenhuma fusão arbitrária; prévia/pending lista conflito; original e vínculos clínicos permanecem íntegros.",
+  "estado": "✓ APROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "APROVADO",
+  "observado": {
+    "conflictingCodentalId": {
+      "db": {
+        "version": 2,
+        "patients": [
+          {
+            "id": "pA",
+            "name": "Paciente Fictício A",
+            "cpf": "",
+            "phone": "",
+            "email": "",
+            "address": "",
+            "cep": "",
+            "codentalId": "OUTRO-ID"
+          }
+        ],
+        "records": [
+          {
+            "id": "rA",
+            "patientId": "pA",
+            "date": "2026-10-10",
+            "month": "2026-10",
+            "amount": 12345,
+            "service": "Serviço fictício A",
+            "payment": "Pix",
+            "status": "Recebido",
+            "snapshot": {
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": ""
+            }
+          }
+        ],
+        "notes": [
+          {
+            "id": "nA",
+            "patientId": "pA",
+            "date": "2026-10-10",
+            "tooth": "11",
+            "text": "Evolução fictícia A",
+            "done": false
+          }
+        ],
+        "codentalImport": {
+          "date": "2026-10-10",
+          "total": 1,
+          "stats": {
+            "added": 0,
+            "matched": 0,
+            "updated": 0,
+            "manual": 0,
+            "ambiguous": 1
+          },
+          "pending": [
+            {
+              "codentalId": null,
+              "name": "Paciente Fictício A",
+              "reason": "Mais de um cadastro compatível; revisar antes de unir."
+            }
+          ]
+        }
+      },
+      "stats": {
+        "added": 0,
+        "matched": 0,
+        "updated": 0,
+        "manual": 0,
+        "ambiguous": 1
+      }
+    },
+    "scope": "Ambiguidade por múltiplos candidatos testada no grupo9, conflito de CodentalId aqui."
+  },
+  "execucao_principal": "resultados-grupo12.json",
+  "resumo_observado": "Múltiplos candidatos e CodentalId conflitante geram pending; não ocorre escolha arbitrária nos subcasos.",
+  "evidencia_individual": "resultados/T-A4-25.json"
+}

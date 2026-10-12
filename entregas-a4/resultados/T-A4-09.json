@@ -1,0 +1,34 @@
+{
+  "id": "T-A4-09",
+  "ids_originais": "A1-45",
+  "problemas": "D-A4-02; D-A4-09",
+  "cenario_ficticio": "Merge acrescenta paciente/evolução/pagamento com busca e seleção ativas",
+  "oraculo_independente": "Pesquisar encontra novos IDs; relação e notas contam os mesmos registros persistidos; seleção válida permanece por ID, sem exibir ficha errada.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "noteDOM": "Paciente Fictício A10/10/2026 · Pendente de lançamento10/10/2026 · Dente/região: 11\nEvolução fictícia ACopiar evoluçãoEditar rascunhoMarcar como lançada no Codental",
+    "notesPersisted": [
+      {
+        "id": "nA",
+        "patientId": "pA",
+        "date": "2026-10-10",
+        "tooth": "11",
+        "text": "Evolução fictícia A",
+        "done": false
+      },
+      {
+        "id": "nB",
+        "patientId": "pB",
+        "date": "2026-10-10",
+        "tooth": "11",
+        "text": "Evolução fictícia B",
+        "done": false
+      }
+    ]
+  },
+  "execucao_principal": "resultados-grupo1.json",
+  "resumo_observado": "Nova evolução persistida pelo merge não aparece no note-list já montado.",
+  "evidencia_individual": "resultados/T-A4-09.json"
+}

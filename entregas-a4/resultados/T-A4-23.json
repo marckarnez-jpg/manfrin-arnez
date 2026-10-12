@@ -1,0 +1,128 @@
+{
+  "id": "T-A4-23",
+  "ids_originais": "Sem ID histórico específico",
+  "problemas": "D-A4-05",
+  "cenario_ficticio": "Campo manual não vazio, campo vazio, origens históricas diversas e fonte recebida vazia",
+  "oraculo_independente": "Vazio não apaga valor; política manual por campo é demonstrável; casos sem proveniência ficam para revisão, não recebem suposição automática.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "before": {
+      "version": 2,
+      "patients": [
+        {
+          "id": "pA",
+          "name": "Paciente Fictício A",
+          "cpf": "",
+          "phone": "(00) 00000-0000",
+          "email": "",
+          "address": "",
+          "cep": "",
+          "source": "Base histórica fictícia sem proveniência por campo"
+        }
+      ],
+      "records": [
+        {
+          "id": "rA",
+          "patientId": "pA",
+          "date": "2026-10-10",
+          "month": "2026-10",
+          "amount": 12345,
+          "service": "Serviço fictício A",
+          "payment": "Pix",
+          "status": "Recebido",
+          "snapshot": {
+            "name": "Paciente Fictício A",
+            "cpf": "",
+            "phone": "",
+            "email": "",
+            "address": "",
+            "cep": ""
+          }
+        }
+      ],
+      "notes": [
+        {
+          "id": "nA",
+          "patientId": "pA",
+          "date": "2026-10-10",
+          "tooth": "11",
+          "text": "Evolução fictícia A",
+          "done": false
+        }
+      ]
+    },
+    "result": {
+      "db": {
+        "version": 2,
+        "patients": [
+          {
+            "id": "pA",
+            "name": "Paciente Fictício A",
+            "cpf": "",
+            "phone": "(00) 11111-1111",
+            "email": "novo@example.test",
+            "address": "Endereço fictício novo",
+            "cep": "00000-000",
+            "source": "Exportação Codental 2026-10-10",
+            "codentalId": null
+          }
+        ],
+        "records": [
+          {
+            "id": "rA",
+            "patientId": "pA",
+            "date": "2026-10-10",
+            "month": "2026-10",
+            "amount": 12345,
+            "service": "Serviço fictício A",
+            "payment": "Pix",
+            "status": "Recebido",
+            "snapshot": {
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": ""
+            }
+          }
+        ],
+        "notes": [
+          {
+            "id": "nA",
+            "patientId": "pA",
+            "date": "2026-10-10",
+            "tooth": "11",
+            "text": "Evolução fictícia A",
+            "done": false
+          }
+        ],
+        "codentalImport": {
+          "date": "2026-10-10",
+          "total": 1,
+          "stats": {
+            "added": 0,
+            "matched": 1,
+            "updated": 1,
+            "manual": 0,
+            "ambiguous": 0
+          },
+          "pending": []
+        }
+      },
+      "stats": {
+        "added": 0,
+        "matched": 1,
+        "updated": 1,
+        "manual": 0,
+        "ambiguous": 0
+      }
+    },
+    "scope": "Fonte histórica sem proveniência: campo preenchido é atualizado automaticamente; política exige revisão. Campo manual explícito e entrada vazia foram testados no grupo9."
+  },
+  "execucao_principal": "resultados-grupo12.json",
+  "resumo_observado": "Campo preenchido de origem histórica sem proveniência é sobrescrito; manual explícito e entrada vazia foram preservados em subcasos.",
+  "evidencia_individual": "resultados/T-A4-23.json"
+}

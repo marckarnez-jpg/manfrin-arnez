@@ -1,0 +1,18 @@
+{
+  "format": "manfrin-arnez-sanitary-checklist",
+  "version": 1,
+  "createdAt": "2026-10-12T03:17:16.556Z",
+  "data": {
+    "version": 1,
+    "states": {},
+    "evidence": {},
+    "notes": {
+      "docs-visa": "Anotação fictícia recusada"
+    },
+    "responsible": {},
+    "due": {},
+    "updated": {
+      "docs-visa": "2026-10-12T03:17:16.546Z"
+    }
+  }
+}

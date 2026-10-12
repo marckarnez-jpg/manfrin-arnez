@@ -1,0 +1,21 @@
+{
+  "id": "T-A4-27",
+  "ids_originais": "P1-3",
+  "problemas": "D-A4-06",
+  "cenario_ficticio": "Duas abas alteram parcelas distintas ou a mesma taxa; ma53 e ma57 alternados",
+  "oraculo_independente": "Nova taxa de B não some após ação antiga de A. Conflito no mesmo campo requer revisão; ma53Rates, Finance e ma57 exibem revisão coerente após atualização autorizada.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "action": "B muda 2x; A desatualizada muda 3x",
+    "persisted": {
+      "3": 9.3,
+      "5": 3.1,
+      "10": 5.2
+    }
+  },
+  "execucao_principal": "resultados-grupo3.json",
+  "resumo_observado": "Taxa 2x salva em B desaparece quando A desatualizada salva 3x.",
+  "evidencia_individual": "resultados/T-A4-27.json"
+}

@@ -1,0 +1,198 @@
+{
+  "id": "T-A4-34",
+  "ids_originais": "Sem ID histórico específico",
+  "problemas": "D-A4-07",
+  "cenario_ficticio": "Falhar ao incluir material/equipamento/análise e depois repetir salvamento",
+  "oraculo_independente": "Modelo confirmado permanece anterior; retry gera uma única inclusão desejada, sem acumular duas entradas por mutações anteriores em memória.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "after": {
+      "version": 1,
+      "settings": {
+        "monthly": 100,
+        "hours": 20,
+        "target": 25,
+        "minimum": 10,
+        "tax": 0,
+        "rates": {}
+      },
+      "materials": [
+        {
+          "id": "mA",
+          "name": "Material fictício",
+          "price": 10,
+          "size": 100,
+          "unit": "g",
+          "category": "Teste"
+        },
+        {
+          "id": "idmv4okyqtqwus2",
+          "name": "Material Fictício retry",
+          "brand": "",
+          "category": "Cimento",
+          "size": 100,
+          "unit": "g",
+          "price": 10,
+          "supplier": "",
+          "date": "2026-10-12"
+        },
+        {
+          "id": "idmv4okysw9pr9d",
+          "name": "Material Fictício retry",
+          "brand": "",
+          "category": "Cimento",
+          "size": 100,
+          "unit": "g",
+          "price": 10,
+          "supplier": "",
+          "date": "2026-10-12"
+        }
+      ],
+      "equipment": [],
+      "sessions": [],
+      "customPops": [],
+      "checks": {},
+      "training": [],
+      "ma58": {
+        "version": 1,
+        "kind": "anterior",
+        "base": "A2",
+        "target": "A2",
+        "step": {
+          "anterior": 0,
+          "posterior": 0
+        },
+        "checks": {
+          "anterior": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "posterior": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      },
+      "ma59": {
+        "version": 1,
+        "checks": {},
+        "step": {},
+        "current": "crown",
+        "filter": "Todas",
+        "search": ""
+      },
+      "ma60": {
+        "version": 1,
+        "kind": "crown",
+        "material": {
+          "crown": "onx",
+          "model": "acqua",
+          "splint": "cosmos"
+        },
+        "washStage": 0,
+        "blastMaterial": "printed",
+        "blastStage": 0,
+        "colorZone": {
+          "anterior": "cervical",
+          "posterior": "cervical"
+        },
+        "washChecks": {},
+        "blastChecks": {}
+      }
+    },
+    "failedPersisted": {
+      "version": 1,
+      "settings": {
+        "monthly": 100,
+        "hours": 20,
+        "target": 25,
+        "minimum": 10,
+        "tax": 0,
+        "rates": {}
+      },
+      "materials": [
+        {
+          "id": "mA",
+          "name": "Material fictício",
+          "price": 10,
+          "size": 100,
+          "unit": "g",
+          "category": "Teste"
+        }
+      ],
+      "equipment": [],
+      "sessions": [],
+      "customPops": [],
+      "checks": {},
+      "training": [],
+      "ma58": {
+        "version": 1,
+        "kind": "anterior",
+        "base": "A2",
+        "target": "A2",
+        "step": {
+          "anterior": 0,
+          "posterior": 0
+        },
+        "checks": {
+          "anterior": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "posterior": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      },
+      "ma59": {
+        "version": 1,
+        "checks": {},
+        "step": {},
+        "current": "crown",
+        "filter": "Todas",
+        "search": ""
+      },
+      "ma60": {
+        "version": 1,
+        "kind": "crown",
+        "material": {
+          "crown": "onx",
+          "model": "acqua",
+          "splint": "cosmos"
+        },
+        "washStage": 0,
+        "blastMaterial": "printed",
+        "blastStage": 0,
+        "colorZone": {
+          "anterior": "cervical",
+          "posterior": "cervical"
+        },
+        "washChecks": {},
+        "blastChecks": {}
+      }
+    },
+    "scope": "Inclusão material/retry; equipamento e análise usam outros handlers e não foram executados."
+  },
+  "execucao_principal": "resultados-grupo3.json",
+  "resumo_observado": "Inclusão de material recusada fica em memória; repetir inclusão persiste dois materiais iguais.",
+  "evidencia_individual": "resultados/T-A4-34.json"
+}

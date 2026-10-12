@@ -1,0 +1,17 @@
+{
+  "id": "T-A4-18",
+  "ids_originais": "BKP-02 (regressão A5)",
+  "problemas": "D-A4-04",
+  "cenario_ficticio": "V3 da DEV.4 com clínico/livro/Academia/checklists/proteções",
+  "oraculo_independente": "Conforme decisão E: suporte seguro com cobertura explícita, ou recusa declarada sem alterações. Não tratar omissão de módulos do merge como backup completo que os recria.",
+  "estado": "✓ APROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "APROVADO",
+  "observado": {
+    "message": "Não foi possível mesclar: Escolha um backup completo (.json) gerado pelo dashboard.",
+    "downloads": []
+  },
+  "execucao_principal": "resultados-grupo2.json",
+  "resumo_observado": "Backup v3 produzido pela DEV.4 é recusado pelo merge, sem alterar bases ativas (recusa segura, mensagem genérica).",
+  "evidencia_individual": "resultados/T-A4-18.json"
+}

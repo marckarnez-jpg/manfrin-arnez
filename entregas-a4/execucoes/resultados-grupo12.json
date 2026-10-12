@@ -1,0 +1,242 @@
+[
+  {
+    "id": "T-A4-23",
+    "ids_originais": "Sem ID histórico específico",
+    "problemas": "D-A4-05",
+    "cenario_ficticio": "Campo manual não vazio, campo vazio, origens históricas diversas e fonte recebida vazia",
+    "oraculo_independente": "Vazio não apaga valor; política manual por campo é demonstrável; casos sem proveniência ficam para revisão, não recebem suposição automática.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "before": {
+        "version": 2,
+        "patients": [
+          {
+            "id": "pA",
+            "name": "Paciente Fictício A",
+            "cpf": "",
+            "phone": "(00) 00000-0000",
+            "email": "",
+            "address": "",
+            "cep": "",
+            "source": "Base histórica fictícia sem proveniência por campo"
+          }
+        ],
+        "records": [
+          {
+            "id": "rA",
+            "patientId": "pA",
+            "date": "2026-10-10",
+            "month": "2026-10",
+            "amount": 12345,
+            "service": "Serviço fictício A",
+            "payment": "Pix",
+            "status": "Recebido",
+            "snapshot": {
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": ""
+            }
+          }
+        ],
+        "notes": [
+          {
+            "id": "nA",
+            "patientId": "pA",
+            "date": "2026-10-10",
+            "tooth": "11",
+            "text": "Evolução fictícia A",
+            "done": false
+          }
+        ]
+      },
+      "result": {
+        "db": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "(00) 11111-1111",
+              "email": "novo@example.test",
+              "address": "Endereço fictício novo",
+              "cep": "00000-000",
+              "source": "Exportação Codental 2026-10-10",
+              "codentalId": null
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ],
+          "codentalImport": {
+            "date": "2026-10-10",
+            "total": 1,
+            "stats": {
+              "added": 0,
+              "matched": 1,
+              "updated": 1,
+              "manual": 0,
+              "ambiguous": 0
+            },
+            "pending": []
+          }
+        },
+        "stats": {
+          "added": 0,
+          "matched": 1,
+          "updated": 1,
+          "manual": 0,
+          "ambiguous": 0
+        }
+      },
+      "scope": "Fonte histórica sem proveniência: campo preenchido é atualizado automaticamente; política exige revisão. Campo manual explícito e entrada vazia foram testados no grupo9."
+    }
+  },
+  {
+    "id": "T-A4-25",
+    "ids_originais": "Sem ID histórico específico",
+    "problemas": "D-A4-05",
+    "cenario_ficticio": "Dois candidatos por CPF/nome e CodentalId conflitante",
+    "oraculo_independente": "Nenhuma fusão arbitrária; prévia/pending lista conflito; original e vínculos clínicos permanecem íntegros.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "APROVADO",
+    "observado": {
+      "conflictingCodentalId": {
+        "db": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": "",
+              "codentalId": "OUTRO-ID"
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ],
+          "codentalImport": {
+            "date": "2026-10-10",
+            "total": 1,
+            "stats": {
+              "added": 0,
+              "matched": 0,
+              "updated": 0,
+              "manual": 0,
+              "ambiguous": 1
+            },
+            "pending": [
+              {
+                "codentalId": null,
+                "name": "Paciente Fictício A",
+                "reason": "Mais de um cadastro compatível; revisar antes de unir."
+              }
+            ]
+          }
+        },
+        "stats": {
+          "added": 0,
+          "matched": 0,
+          "updated": 0,
+          "manual": 0,
+          "ambiguous": 1
+        }
+      },
+      "scope": "Ambiguidade por múltiplos candidatos testada no grupo9, conflito de CodentalId aqui."
+    }
+  },
+  {
+    "id": "T-A4-24",
+    "ids_originais": "B-123 (regressão A5)",
+    "problemas": "D-A4-05",
+    "cenario_ficticio": "Sincronizar mesmo feed duas vezes, depois restaurar e abrir novamente",
+    "oraculo_independente": "Idempotência do feed, pagamentos/evoluções preservados; supressão de seeds mantida; sync manual não reativa reinjeção automática.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "APROVADO",
+    "observado": {
+      "firstCounts": {
+        "patients": 4893,
+        "records": 1,
+        "notes": 1
+      },
+      "secondCounts": {
+        "patients": 4893,
+        "records": 1,
+        "notes": 1
+      },
+      "restoredCounts": {
+        "patients": 1,
+        "records": 1,
+        "notes": 1
+      },
+      "suppressSeeds": "1",
+      "backup": "downloads/12001-Manfrin-Arnez-BACKUP-COMPLETO_ESTADO_PERSISTIDO-V3-2026-10-12.json",
+      "scope": "Duas sincronizações pelo botão original com feed integral fictício; restauração v3 e recarga sem reinjeção."
+    }
+  }
+]

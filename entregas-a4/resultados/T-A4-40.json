@@ -1,0 +1,22 @@
+{
+  "id": "T-A4-40",
+  "ids_originais": "Sem ID histórico específico",
+  "problemas": "D-A4-09",
+  "cenario_ficticio": "Mês escolhido janeiro/2027; merge tem pagamentos outubro/2026; filtro vazio",
+  "oraculo_independente": "Mês explícito do usuário é conservado ou troca exige decisão; mostrar registros fora do filtro sem afirmar ausência de dados ou contagem global incorreta.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "result": {
+      "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+      "downloads": [
+        "downloads/6-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+      ]
+    },
+    "month": "2026-10"
+  },
+  "execucao_principal": "resultados-grupo1.json",
+  "resumo_observado": "Mês escolhido 2027-01 é substituído por 2026-10 sem escolha específica ao mesclar pagamentos de outubro.",
+  "evidencia_individual": "resultados/T-A4-40.json"
+}

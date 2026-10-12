@@ -1,0 +1,44 @@
+{
+  "id": "T-A4-42",
+  "ids_originais": "P0-4; PERF-01",
+  "problemas": "D-A4-10",
+  "cenario_ficticio": "Volumes fictícios seed/feed originais, vazio, grande, ambiguidades e nomes acentuados",
+  "oraculo_independente": "Medir baseline/candidata em condições iguais; união, campos, pending e estatísticas equivalentes. Índices não alteram política por normalização/colisão.",
+  "estado": "○ NÃO TESTADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "NÃO TESTADO",
+  "observado": {
+    "baseline": [
+      {
+        "label": "seed-feed-original",
+        "ms": 12355.300000000745,
+        "patients": 4892,
+        "pending": 0,
+        "stats": {
+          "added": 271,
+          "matched": 4636,
+          "updated": 0,
+          "manual": 0,
+          "ambiguous": 0
+        }
+      },
+      {
+        "label": "vazio",
+        "ms": 0.10000000149011612,
+        "patients": 0,
+        "pending": 0,
+        "stats": {
+          "added": 0,
+          "matched": 0,
+          "updated": 0,
+          "manual": 0,
+          "ambiguous": 0
+        }
+      }
+    ],
+    "reason": "Nenhuma candidata de correção autorizada/existente; equivalência baseline/candidata não executável nesta etapa."
+  },
+  "execucao_principal": "resultados-grupo11.json",
+  "resumo_observado": "Baseline original medido; não há candidata autorizada para comparação de equivalência.",
+  "evidencia_individual": "resultados/T-A4-42.json"
+}

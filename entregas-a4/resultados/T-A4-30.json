@@ -1,0 +1,184 @@
+{
+  "id": "T-A4-30",
+  "ids_originais": "A1-45; navegação 18 telas",
+  "problemas": "D-A4-09",
+  "cenario_ficticio": "Abrir as 18 telas pelo menu, atalhos, ações internas e após merge",
+  "oraculo_independente": "Uma página/menu ativos coerentes; projeções dependentes atualizam; navegar não grava clínico ou duplica listeners/ações. Rascunhos e filtros preservados.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "menuPages": [
+      "ma56-home",
+      "dash",
+      "quick",
+      "accounting",
+      "ma55-cost",
+      "sim",
+      "ledger",
+      "ma55-contador",
+      "sources",
+      "patients",
+      "notes",
+      "tcle",
+      "ma55-academy",
+      "ma55-training",
+      "ma55-materials",
+      "ma61-sanitary",
+      "ma56-project",
+      "backup"
+    ],
+    "navigation": [
+      {
+        "pages": [
+          "ma56-home"
+        ],
+        "menu": [
+          "ma56-home"
+        ]
+      },
+      {
+        "pages": [
+          "dash"
+        ],
+        "menu": [
+          "dash"
+        ]
+      },
+      {
+        "pages": [
+          "quick"
+        ],
+        "menu": [
+          "quick"
+        ]
+      },
+      {
+        "pages": [
+          "accounting"
+        ],
+        "menu": [
+          "accounting"
+        ]
+      },
+      {
+        "pages": [
+          "ma55-cost"
+        ],
+        "menu": [
+          "ma55-cost"
+        ]
+      },
+      {
+        "pages": [
+          "sim"
+        ],
+        "menu": [
+          "sim"
+        ]
+      },
+      {
+        "pages": [
+          "ledger"
+        ],
+        "menu": [
+          "ledger"
+        ]
+      },
+      {
+        "pages": [
+          "ma55-contador"
+        ],
+        "menu": [
+          "ma55-contador"
+        ]
+      },
+      {
+        "pages": [
+          "sources"
+        ],
+        "menu": [
+          "sources"
+        ]
+      },
+      {
+        "pages": [
+          "patients"
+        ],
+        "menu": [
+          "patients"
+        ]
+      },
+      {
+        "pages": [
+          "notes"
+        ],
+        "menu": [
+          "notes"
+        ]
+      },
+      {
+        "pages": [
+          "tcle"
+        ],
+        "menu": [
+          "tcle"
+        ]
+      },
+      {
+        "pages": [
+          "ma55-academy"
+        ],
+        "menu": [
+          "ma55-academy"
+        ]
+      },
+      {
+        "pages": [
+          "ma55-training"
+        ],
+        "menu": [
+          "ma55-training"
+        ]
+      },
+      {
+        "pages": [
+          "ma55-materials"
+        ],
+        "menu": [
+          "ma55-materials"
+        ]
+      },
+      {
+        "pages": [
+          "ma61-sanitary"
+        ],
+        "menu": [
+          "ma61-sanitary"
+        ]
+      },
+      {
+        "pages": [
+          "ma56-project"
+        ],
+        "menu": [
+          "ma56-project"
+        ]
+      },
+      {
+        "pages": [
+          "backup"
+        ],
+        "menu": [
+          "backup"
+        ]
+      }
+    ],
+    "ledgerPersisted": 2,
+    "ledgerModel": 1,
+    "scope": "18 telas pelo menu, depois merge; atalhos não cobertos. Navegar não reidrata modelo bancário."
+  },
+  "execucao_principal": "resultados-grupo11.json",
+  "resumo_observado": "Menu das 18 telas mantém página/menu coerentes; após merge, navegar não reidrata o modelo bancário antigo.",
+  "evidencia_individual": "resultados/T-A4-30.json"
+}

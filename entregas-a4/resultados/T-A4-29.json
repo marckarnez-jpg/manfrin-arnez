@@ -1,0 +1,22 @@
+{
+  "id": "T-A4-29",
+  "ids_originais": "P1-3",
+  "problemas": "D-A4-06",
+  "cenario_ficticio": "Notificação storage/BroadcastChannel atrasada/perdida e aba volta ao foco",
+  "oraculo_independente": "Pré-escrita consulta estado autoritativo sob lock; notificação não é requisito para preservar dados. Mostrar stale/rascunho sem reload automático.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "persisted": {
+      "3": 9.3,
+      "4": 4.4,
+      "5": 3.1,
+      "10": 5.2
+    },
+    "scope": "Retorno ao foco seguido de escrita de taxa; sem supressão artificial de notificações."
+  },
+  "execucao_principal": "resultados-grupo3.json",
+  "resumo_observado": "Retornar ao foco não corrige modelo antigo de taxas antes da próxima escrita.",
+  "evidencia_individual": "resultados/T-A4-29.json"
+}

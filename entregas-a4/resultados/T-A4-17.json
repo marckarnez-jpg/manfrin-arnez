@@ -1,0 +1,22 @@
+{
+  "id": "T-A4-17",
+  "ids_originais": "B-119; B-120",
+  "problemas": "D-A4-04",
+  "cenario_ficticio": "V2 válido completo e V2 parcial com módulos ausentes",
+  "oraculo_independente": "Módulos ausentes permanecem intactos; formato/versão exatos são conferidos; taxas e campos financeiros originais não são normalizados silenciosamente.",
+  "estado": "✓ APROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "APROVADO",
+  "observado": {
+    "result": {
+      "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+      "downloads": [
+        "downloads/2006-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+      ]
+    },
+    "note": "V2 completo clínico/livro com módulos administrativos ausentes; parcial sem care não aceito pelo merge."
+  },
+  "execucao_principal": "resultados-grupo2.json",
+  "resumo_observado": "V2 clínico válido mantém módulos administrativos/taxas ausentes; parcial só livro é recusado sem substituir care.",
+  "evidencia_individual": "resultados/T-A4-17.json"
+}

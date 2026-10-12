@@ -1,0 +1,54 @@
+{
+  "initial": [
+    {
+      "id": "Cora:F1",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "Fictício 1",
+      "amount": 1001,
+      "kind": "Receita"
+    }
+  ],
+  "latest": [
+    {
+      "id": "Cora:F1",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "Fictício 1",
+      "amount": 99999,
+      "kind": "Receita"
+    }
+  ],
+  "after": [
+    {
+      "id": "Cora:F1",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "Fictício 1",
+      "amount": 1001,
+      "kind": "Receita"
+    },
+    {
+      "id": "Cora:F2",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "Fictício 2",
+      "amount": 1002,
+      "kind": "Receita"
+    }
+  ],
+  "ordinaryCorrectionSucceeded": true,
+  "history": [
+    {
+      "id": "operation:8a1f7099-3e39-4ac1-a171-796aa9985beb",
+      "kind": "operation",
+      "createdAt": "2026-10-12T03:18:14.134Z",
+      "origin": "Antes de operação do livro-caixa",
+      "session": "20261012031733106-7a7fc1a1-56c8-4906-979f-21dce1698ad0",
+      "key": "ma-ledger-v1",
+      "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]",
+      "sha256": "e0d9a5048e569856c8217c25e15dc7dc1b3a6a361aba4a1f34bff455855c85b4"
+    }
+  ],
+  "action": "A altera valor bancário enquanto confirmação do merge está aberta em B; aceitar merge em B depois."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "T-A4-11",
+  "ids_originais": "P0-3 (família)",
+  "problemas": "D-A4-03",
+  "cenario_ficticio": "Repetir exatamente o mesmo merge válido",
+  "oraculo_independente": "Segunda prévia mostra iguais/zero acréscimos; quantidades e totais não duplicam; no-op não se apresenta como importação de novos registros.",
+  "estado": "✓ APROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "APROVADO",
+  "observado": {
+    "message": "O backup já está presente aqui: nenhum lançamento duplicado.",
+    "downloads": []
+  },
+  "execucao_principal": "resultados-grupo1.json",
+  "resumo_observado": "Reaplicar o mesmo arquivo não duplica IDs nem muda o estado persistido.",
+  "evidencia_individual": "resultados/T-A4-11.json"
+}

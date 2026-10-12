@@ -1,0 +1,2548 @@
+{
+  "escopo": "Testes/reprodução exclusivamente sintéticos da DEV.4 original; nenhuma correção.",
+  "contagens": {
+    "REPROVADO": 31,
+    "APROVADO": 9,
+    "NÃO TESTADO": 3
+  },
+  "casos": [
+    {
+      "id": "T-A4-01",
+      "ids_originais": "P0-3; A1-45; B-120",
+      "problemas": "D-A4-02",
+      "cenario_ficticio": "Merge em uma aba com dois lançamentos atuais e dois novos",
+      "oraculo_independente": "Sem recarga: armazenamento, modelo e lista têm os quatro IDs; clínica e contadores refletem a união; nenhum aviso falso de gravação concluída.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/1-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "ledgerPersisted": 2,
+        "ledgerUIModel": 1
+      },
+      "execucao_principal": "resultados-grupo1.json",
+      "resumo_observado": "Persistido: 2 linhas bancárias; modelo rows: 1. A projeção não acompanha o merge.",
+      "evidencia_individual": "resultados/T-A4-01.json"
+    },
+    {
+      "id": "T-A4-02",
+      "ids_originais": "P0-3; P1-3",
+      "problemas": "D-A4-01",
+      "cenario_ficticio": "A grava paciente/pagamento fictício novo; B antiga tenta mesclar outro arquivo",
+      "oraculo_independente": "Operação antiga é recusada/recalculada com nova confirmação; o registro de A nunca desaparece. Capturar raw exato das duas bases e preimage quando houver commit.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "latestPatients": [
+          "Paciente Fictício A",
+          "Paciente Fictício recente A"
+        ],
+        "afterPatients": [
+          "Paciente Fictício A",
+          "Paciente Fictício B"
+        ],
+        "paymentBefore": 98765,
+        "paymentAfter": 12345,
+        "noteBefore": true,
+        "noteAfter": false,
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/2-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        }
+      },
+      "execucao_principal": "resultados-grupo1.json",
+      "resumo_observado": "Paciente recente desaparece; pagamento 98765 centavos volta a 12345; evolução marcada volta a pendente.",
+      "evidencia_individual": "resultados/T-A4-02.json"
+    },
+    {
+      "id": "T-A4-03",
+      "ids_originais": "A1-44; A1-45",
+      "problemas": "D-A4-02",
+      "cenario_ficticio": "Após merge confirmado, registrar um lançamento no livro e um pagamento clínico",
+      "oraculo_independente": "Novas gravações usam modelos reidratados e suas cópias anteriores corretas; registros da união permanecem; não exigir remover guardas ou reabrir o HTML.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "ledgerSave": false,
+        "clinicalMessage": "Cadastro modificado por outra aba. Recarregue; nenhum pagamento/cadastro foi sobrescrito."
+      },
+      "execucao_principal": "resultados-grupo1.json",
+      "resumo_observado": "Após merge, correção bancária e cadastro clínico são recusados por referências de comparação/modelos antigos.",
+      "evidencia_individual": "resultados/T-A4-03.json"
+    },
+    {
+      "id": "T-A4-04",
+      "ids_originais": "B-102; C-92/C-93/C-94",
+      "problemas": "D-A4-01",
+      "cenario_ficticio": "Cache clínico antigo e estado persistido mais novo antes de merge",
+      "oraculo_independente": "Preimage contém bytes do estado persistido atual, não somente care do cache. Quarentena/revisão/history existentes continuam exatos; arquivo solicitado não é declarado verificado.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "downloadCare": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": ""
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ]
+        },
+        "actualPreimage": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": ""
+            },
+            {
+              "id": "8b2c4e64-f17c-4756-ac7b-4a96267f04b3",
+              "name": "Paciente Fictício recente A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": "",
+              "source": "Cadastro no aplicativo"
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 98765,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": true
+            }
+          ]
+        },
+        "historyBefore": [],
+        "historyAfter": []
+      },
+      "execucao_principal": "resultados-grupo1.json",
+      "resumo_observado": "Cópia ANTES-MESCLAR contém care antigo; não captura o estado clínico autoritativo mais recente.",
+      "evidencia_individual": "resultados/T-A4-04.json"
+    },
+    {
+      "id": "T-A4-05",
+      "ids_originais": "A1-56/57; P1-7b (regressão A5)",
+      "problemas": "D-A4-01",
+      "cenario_ficticio": "Falha de gravação na segunda e terceira base do merge",
+      "oraculo_independente": "Original recuperado byte a byte ou bloqueio recuperável mantido; nenhum receipt de sucesso; históricos não são removidos. Separar falha simulada de cota real.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "result": {
+          "message": "Não foi possível mesclar: Falha ao salvar a mesclagem; o aplicativo tentou restaurar os dados anteriores. Confira o backup baixado.",
+          "downloads": [
+            "downloads/13002-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "before": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "after": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\":2,\"patients\":[{\"id\":\"pA\",\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"},{\"id\":\"pB\",\"name\":\"Paciente Fictício B\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}],\"records\":[{\"id\":\"rA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício A\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}},{\"id\":\"rB\",\"patientId\":\"pB\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício B\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício B\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}}],\"notes\":[{\"id\":\"nA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"tooth\":\"11\",\"text\":\"Evolução fictícia A\",\"done\":false},{\"id\":\"nB\",\"patientId\":\"pB\",\"date\":\"2026-10-10\",\"tooth\":\"11\",\"text\":\"Evolução fictícia B\",\"done\":false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "guard": "",
+        "history": []
+      },
+      "execucao_principal": "resultados-grupo13.json",
+      "resumo_observado": "Falhas transitórias na segunda/terceira escrita fazem rollback exato; falha também no rollback deixa clínico aplicado, livro antigo e guard vazio.",
+      "evidencia_individual": "resultados/T-A4-05.json"
+    },
+    {
+      "id": "T-A4-06",
+      "ids_originais": "N-1; A1-48 (regressão A5)",
+      "problemas": "D-A4-01",
+      "cenario_ficticio": "IndexedDB indisponível, put abortado ou releitura da preimage divergente",
+      "oraculo_independente": "Zero alteração das bases ativas; explicar recusa de proteção; não substituir journal por download apenas solicitado.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/4-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "history": [],
+        "captureUnavailable": true
+      },
+      "execucao_principal": "resultados-grupo1.json",
+      "resumo_observado": "Merge prossegue apesar de captureOperation sinteticamente indisponível, sem criar journal/preimage A5.",
+      "evidencia_individual": "resultados/T-A4-06.json"
+    },
+    {
+      "id": "T-A4-07",
+      "ids_originais": "P1-7b; B-123 (regressão A5)",
+      "problemas": "D-A4-01",
+      "cenario_ficticio": "Interromper após preimage, marcador, primeira escrita, última escrita e antes do receipt",
+      "oraculo_independente": "Boot recupera estado anterior confirmado ou mantém bloqueio; nunca expõe mistura como sucesso. Sem reinjeção de pacientes/pagamentos embutidos.",
+      "estado": "○ NÃO TESTADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "NÃO TESTADO",
+      "observado": {
+        "reason": "Três tentativas de interrupção por Debugger/crash não produziram uma reabertura verificável: a conexão de automação ficou indisponível. Não inferir recuperação nem perda; fases de journal/marker de merge não existem na DEV.4.",
+        "logs": [
+          "log-grupo5.txt",
+          "log-grupo5-reexecucao.txt",
+          "log-grupo5-terceira-tentativa.txt"
+        ]
+      },
+      "execucao_principal": "resultados-grupo5.json",
+      "resumo_observado": "Interrupção tentada três vezes; perda da conexão de automação impediu validar a reabertura. Fases journal/marker do merge inexistentes.",
+      "evidencia_individual": "resultados/T-A4-07.json"
+    },
+    {
+      "id": "T-A4-08",
+      "ids_originais": "P1-3; C-46",
+      "problemas": "D-A4-01",
+      "cenario_ficticio": "Arquivo lido e prévia pronta; outra alteração ocorre antes/depois da confirmação",
+      "oraculo_independente": "Revisão é revalidada sob lock; prévia obsoleta não grava. Recusar com outra aba aberta segundo política conservadora; nenhuma aba é fechada automaticamente.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "initial": [
+          {
+            "id": "Cora:F1",
+            "date": "2026-10-10",
+            "bank": "Cora",
+            "description": "Fictício 1",
+            "amount": 1001,
+            "kind": "Receita"
+          }
+        ],
+        "latest": [
+          {
+            "id": "Cora:F1",
+            "date": "2026-10-10",
+            "bank": "Cora",
+            "description": "Fictício 1",
+            "amount": 99999,
+            "kind": "Receita"
+          }
+        ],
+        "after": [
+          {
+            "id": "Cora:F1",
+            "date": "2026-10-10",
+            "bank": "Cora",
+            "description": "Fictício 1",
+            "amount": 1001,
+            "kind": "Receita"
+          },
+          {
+            "id": "Cora:F2",
+            "date": "2026-10-10",
+            "bank": "Cora",
+            "description": "Fictício 2",
+            "amount": 1002,
+            "kind": "Receita"
+          }
+        ],
+        "ordinaryCorrectionSucceeded": true,
+        "history": [
+          {
+            "id": "operation:8a1f7099-3e39-4ac1-a171-796aa9985beb",
+            "kind": "operation",
+            "createdAt": "2026-10-12T03:18:14.134Z",
+            "origin": "Antes de operação do livro-caixa",
+            "session": "20261012031733106-7a7fc1a1-56c8-4906-979f-21dce1698ad0",
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]",
+            "sha256": "e0d9a5048e569856c8217c25e15dc7dc1b3a6a361aba4a1f34bff455855c85b4"
+          }
+        ],
+        "action": "A altera valor bancário enquanto confirmação do merge está aberta em B; aceitar merge em B depois."
+      },
+      "execucao_principal": "resultados-grupo7.json",
+      "resumo_observado": "Com confirmação aberta em B, A salva lançamento bancário com amount=99999; ao confirmar B, volta a 1001.",
+      "evidencia_individual": "resultados/T-A4-08.json"
+    },
+    {
+      "id": "T-A4-09",
+      "ids_originais": "A1-45",
+      "problemas": "D-A4-02; D-A4-09",
+      "cenario_ficticio": "Merge acrescenta paciente/evolução/pagamento com busca e seleção ativas",
+      "oraculo_independente": "Pesquisar encontra novos IDs; relação e notas contam os mesmos registros persistidos; seleção válida permanece por ID, sem exibir ficha errada.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "noteDOM": "Paciente Fictício A10/10/2026 · Pendente de lançamento10/10/2026 · Dente/região: 11\nEvolução fictícia ACopiar evoluçãoEditar rascunhoMarcar como lançada no Codental",
+        "notesPersisted": [
+          {
+            "id": "nA",
+            "patientId": "pA",
+            "date": "2026-10-10",
+            "tooth": "11",
+            "text": "Evolução fictícia A",
+            "done": false
+          },
+          {
+            "id": "nB",
+            "patientId": "pB",
+            "date": "2026-10-10",
+            "tooth": "11",
+            "text": "Evolução fictícia B",
+            "done": false
+          }
+        ]
+      },
+      "execucao_principal": "resultados-grupo1.json",
+      "resumo_observado": "Nova evolução persistida pelo merge não aparece no note-list já montado.",
+      "evidencia_individual": "resultados/T-A4-09.json"
+    },
+    {
+      "id": "T-A4-10",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-02; D-A4-09",
+      "cenario_ficticio": "Formulário clínico, taxa manual e texto de evolução não salvos durante atualização",
+      "oraculo_independente": "Rascunhos, foco e seleção não são descartados; conflito explícito bloqueia commit inseguro. Qualquer descarte exige confirmação expressa.",
+      "estado": "✓ APROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "APROVADO",
+      "observado": {
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/11005-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "drafts": [
+          "Cadastro fictício rascunho",
+          "Serviço fictício em edição",
+          "Evolução fictícia não salva"
+        ],
+        "scope": "Campos montados cadastro/pagamento/evolução legada, esta última oculta pela interface estruturada; taxa personalizada persistida."
+      },
+      "execucao_principal": "resultados-grupo11.json",
+      "resumo_observado": "Rascunhos montados de cadastro/pagamento/evolução legada e taxa personalizada sobreviveram ao merge na amostra.",
+      "evidencia_individual": "resultados/T-A4-10.json"
+    },
+    {
+      "id": "T-A4-11",
+      "ids_originais": "P0-3 (família)",
+      "problemas": "D-A4-03",
+      "cenario_ficticio": "Repetir exatamente o mesmo merge válido",
+      "oraculo_independente": "Segunda prévia mostra iguais/zero acréscimos; quantidades e totais não duplicam; no-op não se apresenta como importação de novos registros.",
+      "estado": "✓ APROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "APROVADO",
+      "observado": {
+        "message": "O backup já está presente aqui: nenhum lançamento duplicado.",
+        "downloads": []
+      },
+      "execucao_principal": "resultados-grupo1.json",
+      "resumo_observado": "Reaplicar o mesmo arquivo não duplica IDs nem muda o estado persistido.",
+      "evidencia_individual": "resultados/T-A4-11.json"
+    },
+    {
+      "id": "T-A4-12",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-03",
+      "cenario_ficticio": "Mesmo ID com data, valor, nome ou vínculo divergentes",
+      "oraculo_independente": "Prévia identifica conflito; original preservado; não ignorar divergência sem contagem/decisão. Cancelar mantém todos os bytes.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "action": "Conflitos mesmo ID sem aviso",
+        "result": {
+          "message": "O backup já está presente aqui: nenhum lançamento duplicado.",
+          "downloads": []
+        },
+        "before": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "after": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "xss": false
+      },
+      "execucao_principal": "resultados-grupo2.json",
+      "resumo_observado": "Mesmo ID com valor diferente recebe “já está presente” sem conflito, embora os conteúdos sejam divergentes.",
+      "evidencia_individual": "resultados/T-A4-12.json"
+    },
+    {
+      "id": "T-A4-13",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-03",
+      "cenario_ficticio": "IDs diferentes com paciente/data/valor/serviço equivalentes",
+      "oraculo_independente": "Possível duplicado sinalizado sem deduplicação automática; aplicar só conforme política/decisão registrada. Verificar soma monetária, não apenas número de linhas.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "action": "Duplicação semântica",
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/2001-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "before": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "after": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\":2,\"patients\":[{\"id\":\"pA\",\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}],\"records\":[{\"id\":\"rA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício A\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}},{\"id\":\"outro-record\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício A\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}}],\"notes\":[{\"id\":\"nA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"tooth\":\"11\",\"text\":\"Evolução fictícia A\",\"done\":false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\":\"Cora:F1\",\"date\":\"2026-10-10\",\"bank\":\"Cora\",\"description\":\"Fictício 1\",\"amount\":1001,\"kind\":\"Receita\"},{\"id\":\"outro-id-mesmo-conteudo\",\"date\":\"2026-10-10\",\"bank\":\"Cora\",\"description\":\"Fictício 1\",\"amount\":1001,\"kind\":\"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "xss": false
+      },
+      "execucao_principal": "resultados-grupo2.json",
+      "resumo_observado": "Mesmo conteúdo com novo ID entra novamente, sem aviso de possível duplicação semântica.",
+      "evidencia_individual": "resultados/T-A4-13.json"
+    },
+    {
+      "id": "T-A4-14",
+      "ids_originais": "B-119; B-120 (escopos diferenciados)",
+      "problemas": "D-A4-03; D-A4-04",
+      "cenario_ficticio": "Livro com ID numérico 123 e textual \"123\", banco legado e valor fracionário legível",
+      "oraculo_independente": "Tipos/valores/banco mantidos exatamente; política de aceitação declarada; nenhum cast de ID, arredondamento persistido ou colisão silenciosa.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "action": "Compatibilidade de tipos",
+        "result": {
+          "message": "Não foi possível mesclar: Registro de conciliação inválido no backup.",
+          "downloads": []
+        },
+        "before": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "after": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "xss": false
+      },
+      "execucao_principal": "resultados-grupo2.json",
+      "resumo_observado": "V2 com ID numérico 123, ID textual 123, banco legado e centavos fracionários é recusado pelo merge.",
+      "evidencia_individual": "resultados/T-A4-14.json"
+    },
+    {
+      "id": "T-A4-15",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-03",
+      "cenario_ficticio": "Mesmo ID de paciente com conteúdos incompatíveis e pagamento novo referenciando esse ID",
+      "oraculo_independente": "Conflito de referência impede aplicação insegura; não associar pagamento ao homônimo errado. Prévia separa cadastro e snapshot histórico.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "action": "Colisão de identidade",
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/2002-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "before": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "after": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\":2,\"patients\":[{\"id\":\"pA\",\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}],\"records\":[{\"id\":\"rA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício A\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}},{\"id\":\"pagamento-outra-pessoa\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício A\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício Pessoa Diferente\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}}],\"notes\":[{\"id\":\"nA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"tooth\":\"11\",\"text\":\"Evolução fictícia A\",\"done\":false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\":\"Cora:F1\",\"date\":\"2026-10-10\",\"bank\":\"Cora\",\"description\":\"Fictício 1\",\"amount\":1001,\"kind\":\"Receita\"},{\"id\":\"Cora:F2\",\"date\":\"2026-10-10\",\"bank\":\"Cora\",\"description\":\"Fictício 2\",\"amount\":1002,\"kind\":\"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "xss": false
+      },
+      "execucao_principal": "resultados-grupo2.json",
+      "resumo_observado": "Paciente com ID colidente e identidade divergente é ignorado; novo pagamento fica vinculado ao cadastro existente.",
+      "evidencia_individual": "resultados/T-A4-15.json"
+    },
+    {
+      "id": "T-A4-16",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-03",
+      "cenario_ficticio": "Duplicados internos no arquivo e referências inexistentes",
+      "oraculo_independente": "Validação/preflight impede escrita inconsistente; bytes originais do arquivo permanecem disponíveis; nenhum subconjunto é descartado silenciosamente.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/11004-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "persistedLedger": [
+          {
+            "id": "Cora:F1",
+            "date": "2026-10-10",
+            "bank": "Cora",
+            "description": "Fictício 1",
+            "amount": 1001,
+            "kind": "Receita"
+          },
+          {
+            "id": "Cora:F2",
+            "date": "2026-10-10",
+            "bank": "Cora",
+            "description": "Fictício 2",
+            "amount": 1002,
+            "kind": "Receita"
+          }
+        ],
+        "action": "Duas linhas internas com mesmo ID e conteúdos divergentes; primeiro vence sem conflito. Cadastro duplicado e vínculo ausente são recusados em subcasos anteriores."
+      },
+      "execucao_principal": "resultados-grupo11.json",
+      "resumo_observado": "Duplicados clínicos/vínculo ausente são recusados; duplicados internos bancários divergentes são aceitos, primeiro vence silenciosamente.",
+      "evidencia_individual": "resultados/T-A4-16.json"
+    },
+    {
+      "id": "T-A4-17",
+      "ids_originais": "B-119; B-120",
+      "problemas": "D-A4-04",
+      "cenario_ficticio": "V2 válido completo e V2 parcial com módulos ausentes",
+      "oraculo_independente": "Módulos ausentes permanecem intactos; formato/versão exatos são conferidos; taxas e campos financeiros originais não são normalizados silenciosamente.",
+      "estado": "✓ APROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "APROVADO",
+      "observado": {
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/2006-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "note": "V2 completo clínico/livro com módulos administrativos ausentes; parcial sem care não aceito pelo merge."
+      },
+      "execucao_principal": "resultados-grupo2.json",
+      "resumo_observado": "V2 clínico válido mantém módulos administrativos/taxas ausentes; parcial só livro é recusado sem substituir care.",
+      "evidencia_individual": "resultados/T-A4-17.json"
+    },
+    {
+      "id": "T-A4-18",
+      "ids_originais": "BKP-02 (regressão A5)",
+      "problemas": "D-A4-04",
+      "cenario_ficticio": "V3 da DEV.4 com clínico/livro/Academia/checklists/proteções",
+      "oraculo_independente": "Conforme decisão E: suporte seguro com cobertura explícita, ou recusa declarada sem alterações. Não tratar omissão de módulos do merge como backup completo que os recria.",
+      "estado": "✓ APROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "APROVADO",
+      "observado": {
+        "message": "Não foi possível mesclar: Escolha um backup completo (.json) gerado pelo dashboard.",
+        "downloads": []
+      },
+      "execucao_principal": "resultados-grupo2.json",
+      "resumo_observado": "Backup v3 produzido pela DEV.4 é recusado pelo merge, sem alterar bases ativas (recusa segura, mensagem genérica).",
+      "evidencia_individual": "resultados/T-A4-18.json"
+    },
+    {
+      "id": "T-A4-19",
+      "ids_originais": "BKP-05 (nova execução, sem herdar aprovação)",
+      "problemas": "D-A4-04",
+      "cenario_ficticio": "Versão desconhecida, raiz duplicada, hash v3 alterado, arquivo truncado",
+      "oraculo_independente": "Zero escrita de base ativa e zero confirmação de sucesso. Diferenciar v2 sem hash original de v3 íntegro; não liberar apenas pelo nome do arquivo.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "action": "Versão desconhecida",
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/2003-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "before": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "after": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\":2,\"patients\":[{\"id\":\"pA\",\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"},{\"id\":\"pB\",\"name\":\"Paciente Fictício B\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}],\"records\":[{\"id\":\"rA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício A\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}},{\"id\":\"rB\",\"patientId\":\"pB\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício B\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício B\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}}],\"notes\":[{\"id\":\"nA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"tooth\":\"11\",\"text\":\"Evolução fictícia A\",\"done\":false},{\"id\":\"nB\",\"patientId\":\"pB\",\"date\":\"2026-10-10\",\"tooth\":\"11\",\"text\":\"Evolução fictícia B\",\"done\":false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\":\"Cora:F1\",\"date\":\"2026-10-10\",\"bank\":\"Cora\",\"description\":\"Fictício 1\",\"amount\":1001,\"kind\":\"Receita\"},{\"id\":\"Cora:F2\",\"date\":\"2026-10-10\",\"bank\":\"Cora\",\"description\":\"Fictício 2\",\"amount\":1002,\"kind\":\"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "xss": false
+      },
+      "execucao_principal": "resultados-grupo2.json",
+      "resumo_observado": "V2 com version=99 é aceito e aplicado pelo merge.",
+      "evidencia_individual": "resultados/T-A4-19.json"
+    },
+    {
+      "id": "T-A4-20",
+      "ids_originais": "A1-46; B-121",
+      "problemas": "D-A4-04",
+      "cenario_ficticio": "Linha do livro com ID válido mas data/amount/kind inválidos e texto HTML malicioso",
+      "oraculo_independente": "Recusar ou isolar conforme política sem perder originais. Linhas não entram silenciosamente na base ativa; rejeitado/quarentena claramente identificado; HTML não executa.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "action": "Linha inválida e XSS sintético",
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/2004-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "before": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "after": [
+          {
+            "key": "ma-academy-v55",
+            "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+          },
+          {
+            "key": "ma-account-month-last-v1",
+            "raw": "2026-10"
+          },
+          {
+            "key": "ma-care-v2",
+            "raw": "{\"version\":2,\"patients\":[{\"id\":\"pA\",\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"},{\"id\":\"pB\",\"name\":\"Paciente Fictício B\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}],\"records\":[{\"id\":\"rA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício A\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}},{\"id\":\"rB\",\"patientId\":\"pB\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício B\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício B\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}}],\"notes\":[{\"id\":\"nA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"tooth\":\"11\",\"text\":\"Evolução fictícia A\",\"done\":false},{\"id\":\"nB\",\"patientId\":\"pB\",\"date\":\"2026-10-10\",\"tooth\":\"11\",\"text\":\"Evolução fictícia B\",\"done\":false}]}"
+          },
+          {
+            "key": "ma-installment-rates-v1",
+            "raw": "{\"5\":3.1,\"10\":5.2}"
+          },
+          {
+            "key": "ma-ledger-v1",
+            "raw": "[{\"id\":\"Cora:F1\",\"date\":\"2026-10-10\",\"bank\":\"Cora\",\"description\":\"Fictício 1\",\"amount\":1001,\"kind\":\"Receita\"},{\"id\":\"linha-invalida\",\"date\":\"ERRADA\",\"amount\":\"inválido\",\"kind\":\"desconhecido\",\"description\":\"<img src=x onerror=\\\"window.TESTE_XSS=true\\\">\"}]"
+          },
+          {
+            "key": "ma56-project-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+          },
+          {
+            "key": "ma61-sanitary-checklist-v1",
+            "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+          }
+        ],
+        "xss": false
+      },
+      "execucao_principal": "resultados-grupo2.json",
+      "resumo_observado": "Linha com data/amount/kind inválidos e HTML sintético entra na base ativa; não houve execução do marcador XSS nesta amostra.",
+      "evidencia_individual": "resultados/T-A4-20.json"
+    },
+    {
+      "id": "T-A4-21",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-04",
+      "cenario_ficticio": "Taxas no arquivo: string válida, percentual inválido, mapa inesperado; base ausente/presente",
+      "oraculo_independente": "Validação e precedência explícitas; original/taxas de outras parcelas preservados; backup v3 posterior descreve a saúde real do estado.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/2007-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "persistedRates": "{\"5\":150,\"10\":\"3.1\",\"nonsense\":{\"unsafe\":true}}"
+      },
+      "execucao_principal": "resultados-grupo2.json",
+      "resumo_observado": "Com base de taxas ausente, mapa contendo taxa 150 e campo inesperado é persistido sem validação.",
+      "evidencia_individual": "resultados/T-A4-21.json"
+    },
+    {
+      "id": "T-A4-22",
+      "ids_originais": "P0-4 (algoritmo)",
+      "problemas": "D-A4-05",
+      "cenario_ficticio": "Match Codental exato por ID; fallback CPF; nome igual com CPF vazio",
+      "oraculo_independente": "Precedência e resultado conforme política aprovada; nome isolado não funde pessoas silenciosamente. Ambiguidades são contadas e permanecem pendentes.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "result": {
+          "db": {
+            "version": 2,
+            "patients": [
+              {
+                "id": "pA",
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": "",
+                "codentalId": null
+              }
+            ],
+            "records": [
+              {
+                "id": "rA",
+                "patientId": "pA",
+                "date": "2026-10-10",
+                "month": "2026-10",
+                "amount": 12345,
+                "service": "Serviço fictício A",
+                "payment": "Pix",
+                "status": "Recebido",
+                "snapshot": {
+                  "name": "Paciente Fictício A",
+                  "cpf": "",
+                  "phone": "",
+                  "email": "",
+                  "address": "",
+                  "cep": ""
+                }
+              }
+            ],
+            "notes": [
+              {
+                "id": "nA",
+                "patientId": "pA",
+                "date": "2026-10-10",
+                "tooth": "11",
+                "text": "Evolução fictícia A",
+                "done": false
+              }
+            ],
+            "codentalImport": {
+              "date": null,
+              "total": 1,
+              "stats": {
+                "added": 0,
+                "matched": 1,
+                "updated": 0,
+                "manual": 0,
+                "ambiguous": 0
+              },
+              "pending": []
+            }
+          },
+          "stats": {
+            "added": 0,
+            "matched": 1,
+            "updated": 0,
+            "manual": 0,
+            "ambiguous": 0
+          }
+        },
+        "action": "Nome igual, CPF vazio, IDs distintos"
+      },
+      "execucao_principal": "resultados-grupo9.json",
+      "resumo_observado": "Nome igual e CPF vazio fundem cadastros sem pending, apesar de IDs distintos.",
+      "evidencia_individual": "resultados/T-A4-22.json"
+    },
+    {
+      "id": "T-A4-23",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-05",
+      "cenario_ficticio": "Campo manual não vazio, campo vazio, origens históricas diversas e fonte recebida vazia",
+      "oraculo_independente": "Vazio não apaga valor; política manual por campo é demonstrável; casos sem proveniência ficam para revisão, não recebem suposição automática.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "before": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "(00) 00000-0000",
+              "email": "",
+              "address": "",
+              "cep": "",
+              "source": "Base histórica fictícia sem proveniência por campo"
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ]
+        },
+        "result": {
+          "db": {
+            "version": 2,
+            "patients": [
+              {
+                "id": "pA",
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "(00) 11111-1111",
+                "email": "novo@example.test",
+                "address": "Endereço fictício novo",
+                "cep": "00000-000",
+                "source": "Exportação Codental 2026-10-10",
+                "codentalId": null
+              }
+            ],
+            "records": [
+              {
+                "id": "rA",
+                "patientId": "pA",
+                "date": "2026-10-10",
+                "month": "2026-10",
+                "amount": 12345,
+                "service": "Serviço fictício A",
+                "payment": "Pix",
+                "status": "Recebido",
+                "snapshot": {
+                  "name": "Paciente Fictício A",
+                  "cpf": "",
+                  "phone": "",
+                  "email": "",
+                  "address": "",
+                  "cep": ""
+                }
+              }
+            ],
+            "notes": [
+              {
+                "id": "nA",
+                "patientId": "pA",
+                "date": "2026-10-10",
+                "tooth": "11",
+                "text": "Evolução fictícia A",
+                "done": false
+              }
+            ],
+            "codentalImport": {
+              "date": "2026-10-10",
+              "total": 1,
+              "stats": {
+                "added": 0,
+                "matched": 1,
+                "updated": 1,
+                "manual": 0,
+                "ambiguous": 0
+              },
+              "pending": []
+            }
+          },
+          "stats": {
+            "added": 0,
+            "matched": 1,
+            "updated": 1,
+            "manual": 0,
+            "ambiguous": 0
+          }
+        },
+        "scope": "Fonte histórica sem proveniência: campo preenchido é atualizado automaticamente; política exige revisão. Campo manual explícito e entrada vazia foram testados no grupo9."
+      },
+      "execucao_principal": "resultados-grupo12.json",
+      "resumo_observado": "Campo preenchido de origem histórica sem proveniência é sobrescrito; manual explícito e entrada vazia foram preservados em subcasos.",
+      "evidencia_individual": "resultados/T-A4-23.json"
+    },
+    {
+      "id": "T-A4-24",
+      "ids_originais": "B-123 (regressão A5)",
+      "problemas": "D-A4-05",
+      "cenario_ficticio": "Sincronizar mesmo feed duas vezes, depois restaurar e abrir novamente",
+      "oraculo_independente": "Idempotência do feed, pagamentos/evoluções preservados; supressão de seeds mantida; sync manual não reativa reinjeção automática.",
+      "estado": "✓ APROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "APROVADO",
+      "observado": {
+        "firstCounts": {
+          "patients": 4893,
+          "records": 1,
+          "notes": 1
+        },
+        "secondCounts": {
+          "patients": 4893,
+          "records": 1,
+          "notes": 1
+        },
+        "restoredCounts": {
+          "patients": 1,
+          "records": 1,
+          "notes": 1
+        },
+        "suppressSeeds": "1",
+        "backup": "downloads/12001-Manfrin-Arnez-BACKUP-COMPLETO_ESTADO_PERSISTIDO-V3-2026-10-12.json",
+        "scope": "Duas sincronizações pelo botão original com feed integral fictício; restauração v3 e recarga sem reinjeção."
+      },
+      "execucao_principal": "resultados-grupo12.json",
+      "resumo_observado": "Duas sincronizações pelo botão original mantêm IDs e vínculos; restore v3 e reload preservam base original e supressão de seeds.",
+      "evidencia_individual": "resultados/T-A4-24.json"
+    },
+    {
+      "id": "T-A4-25",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-05",
+      "cenario_ficticio": "Dois candidatos por CPF/nome e CodentalId conflitante",
+      "oraculo_independente": "Nenhuma fusão arbitrária; prévia/pending lista conflito; original e vínculos clínicos permanecem íntegros.",
+      "estado": "✓ APROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "APROVADO",
+      "observado": {
+        "conflictingCodentalId": {
+          "db": {
+            "version": 2,
+            "patients": [
+              {
+                "id": "pA",
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": "",
+                "codentalId": "OUTRO-ID"
+              }
+            ],
+            "records": [
+              {
+                "id": "rA",
+                "patientId": "pA",
+                "date": "2026-10-10",
+                "month": "2026-10",
+                "amount": 12345,
+                "service": "Serviço fictício A",
+                "payment": "Pix",
+                "status": "Recebido",
+                "snapshot": {
+                  "name": "Paciente Fictício A",
+                  "cpf": "",
+                  "phone": "",
+                  "email": "",
+                  "address": "",
+                  "cep": ""
+                }
+              }
+            ],
+            "notes": [
+              {
+                "id": "nA",
+                "patientId": "pA",
+                "date": "2026-10-10",
+                "tooth": "11",
+                "text": "Evolução fictícia A",
+                "done": false
+              }
+            ],
+            "codentalImport": {
+              "date": "2026-10-10",
+              "total": 1,
+              "stats": {
+                "added": 0,
+                "matched": 0,
+                "updated": 0,
+                "manual": 0,
+                "ambiguous": 1
+              },
+              "pending": [
+                {
+                  "codentalId": null,
+                  "name": "Paciente Fictício A",
+                  "reason": "Mais de um cadastro compatível; revisar antes de unir."
+                }
+              ]
+            }
+          },
+          "stats": {
+            "added": 0,
+            "matched": 0,
+            "updated": 0,
+            "manual": 0,
+            "ambiguous": 1
+          }
+        },
+        "scope": "Ambiguidade por múltiplos candidatos testada no grupo9, conflito de CodentalId aqui."
+      },
+      "execucao_principal": "resultados-grupo12.json",
+      "resumo_observado": "Múltiplos candidatos e CodentalId conflitante geram pending; não ocorre escolha arbitrária nos subcasos.",
+      "evidencia_individual": "resultados/T-A4-25.json"
+    },
+    {
+      "id": "T-A4-26",
+      "ids_originais": "P1-3; A1-40/41/42/43; C-46",
+      "problemas": "D-A4-06",
+      "cenario_ficticio": "Forçar corrida de duas abas na comparação+escrita, por módulo",
+      "oraculo_independente": "Somente sequência serial válida ou recusa; nunca ambos salvam snapshots antigos apagando a operação anterior. Testar clínico, livro, Academia, Sanitária e escritores diretos.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "latestBeforeResume": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": ""
+            },
+            {
+              "id": "b4bcfeda-c15d-44a2-8eaf-8639d962c8e4",
+              "name": "Paciente Fictício corrida B",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": "",
+              "source": "Cadastro no aplicativo"
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ]
+        },
+        "afterResume": {
+          "version": 2,
+          "patients": [
+            {
+              "id": "pA",
+              "name": "Paciente Fictício A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": ""
+            },
+            {
+              "id": "c224bbb6-4894-43a4-a485-e0b941c0ebab",
+              "name": "Paciente Fictício corrida A",
+              "cpf": "",
+              "phone": "",
+              "email": "",
+              "address": "",
+              "cep": "",
+              "source": "Cadastro no aplicativo"
+            }
+          ],
+          "records": [
+            {
+              "id": "rA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "month": "2026-10",
+              "amount": 12345,
+              "service": "Serviço fictício A",
+              "payment": "Pix",
+              "status": "Recebido",
+              "snapshot": {
+                "name": "Paciente Fictício A",
+                "cpf": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "cep": ""
+              }
+            }
+          ],
+          "notes": [
+            {
+              "id": "nA",
+              "patientId": "pA",
+              "date": "2026-10-10",
+              "tooth": "11",
+              "text": "Evolução fictícia A",
+              "done": false
+            }
+          ]
+        },
+        "messageB": "Cadastro salvo. Pagamentos anteriores mantêm os dados da época; edite o pagamento para atualizá-los.",
+        "method": "Debugger pausa antes do setItem da aba A, após sua comparação original; B salva pela UI; A retoma sem remover CAS/guard originais.",
+        "limitation": "Corrida forçada clínica; livro, Academia e Sanitária não receberam pausa equivalente."
+      },
+      "execucao_principal": "resultados-grupo10.json",
+      "resumo_observado": "Pausa após comparação clínica e antes da escrita: B salva; A retoma e apaga o novo paciente de B. CAS sem serialização não é atômico.",
+      "evidencia_individual": "resultados/T-A4-26.json"
+    },
+    {
+      "id": "T-A4-27",
+      "ids_originais": "P1-3",
+      "problemas": "D-A4-06",
+      "cenario_ficticio": "Duas abas alteram parcelas distintas ou a mesma taxa; ma53 e ma57 alternados",
+      "oraculo_independente": "Nova taxa de B não some após ação antiga de A. Conflito no mesmo campo requer revisão; ma53Rates, Finance e ma57 exibem revisão coerente após atualização autorizada.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "action": "B muda 2x; A desatualizada muda 3x",
+        "persisted": {
+          "3": 9.3,
+          "5": 3.1,
+          "10": 5.2
+        }
+      },
+      "execucao_principal": "resultados-grupo3.json",
+      "resumo_observado": "Taxa 2x salva em B desaparece quando A desatualizada salva 3x.",
+      "evidencia_individual": "resultados/T-A4-27.json"
+    },
+    {
+      "id": "T-A4-28",
+      "ids_originais": "P1-3",
+      "problemas": "D-A4-06",
+      "cenario_ficticio": "Duas abas mudam tarefas diferentes do checklist56 e fazem importação específica",
+      "oraculo_independente": "Não perder a tarefa da outra aba; revisão/mutex aplicados também à importação. Backup unificado e lista concordam.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "beforeB": {
+          "version": 1,
+          "states": {
+            "estrutura-menus": "done"
+          },
+          "updated": {
+            "estrutura-menus": "2026-10-12T03:16:08.843Z"
+          }
+        },
+        "afterA": {
+          "version": 1,
+          "states": {
+            "estrutura-navtest": "progress"
+          },
+          "updated": {
+            "estrutura-navtest": "2026-10-12T03:16:08.875Z"
+          }
+        },
+        "scope": "Tarefas diferentes; importação é substituição explícita e não união."
+      },
+      "execucao_principal": "resultados-grupo3.json",
+      "resumo_observado": "Tarefa salva em B desaparece quando A salva outra tarefa do checklist56.",
+      "evidencia_individual": "resultados/T-A4-28.json"
+    },
+    {
+      "id": "T-A4-29",
+      "ids_originais": "P1-3",
+      "problemas": "D-A4-06",
+      "cenario_ficticio": "Notificação storage/BroadcastChannel atrasada/perdida e aba volta ao foco",
+      "oraculo_independente": "Pré-escrita consulta estado autoritativo sob lock; notificação não é requisito para preservar dados. Mostrar stale/rascunho sem reload automático.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "persisted": {
+          "3": 9.3,
+          "4": 4.4,
+          "5": 3.1,
+          "10": 5.2
+        },
+        "scope": "Retorno ao foco seguido de escrita de taxa; sem supressão artificial de notificações."
+      },
+      "execucao_principal": "resultados-grupo3.json",
+      "resumo_observado": "Retornar ao foco não corrige modelo antigo de taxas antes da próxima escrita.",
+      "evidencia_individual": "resultados/T-A4-29.json"
+    },
+    {
+      "id": "T-A4-30",
+      "ids_originais": "A1-45; navegação 18 telas",
+      "problemas": "D-A4-09",
+      "cenario_ficticio": "Abrir as 18 telas pelo menu, atalhos, ações internas e após merge",
+      "oraculo_independente": "Uma página/menu ativos coerentes; projeções dependentes atualizam; navegar não grava clínico ou duplica listeners/ações. Rascunhos e filtros preservados.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "menuPages": [
+          "ma56-home",
+          "dash",
+          "quick",
+          "accounting",
+          "ma55-cost",
+          "sim",
+          "ledger",
+          "ma55-contador",
+          "sources",
+          "patients",
+          "notes",
+          "tcle",
+          "ma55-academy",
+          "ma55-training",
+          "ma55-materials",
+          "ma61-sanitary",
+          "ma56-project",
+          "backup"
+        ],
+        "navigation": [
+          {
+            "pages": [
+              "ma56-home"
+            ],
+            "menu": [
+              "ma56-home"
+            ]
+          },
+          {
+            "pages": [
+              "dash"
+            ],
+            "menu": [
+              "dash"
+            ]
+          },
+          {
+            "pages": [
+              "quick"
+            ],
+            "menu": [
+              "quick"
+            ]
+          },
+          {
+            "pages": [
+              "accounting"
+            ],
+            "menu": [
+              "accounting"
+            ]
+          },
+          {
+            "pages": [
+              "ma55-cost"
+            ],
+            "menu": [
+              "ma55-cost"
+            ]
+          },
+          {
+            "pages": [
+              "sim"
+            ],
+            "menu": [
+              "sim"
+            ]
+          },
+          {
+            "pages": [
+              "ledger"
+            ],
+            "menu": [
+              "ledger"
+            ]
+          },
+          {
+            "pages": [
+              "ma55-contador"
+            ],
+            "menu": [
+              "ma55-contador"
+            ]
+          },
+          {
+            "pages": [
+              "sources"
+            ],
+            "menu": [
+              "sources"
+            ]
+          },
+          {
+            "pages": [
+              "patients"
+            ],
+            "menu": [
+              "patients"
+            ]
+          },
+          {
+            "pages": [
+              "notes"
+            ],
+            "menu": [
+              "notes"
+            ]
+          },
+          {
+            "pages": [
+              "tcle"
+            ],
+            "menu": [
+              "tcle"
+            ]
+          },
+          {
+            "pages": [
+              "ma55-academy"
+            ],
+            "menu": [
+              "ma55-academy"
+            ]
+          },
+          {
+            "pages": [
+              "ma55-training"
+            ],
+            "menu": [
+              "ma55-training"
+            ]
+          },
+          {
+            "pages": [
+              "ma55-materials"
+            ],
+            "menu": [
+              "ma55-materials"
+            ]
+          },
+          {
+            "pages": [
+              "ma61-sanitary"
+            ],
+            "menu": [
+              "ma61-sanitary"
+            ]
+          },
+          {
+            "pages": [
+              "ma56-project"
+            ],
+            "menu": [
+              "ma56-project"
+            ]
+          },
+          {
+            "pages": [
+              "backup"
+            ],
+            "menu": [
+              "backup"
+            ]
+          }
+        ],
+        "ledgerPersisted": 2,
+        "ledgerModel": 1,
+        "scope": "18 telas pelo menu, depois merge; atalhos não cobertos. Navegar não reidrata modelo bancário."
+      },
+      "execucao_principal": "resultados-grupo11.json",
+      "resumo_observado": "Menu das 18 telas mantém página/menu coerentes; após merge, navegar não reidrata o modelo bancário antigo.",
+      "evidencia_individual": "resultados/T-A4-30.json"
+    },
+    {
+      "id": "T-A4-31",
+      "ids_originais": "P1-7b; P1-3 (regressões A5)",
+      "problemas": "D-A4-06",
+      "cenario_ficticio": "Restore com duas DEV.4 abertas e tentativa de gravar estado de epoch antigo",
+      "oraculo_independente": "Restore continua recusado com outra aba; páginas/ações obsoletas não ganham permissão por refresh de UI. Testar também operação assíncrona iniciada em revisão anterior.",
+      "estado": "✓ APROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "APROVADO",
+      "observado": {
+        "asyncOldEpochSave": false,
+        "ledgerPreserved": true,
+        "guard": "O estado foi restaurado por outra aba. Recarregue antes de editar.",
+        "method": "Troca sintética de epoch durante await de captura de preimage da operação bancária. Bloqueio de restore duas abas já testado grupo3."
+      },
+      "execucao_principal": "resultados-grupo11.json",
+      "resumo_observado": "Restore com duas abas é recusado; escrita bancária assíncrona com epoch sinteticamente trocado é bloqueada e preserva livro.",
+      "evidencia_individual": "resultados/T-A4-31.json"
+    },
+    {
+      "id": "T-A4-32",
+      "ids_originais": "P1-6; SEC-01; ISO-05 (dependências)",
+      "problemas": "D-A4-06",
+      "cenario_ficticio": "file:// suportado, localhost e APIs/locks indisponíveis em perfil descartável",
+      "oraculo_independente": "Registrar protocolo/origem e capacidade; preservar bloqueio quando segurança indisponível. Sentinelas fictícias fora do prefixo intactas; não usar perfil principal ou flags para contornar política.",
+      "estado": "○ NÃO TESTADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "NÃO TESTADO",
+      "observado": {
+        "cases": [
+          {
+            "protocol": "file",
+            "available": false,
+            "error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/manfrin-arnez/entregas-a5/Manfrin-Arnez-Dashboard-6.2-DEV-04-A5.html"
+          },
+          {
+            "featureUnavailable": "locks",
+            "result": {
+              "ready": false,
+              "guard": "Navegador sem Web Locks: restauração e gravações protegidas indisponíveis",
+              "text": "⚠️ AMBIENTE DEV — PACIENTES E FINANÇAS FICTÍCIOS — NÃO USAR PARA ATENDIMENTOS REAIS OU RESTAURAR BACKUPS REAIS\nGESTÃO DA CLÍNICA\n+\nLançamento rápido\n○\nPacientes\n▤\nContabilidade mensal\n✎\nEvoluções\n▣\nTCLE · Termos\n◈\nSimulador de vendas\n▥\nVisão financeira\n⇄\nConciliação\n☷\nDados e condições\n↓\nBackup e restauração\n Versão 6.1 DEV · dados fictícios\n\nAtualizada em 07 out 2026\nSem conexão automática aos bancos\nMANFRIN ARNEZ / INTELIGÊNCIA FINANCEIRA\n↓ Exportar dados\n\nNEGOCIE COM CLAREZA\n\nO preço da venda.\nO valor que fica.\n\nCompare condições e veja o impacto no caixa antes de fechar.\n\nSicredi · com antecipação\nBase fictícia DEV: 3 simulações FICTÍCIAS. Valores transcritos da conversa; comprovantes originais ainda não conferidos nesta versão.\nTaxas do cartão · 1x a 10x Clique para editar as taxas Sicredi\n\nInforme o custo total efetivo de cada parcelamento COM antecipação (taxa da venda + antecipação, calculadas sobre o valor bruto). Somente 5x e 10x têm exemplos anteriores documentados; as demais taxas ficam em branco até serem informadas. Você também pode calcular sua taxa real pelos valores do extrato no formulário abaixo. As taxas preenchidas são salvas neste navegador e usadas automaticamente no simulador. Confira seus valores contratados na Sicredi.\n\nLimpar somente taxas personalizadas\n📄 Descubra a taxa pela venda real\nPASSO 1\n\nUse uma venda do seu extrato Sicredi: o valor cobrado no cartão e o líquido que a adquirente creditou após todas as taxas. Não inclua uma entrada Pix nestes dois valores.\n\nParcelamento\n1x com antecipação\n2x com antecipação\n3x com antecipação\n4x com antec",
+              "stored": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+            },
+            "errors": [],
+            "baseline": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          },
+          {
+            "featureUnavailable": "indexedDB",
+            "result": {
+              "ready": false,
+              "guard": "Cannot read properties of undefined (reading 'open')",
+              "text": "⚠️ AMBIENTE DEV — PACIENTES E FINANÇAS FICTÍCIOS — NÃO USAR PARA ATENDIMENTOS REAIS OU RESTAURAR BACKUPS REAIS\nGESTÃO DA CLÍNICA\n+\nLançamento rápido\n○\nPacientes\n▤\nContabilidade mensal\n✎\nEvoluções\n▣\nTCLE · Termos\n◈\nSimulador de vendas\n▥\nVisão financeira\n⇄\nConciliação\n☷\nDados e condições\n↓\nBackup e restauração\n Versão 6.1 DEV · dados fictícios\n\nAtualizada em 07 out 2026\nSem conexão automática aos bancos\nMANFRIN ARNEZ / INTELIGÊNCIA FINANCEIRA\n↓ Exportar dados\n\nNEGOCIE COM CLAREZA\n\nO preço da venda.\nO valor que fica.\n\nCompare condições e veja o impacto no caixa antes de fechar.\n\nSicredi · com antecipação\nBase fictícia DEV: 3 simulações FICTÍCIAS. Valores transcritos da conversa; comprovantes originais ainda não conferidos nesta versão.\nTaxas do cartão · 1x a 10x Clique para editar as taxas Sicredi\n\nInforme o custo total efetivo de cada parcelamento COM antecipação (taxa da venda + antecipação, calculadas sobre o valor bruto). Somente 5x e 10x têm exemplos anteriores documentados; as demais taxas ficam em branco até serem informadas. Você também pode calcular sua taxa real pelos valores do extrato no formulário abaixo. As taxas preenchidas são salvas neste navegador e usadas automaticamente no simulador. Confira seus valores contratados na Sicredi.\n\nLimpar somente taxas personalizadas\n📄 Descubra a taxa pela venda real\nPASSO 1\n\nUse uma venda do seu extrato Sicredi: o valor cobrado no cartão e o líquido que a adquirente creditou após todas as taxas. Não inclua uma entrada Pix nestes dois valores.\n\nParcelamento\n1x com antecipação\n2x com antecipação\n3x com antecipação\n4x com antec",
+              "stored": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+            },
+            "errors": [],
+            "baseline": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+          }
+        ],
+        "reason": "file:// bloqueado pela política ERR_BLOCKED_BY_ADMINISTRATOR; não foi contornada. Localhost e ausência de APIs foram efetivamente executados. Sentinelas verificadas nos demais contextos."
+      },
+      "execucao_principal": "resultados-grupo6.json",
+      "resumo_observado": "file:// bloqueado por ERR_BLOCKED_BY_ADMINISTRATOR; localhost e falta de locks/IndexedDB foram testados. Conjunto integral não aprovado.",
+      "evidencia_individual": "resultados/T-A4-32.json"
+    },
+    {
+      "id": "T-A4-33",
+      "ids_originais": "A1-56/57 como referência",
+      "problemas": "D-A4-07",
+      "cenario_ficticio": "Cota real e erro de storage ao salvar taxa e configuração",
+      "oraculo_independente": "Tela/status não afirmam salvo; confirmado não muda; rascunho pode ser mantido mas marcado. Recalcular estimativa não cria taxa persistida fictícia.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "realQuota": {
+          "keys": 39,
+          "chars": 5239046,
+          "quotaReached": true,
+          "persisted": "{\"5\":3.1,\"10\":5.2}",
+          "before": "{\"5\":3.1,\"10\":5.2}",
+          "status": "Não foi possível salvar taxas. Faça backup dos seus dados.",
+          "label": "3x Personalizada · salva %"
+        }
+      },
+      "execucao_principal": "resultados-grupo6.json",
+      "resumo_observado": "Quota real: taxa não persiste e há mensagem de erro, mas o campo é rotulado “Personalizada · salva”.",
+      "evidencia_individual": "resultados/T-A4-33.json"
+    },
+    {
+      "id": "T-A4-34",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-07",
+      "cenario_ficticio": "Falhar ao incluir material/equipamento/análise e depois repetir salvamento",
+      "oraculo_independente": "Modelo confirmado permanece anterior; retry gera uma única inclusão desejada, sem acumular duas entradas por mutações anteriores em memória.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "after": {
+          "version": 1,
+          "settings": {
+            "monthly": 100,
+            "hours": 20,
+            "target": 25,
+            "minimum": 10,
+            "tax": 0,
+            "rates": {}
+          },
+          "materials": [
+            {
+              "id": "mA",
+              "name": "Material fictício",
+              "price": 10,
+              "size": 100,
+              "unit": "g",
+              "category": "Teste"
+            },
+            {
+              "id": "idmv4okyqtqwus2",
+              "name": "Material Fictício retry",
+              "brand": "",
+              "category": "Cimento",
+              "size": 100,
+              "unit": "g",
+              "price": 10,
+              "supplier": "",
+              "date": "2026-10-12"
+            },
+            {
+              "id": "idmv4okysw9pr9d",
+              "name": "Material Fictício retry",
+              "brand": "",
+              "category": "Cimento",
+              "size": 100,
+              "unit": "g",
+              "price": 10,
+              "supplier": "",
+              "date": "2026-10-12"
+            }
+          ],
+          "equipment": [],
+          "sessions": [],
+          "customPops": [],
+          "checks": {},
+          "training": [],
+          "ma58": {
+            "version": 1,
+            "kind": "anterior",
+            "base": "A2",
+            "target": "A2",
+            "step": {
+              "anterior": 0,
+              "posterior": 0
+            },
+            "checks": {
+              "anterior": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "posterior": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            }
+          },
+          "ma59": {
+            "version": 1,
+            "checks": {},
+            "step": {},
+            "current": "crown",
+            "filter": "Todas",
+            "search": ""
+          },
+          "ma60": {
+            "version": 1,
+            "kind": "crown",
+            "material": {
+              "crown": "onx",
+              "model": "acqua",
+              "splint": "cosmos"
+            },
+            "washStage": 0,
+            "blastMaterial": "printed",
+            "blastStage": 0,
+            "colorZone": {
+              "anterior": "cervical",
+              "posterior": "cervical"
+            },
+            "washChecks": {},
+            "blastChecks": {}
+          }
+        },
+        "failedPersisted": {
+          "version": 1,
+          "settings": {
+            "monthly": 100,
+            "hours": 20,
+            "target": 25,
+            "minimum": 10,
+            "tax": 0,
+            "rates": {}
+          },
+          "materials": [
+            {
+              "id": "mA",
+              "name": "Material fictício",
+              "price": 10,
+              "size": 100,
+              "unit": "g",
+              "category": "Teste"
+            }
+          ],
+          "equipment": [],
+          "sessions": [],
+          "customPops": [],
+          "checks": {},
+          "training": [],
+          "ma58": {
+            "version": 1,
+            "kind": "anterior",
+            "base": "A2",
+            "target": "A2",
+            "step": {
+              "anterior": 0,
+              "posterior": 0
+            },
+            "checks": {
+              "anterior": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "posterior": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            }
+          },
+          "ma59": {
+            "version": 1,
+            "checks": {},
+            "step": {},
+            "current": "crown",
+            "filter": "Todas",
+            "search": ""
+          },
+          "ma60": {
+            "version": 1,
+            "kind": "crown",
+            "material": {
+              "crown": "onx",
+              "model": "acqua",
+              "splint": "cosmos"
+            },
+            "washStage": 0,
+            "blastMaterial": "printed",
+            "blastStage": 0,
+            "colorZone": {
+              "anterior": "cervical",
+              "posterior": "cervical"
+            },
+            "washChecks": {},
+            "blastChecks": {}
+          }
+        },
+        "scope": "Inclusão material/retry; equipamento e análise usam outros handlers e não foram executados."
+      },
+      "execucao_principal": "resultados-grupo3.json",
+      "resumo_observado": "Inclusão de material recusada fica em memória; repetir inclusão persiste dois materiais iguais.",
+      "evidencia_individual": "resultados/T-A4-34.json"
+    },
+    {
+      "id": "T-A4-35",
+      "ids_originais": "MA61-1 (escopo distinto); P1-3",
+      "problemas": "D-A4-07",
+      "cenario_ficticio": "Falha/quota/stale ao alterar cor e anotação sanitária",
+      "oraculo_independente": "Nenhum selo de sucesso para edição recusada; contadores confirmados e arquivo oficial seguem a base persistida. Preservar texto não salvo de modo explícito.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "persisted": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}",
+        "export": {
+          "format": "manfrin-arnez-sanitary-checklist",
+          "version": 1,
+          "createdAt": "2026-10-12T03:17:16.556Z",
+          "data": {
+            "version": 1,
+            "states": {},
+            "evidence": {},
+            "notes": {
+              "docs-visa": "Anotação fictícia recusada"
+            },
+            "responsible": {},
+            "due": {},
+            "updated": {
+              "docs-visa": "2026-10-12T03:17:16.546Z"
+            }
+          }
+        },
+        "download": "downloads/3003-Manfrin-Arnez-Checklist-Sanitario-6.1.json",
+        "scope": "Texto sanitário após falha, não cor."
+      },
+      "execucao_principal": "resultados-grupo3.json",
+      "resumo_observado": "Anotação sanitária recusada aparece no export específico apesar de base persistida inalterada.",
+      "evidencia_individual": "resultados/T-A4-35.json"
+    },
+    {
+      "id": "T-A4-36",
+      "ids_originais": "BKP-02; B-101 (regressões e escopos)",
+      "problemas": "D-A4-07",
+      "cenario_ficticio": "Após falha, baixar exportação específica e backup v3 e ler os arquivos",
+      "oraculo_independente": "Bases confirmadas coincidem; qualquer rascunho separado está identificado como tal. V3 continua incluindo proteções e declarando parcial/ausente corretamente; não usar somente console.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "specific": "downloads/3001-Manfrin-Arnez-Modulos-5.5-2026-10-12.json",
+        "unified": "downloads/3002-Manfrin-Arnez-BACKUP-COMPLETO_ESTADO_PERSISTIDO-V3-2026-10-12.json",
+        "specificMaterials": 2,
+        "persistedMaterials": 1,
+        "specificNotLabelledDraft": true
+      },
+      "execucao_principal": "resultados-grupo3.json",
+      "resumo_observado": "Após falha de inclusão, export Academia contém 2 materiais; backup v3 confirmado contém apenas 1.",
+      "evidencia_individual": "resultados/T-A4-36.json"
+    },
+    {
+      "id": "T-A4-37",
+      "ids_originais": "Sem ID histórico específico; BKP-08 separado",
+      "problemas": "D-A4-08",
+      "cenario_ficticio": "Importação Academia muda ma58/59/60 de estados fictícios A para B diferentes",
+      "oraculo_independente": "Pai e três filhos exibem B sem reabrir o HTML; demais materiais/checks/treinamentos continuam corretos. Não confundir importador específico ausente com reidratação.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "importedParent": {
+          "version": 1,
+          "settings": {
+            "monthly": 100,
+            "hours": 20,
+            "target": 25,
+            "minimum": 10,
+            "tax": 0,
+            "rates": {}
+          },
+          "materials": [
+            {
+              "id": "mB",
+              "name": "Material fictício",
+              "price": 10,
+              "size": 100,
+              "unit": "g",
+              "category": "Teste"
+            }
+          ],
+          "equipment": [],
+          "sessions": [],
+          "customPops": [],
+          "checks": {},
+          "training": [],
+          "ma58": {
+            "version": 1,
+            "kind": "anterior",
+            "base": "A3",
+            "target": "A1",
+            "step": {
+              "anterior": 0,
+              "posterior": 0
+            },
+            "checks": {
+              "anterior": [
+                true,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "posterior": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            }
+          },
+          "ma59": {
+            "version": 1,
+            "checks": {},
+            "step": {},
+            "current": "crown",
+            "filter": "Clínica",
+            "search": ""
+          },
+          "ma60": {
+            "version": 1,
+            "kind": "crown",
+            "material": {
+              "crown": "onx",
+              "model": "acqua",
+              "splint": "cosmos"
+            },
+            "washStage": 0,
+            "blastMaterial": "zirconia",
+            "blastStage": 0,
+            "colorZone": {
+              "anterior": "cervical",
+              "posterior": "cervical"
+            },
+            "washChecks": {},
+            "blastChecks": {}
+          }
+        },
+        "child58Base": "A2",
+        "scope": "Pai e filho58 verificados; 59/60 não declarados aprovados."
+      },
+      "execucao_principal": "resultados-grupo4.json",
+      "resumo_observado": "Import Academia B altera pai; filho58 continua exibindo base A2 em vez de A3.",
+      "evidencia_individual": "resultados/T-A4-37.json"
+    },
+    {
+      "id": "T-A4-38",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-08",
+      "cenario_ficticio": "Depois da importação B, interagir em um filho para obter B-prime",
+      "oraculo_independente": "Persistido fica B-prime naquele campo e B nos outros, nunca volta ao cache A. Conferir todos os subcampos e nova cópia de proteção.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "before": {
+          "version": 1,
+          "kind": "anterior",
+          "base": "A3",
+          "target": "A1",
+          "step": {
+            "anterior": 0,
+            "posterior": 0
+          },
+          "checks": {
+            "anterior": [
+              true,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "posterior": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          }
+        },
+        "after": {
+          "version": 1,
+          "kind": "anterior",
+          "step": {
+            "anterior": 0,
+            "posterior": 0
+          },
+          "base": "A2",
+          "target": "A2",
+          "checks": {
+            "anterior": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "posterior": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          }
+        }
+      },
+      "execucao_principal": "resultados-grupo4.json",
+      "resumo_observado": "Interagir no filho58 depois de importar B grava base/checks antigos sobre o progresso importado.",
+      "evidencia_individual": "resultados/T-A4-38.json"
+    },
+    {
+      "id": "T-A4-39",
+      "ids_originais": "BKP-02; B-123 (regressões A5)",
+      "problemas": "D-A4-08",
+      "cenario_ficticio": "Restore v3 e recarga com progressos distintos; exportar PDFs",
+      "oraculo_independente": "Filhos carregam estado restaurado após recuperação/boot; PDFs Exocad/maquiagem/manual continuam byte a byte intactos; nenhum init escritor anterior à proteção.",
+      "estado": "✓ APROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "APROVADO",
+      "observado": {
+        "restoredParent": {
+          "version": 1,
+          "settings": {
+            "monthly": 100,
+            "hours": 20,
+            "target": 25,
+            "minimum": 10,
+            "tax": 0,
+            "rates": {}
+          },
+          "materials": [
+            {
+              "id": "mA",
+              "name": "Material fictício",
+              "price": 10,
+              "size": 100,
+              "unit": "g",
+              "category": "Teste"
+            }
+          ],
+          "equipment": [],
+          "sessions": [],
+          "customPops": [],
+          "checks": {},
+          "training": [],
+          "ma58": {
+            "version": 1,
+            "kind": "anterior",
+            "base": "A2",
+            "target": "A2",
+            "step": {
+              "anterior": 0,
+              "posterior": 0
+            },
+            "checks": {
+              "anterior": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "posterior": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            }
+          },
+          "ma59": {
+            "version": 1,
+            "checks": {},
+            "step": {},
+            "current": "crown",
+            "filter": "Todas",
+            "search": ""
+          },
+          "ma60": {
+            "version": 1,
+            "kind": "crown",
+            "material": {
+              "crown": "onx",
+              "model": "acqua",
+              "splint": "cosmos"
+            },
+            "washStage": 0,
+            "blastMaterial": "printed",
+            "blastStage": 0,
+            "colorZone": {
+              "anterior": "cervical",
+              "posterior": "cervical"
+            },
+            "washChecks": {},
+            "blastChecks": {}
+          }
+        },
+        "pdfHashes": {
+          "exocad": "6cdb600205bee45c53595396cf308818c0dc8142da6a43a521f3e2b2a704b960",
+          "maquiagem": "7992351915741a07703b45303bb872ead9002d8f4800b8b18ac33f53ec47c73f",
+          "livro": "bdcf3e6ad86ccb279eeebb5b8377ab2e400507f590d7ffc623e2771b36b48466"
+        },
+        "scope": "V3 restore/reload e payloads incorporados; downloads dos três PDFs não executados ainda."
+      },
+      "execucao_principal": "resultados-grupo4.json",
+      "resumo_observado": "Restore v3 e reload mantêm Academia; três PDFs baixados são idênticos aos payloads incorporados, com SHA-256 registrados.",
+      "evidencia_individual": "resultados/T-A4-39.json"
+    },
+    {
+      "id": "T-A4-40",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-09",
+      "cenario_ficticio": "Mês escolhido janeiro/2027; merge tem pagamentos outubro/2026; filtro vazio",
+      "oraculo_independente": "Mês explícito do usuário é conservado ou troca exige decisão; mostrar registros fora do filtro sem afirmar ausência de dados ou contagem global incorreta.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "result": {
+          "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+          "downloads": [
+            "downloads/6-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+          ]
+        },
+        "month": "2026-10"
+      },
+      "execucao_principal": "resultados-grupo1.json",
+      "resumo_observado": "Mês escolhido 2027-01 é substituído por 2026-10 sem escolha específica ao mesclar pagamentos de outubro.",
+      "evidencia_individual": "resultados/T-A4-40.json"
+    },
+    {
+      "id": "T-A4-41",
+      "ids_originais": "Sem ID histórico específico",
+      "problemas": "D-A4-09",
+      "cenario_ficticio": "Cadastro muda mas pagamento antigo tem snapshot; taxa manual diverge da automática",
+      "oraculo_independente": "Distinguir histórico e atual com rótulo; não reescrever snapshot ou input manual para uniformizar aparência. Provar consistência de IDs e origem.",
+      "estado": "✗ REPROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "REPROVADO",
+      "observado": {
+        "patientBefore": {
+          "id": "pA",
+          "name": "Paciente Fictício A",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        },
+        "patientAfter": {
+          "id": "pA",
+          "name": "Paciente Fictício A atualizado",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": "",
+          "source": "Cadastro no aplicativo"
+        },
+        "snapshotBefore": {
+          "name": "Paciente Fictício A",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        },
+        "snapshotAfter": {
+          "name": "Paciente Fictício A",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        },
+        "clinicalMessage": "Cadastro salvo. Pagamentos anteriores mantêm os dados da época; edite o pagamento para atualizá-los.",
+        "manualFeeBefore": "12.34",
+        "feeAfter": "10",
+        "feeSourceAfter": "true"
+      },
+      "execucao_principal": "resultados-grupo11.json",
+      "resumo_observado": "Snapshot histórico é preservado e explicado; taxa manual 12.34 vira automática 10 após salvar apuração ma57, sem confirmação específica do campo.",
+      "evidencia_individual": "resultados/T-A4-41.json"
+    },
+    {
+      "id": "T-A4-42",
+      "ids_originais": "P0-4; PERF-01",
+      "problemas": "D-A4-10",
+      "cenario_ficticio": "Volumes fictícios seed/feed originais, vazio, grande, ambiguidades e nomes acentuados",
+      "oraculo_independente": "Medir baseline/candidata em condições iguais; união, campos, pending e estatísticas equivalentes. Índices não alteram política por normalização/colisão.",
+      "estado": "○ NÃO TESTADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "NÃO TESTADO",
+      "observado": {
+        "baseline": [
+          {
+            "label": "seed-feed-original",
+            "ms": 12355.300000000745,
+            "patients": 4892,
+            "pending": 0,
+            "stats": {
+              "added": 271,
+              "matched": 4636,
+              "updated": 0,
+              "manual": 0,
+              "ambiguous": 0
+            }
+          },
+          {
+            "label": "vazio",
+            "ms": 0.10000000149011612,
+            "patients": 0,
+            "pending": 0,
+            "stats": {
+              "added": 0,
+              "matched": 0,
+              "updated": 0,
+              "manual": 0,
+              "ambiguous": 0
+            }
+          }
+        ],
+        "reason": "Nenhuma candidata de correção autorizada/existente; equivalência baseline/candidata não executável nesta etapa."
+      },
+      "execucao_principal": "resultados-grupo11.json",
+      "resumo_observado": "Baseline original medido; não há candidata autorizada para comparação de equivalência.",
+      "evidencia_individual": "resultados/T-A4-42.json"
+    },
+    {
+      "id": "T-A4-43",
+      "ids_originais": "PERF-01",
+      "problemas": "D-A4-10",
+      "cenario_ficticio": "Abertura fria/quente e navegação após reidratação",
+      "oraculo_independente": "Registrar versões, máquina, protocolo, mediana/p95 e latência de interação. Meta histórica 5 s é referência a decidir, não aprovação automática; nenhuma proteção removida por desempenho.",
+      "estado": "✓ APROVADO",
+      "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+      "status": "APROVADO",
+      "observado": {
+        "coldMs": [
+          28713.973645000806,
+          27207.34325000012,
+          20837.52195499983
+        ],
+        "warmMs": [
+          26392.940460998943,
+          40382.730895998975,
+          19160.86749600072
+        ],
+        "coldMedian": 27207.34325000012,
+        "warmMedian": 26392.940460998943,
+        "coldP95Approx": 28713.973645000806,
+        "warmP95Approx": 40382.730895998975,
+        "navigationDriverRoundTripMedian": 23.575227000037557,
+        "navigationDriverRoundTripP95": 68.16733800224029,
+        "browser": "154.0.8037.57",
+        "protocol": "http://127.0.0.1",
+        "limitation": "3 aberturas frias/quentes, p95 aproximação amostral máximo. Medições incluem overhead Playwright e seeds mínimos; meta de 5s e hardware de destino não aprovados. Nenhuma candidata de correção."
+      },
+      "execucao_principal": "resultados-grupo8.json",
+      "resumo_observado": "Aberturas frias/quentes e navegação medidas; aprovação refere-se ao registro do baseline, não à meta de desempenho ou prontidão clínica.",
+      "evidencia_individual": "resultados/T-A4-43.json"
+    }
+  ]
+}

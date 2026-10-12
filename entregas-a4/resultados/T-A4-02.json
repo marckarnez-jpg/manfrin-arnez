@@ -1,0 +1,33 @@
+{
+  "id": "T-A4-02",
+  "ids_originais": "P0-3; P1-3",
+  "problemas": "D-A4-01",
+  "cenario_ficticio": "A grava paciente/pagamento fictício novo; B antiga tenta mesclar outro arquivo",
+  "oraculo_independente": "Operação antiga é recusada/recalculada com nova confirmação; o registro de A nunca desaparece. Capturar raw exato das duas bases e preimage quando houver commit.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "latestPatients": [
+      "Paciente Fictício A",
+      "Paciente Fictício recente A"
+    ],
+    "afterPatients": [
+      "Paciente Fictício A",
+      "Paciente Fictício B"
+    ],
+    "paymentBefore": 98765,
+    "paymentAfter": 12345,
+    "noteBefore": true,
+    "noteAfter": false,
+    "result": {
+      "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+      "downloads": [
+        "downloads/2-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+      ]
+    }
+  },
+  "execucao_principal": "resultados-grupo1.json",
+  "resumo_observado": "Paciente recente desaparece; pagamento 98765 centavos volta a 12345; evolução marcada volta a pendente.",
+  "evidencia_individual": "resultados/T-A4-02.json"
+}

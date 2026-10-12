@@ -1,0 +1,24 @@
+{
+  "id": "T-A4-33",
+  "ids_originais": "A1-56/57 como referência",
+  "problemas": "D-A4-07",
+  "cenario_ficticio": "Cota real e erro de storage ao salvar taxa e configuração",
+  "oraculo_independente": "Tela/status não afirmam salvo; confirmado não muda; rascunho pode ser mantido mas marcado. Recalcular estimativa não cria taxa persistida fictícia.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "realQuota": {
+      "keys": 39,
+      "chars": 5239046,
+      "quotaReached": true,
+      "persisted": "{\"5\":3.1,\"10\":5.2}",
+      "before": "{\"5\":3.1,\"10\":5.2}",
+      "status": "Não foi possível salvar taxas. Faça backup dos seus dados.",
+      "label": "3x Personalizada · salva %"
+    }
+  },
+  "execucao_principal": "resultados-grupo6.json",
+  "resumo_observado": "Quota real: taxa não persiste e há mensagem de erro, mas o campo é rotulado “Personalizada · salva”.",
+  "evidencia_individual": "resultados/T-A4-33.json"
+}

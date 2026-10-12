@@ -1,0 +1,22 @@
+{
+  "id": "T-A4-21",
+  "ids_originais": "Sem ID histórico específico",
+  "problemas": "D-A4-04",
+  "cenario_ficticio": "Taxas no arquivo: string válida, percentual inválido, mapa inesperado; base ausente/presente",
+  "oraculo_independente": "Validação e precedência explícitas; original/taxas de outras parcelas preservados; backup v3 posterior descreve a saúde real do estado.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "result": {
+      "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+      "downloads": [
+        "downloads/2007-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+      ]
+    },
+    "persistedRates": "{\"5\":150,\"10\":\"3.1\",\"nonsense\":{\"unsafe\":true}}"
+  },
+  "execucao_principal": "resultados-grupo2.json",
+  "resumo_observado": "Com base de taxas ausente, mapa contendo taxa 150 e campo inesperado é persistido sem validação.",
+  "evidencia_individual": "resultados/T-A4-21.json"
+}

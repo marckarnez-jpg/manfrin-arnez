@@ -1,0 +1,20 @@
+{
+  "checkedTextFiles": 158,
+  "credentialPatternMatches": [],
+  "syntheticEmbeddedPatients": [
+    {
+      "key": "MA_SEED",
+      "patients": 4621,
+      "allNamesFictitious": true,
+      "allEmailsReservedOrEmpty": true
+    },
+    {
+      "key": "MA_CODENTAL",
+      "patients": 4907,
+      "allNamesFictitious": true,
+      "allEmailsReservedOrEmpty": true
+    }
+  ],
+  "playwrightVersion": "1.62.0",
+  "scope": "Varredura dos arquivos da entrega e inventário sintético; sem acesso a perfis/dados reais. Não certifica segurança universal."
+}

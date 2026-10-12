@@ -1,0 +1,3 @@
+T07 scheduled
+T07 paused
+T07 killed renderer [40394, 40395, 40385]

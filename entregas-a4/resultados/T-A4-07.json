@@ -1,0 +1,21 @@
+{
+  "id": "T-A4-07",
+  "ids_originais": "P1-7b; B-123 (regressão A5)",
+  "problemas": "D-A4-01",
+  "cenario_ficticio": "Interromper após preimage, marcador, primeira escrita, última escrita e antes do receipt",
+  "oraculo_independente": "Boot recupera estado anterior confirmado ou mantém bloqueio; nunca expõe mistura como sucesso. Sem reinjeção de pacientes/pagamentos embutidos.",
+  "estado": "○ NÃO TESTADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "NÃO TESTADO",
+  "observado": {
+    "reason": "Três tentativas de interrupção por Debugger/crash não produziram uma reabertura verificável: a conexão de automação ficou indisponível. Não inferir recuperação nem perda; fases de journal/marker de merge não existem na DEV.4.",
+    "logs": [
+      "log-grupo5.txt",
+      "log-grupo5-reexecucao.txt",
+      "log-grupo5-terceira-tentativa.txt"
+    ]
+  },
+  "execucao_principal": "resultados-grupo5.json",
+  "resumo_observado": "Interrupção tentada três vezes; perda da conexão de automação impediu validar a reabertura. Fases journal/marker do merge inexistentes.",
+  "evidencia_individual": "resultados/T-A4-07.json"
+}

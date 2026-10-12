@@ -1,0 +1,23 @@
+{
+  "id": "T-A4-01",
+  "ids_originais": "P0-3; A1-45; B-120",
+  "problemas": "D-A4-02",
+  "cenario_ficticio": "Merge em uma aba com dois lançamentos atuais e dois novos",
+  "oraculo_independente": "Sem recarga: armazenamento, modelo e lista têm os quatro IDs; clínica e contadores refletem a união; nenhum aviso falso de gravação concluída.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "result": {
+      "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+      "downloads": [
+        "downloads/1-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+      ]
+    },
+    "ledgerPersisted": 2,
+    "ledgerUIModel": 1
+  },
+  "execucao_principal": "resultados-grupo1.json",
+  "resumo_observado": "Persistido: 2 linhas bancárias; modelo rows: 1. A projeção não acompanha o merge.",
+  "evidencia_individual": "resultados/T-A4-01.json"
+}

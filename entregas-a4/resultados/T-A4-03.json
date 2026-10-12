@@ -1,0 +1,17 @@
+{
+  "id": "T-A4-03",
+  "ids_originais": "A1-44; A1-45",
+  "problemas": "D-A4-02",
+  "cenario_ficticio": "Após merge confirmado, registrar um lançamento no livro e um pagamento clínico",
+  "oraculo_independente": "Novas gravações usam modelos reidratados e suas cópias anteriores corretas; registros da união permanecem; não exigir remover guardas ou reabrir o HTML.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "ledgerSave": false,
+    "clinicalMessage": "Cadastro modificado por outra aba. Recarregue; nenhum pagamento/cadastro foi sobrescrito."
+  },
+  "execucao_principal": "resultados-grupo1.json",
+  "resumo_observado": "Após merge, correção bancária e cadastro clínico são recusados por referências de comparação/modelos antigos.",
+  "evidencia_individual": "resultados/T-A4-03.json"
+}

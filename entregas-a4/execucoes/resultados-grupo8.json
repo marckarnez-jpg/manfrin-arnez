@@ -1,0 +1,33 @@
+[
+  {
+    "id": "T-A4-43",
+    "ids_originais": "PERF-01",
+    "problemas": "D-A4-10",
+    "cenario_ficticio": "Abertura fria/quente e navegação após reidratação",
+    "oraculo_independente": "Registrar versões, máquina, protocolo, mediana/p95 e latência de interação. Meta histórica 5 s é referência a decidir, não aprovação automática; nenhuma proteção removida por desempenho.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "APROVADO",
+    "observado": {
+      "coldMs": [
+        28713.973645000806,
+        27207.34325000012,
+        20837.52195499983
+      ],
+      "warmMs": [
+        26392.940460998943,
+        40382.730895998975,
+        19160.86749600072
+      ],
+      "coldMedian": 27207.34325000012,
+      "warmMedian": 26392.940460998943,
+      "coldP95Approx": 28713.973645000806,
+      "warmP95Approx": 40382.730895998975,
+      "navigationDriverRoundTripMedian": 23.575227000037557,
+      "navigationDriverRoundTripP95": 68.16733800224029,
+      "browser": "154.0.8037.57",
+      "protocol": "http://127.0.0.1",
+      "limitation": "3 aberturas frias/quentes, p95 aproximação amostral máximo. Medições incluem overhead Playwright e seeds mínimos; meta de 5s e hardware de destino não aprovados. Nenhuma candidata de correção."
+    }
+  }
+]

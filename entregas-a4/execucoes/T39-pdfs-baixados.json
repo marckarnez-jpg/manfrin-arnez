@@ -1,0 +1,23 @@
+[
+  {
+    "key": "exocad",
+    "download": "downloads/11001-Manfrin-Arnez-Exocad-3.2.pdf",
+    "sha256": "276bec9310d9f122dc8ae1421079504b65b6a41cf8c77f6cbb339917d8978f39",
+    "bytes": 9155,
+    "matches": true
+  },
+  {
+    "key": "livro",
+    "download": "downloads/11002-Manfrin-Arnez-Livro-Completo.pdf",
+    "sha256": "91344af905fe8842504a3ab1974ad58b23a148e8a848135915d267520c0956b3",
+    "bytes": 1249140,
+    "matches": true
+  },
+  {
+    "key": "maquiagem",
+    "download": "downloads/11003-Manfrin-Arnez-Guia-Maquiagem.pdf",
+    "sha256": "9baa4dbff2e2cc351a30825e275f27bdd9e54eb9d77c5766971c74833d23ef9c",
+    "bytes": 31436,
+    "matches": true
+  }
+]

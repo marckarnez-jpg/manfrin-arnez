@@ -1,0 +1,545 @@
+[
+  {
+    "id": "T-A4-27",
+    "ids_originais": "P1-3",
+    "problemas": "D-A4-06",
+    "cenario_ficticio": "Duas abas alteram parcelas distintas ou a mesma taxa; ma53 e ma57 alternados",
+    "oraculo_independente": "Nova taxa de B não some após ação antiga de A. Conflito no mesmo campo requer revisão; ma53Rates, Finance e ma57 exibem revisão coerente após atualização autorizada.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "action": "B muda 2x; A desatualizada muda 3x",
+      "persisted": {
+        "3": 9.3,
+        "5": 3.1,
+        "10": 5.2
+      }
+    }
+  },
+  {
+    "id": "T-A4-29",
+    "ids_originais": "P1-3",
+    "problemas": "D-A4-06",
+    "cenario_ficticio": "Notificação storage/BroadcastChannel atrasada/perdida e aba volta ao foco",
+    "oraculo_independente": "Pré-escrita consulta estado autoritativo sob lock; notificação não é requisito para preservar dados. Mostrar stale/rascunho sem reload automático.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "persisted": {
+        "3": 9.3,
+        "4": 4.4,
+        "5": 3.1,
+        "10": 5.2
+      },
+      "scope": "Retorno ao foco seguido de escrita de taxa; sem supressão artificial de notificações."
+    }
+  },
+  {
+    "id": "T-A4-28",
+    "ids_originais": "P1-3",
+    "problemas": "D-A4-06",
+    "cenario_ficticio": "Duas abas mudam tarefas diferentes do checklist56 e fazem importação específica",
+    "oraculo_independente": "Não perder a tarefa da outra aba; revisão/mutex aplicados também à importação. Backup unificado e lista concordam.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "beforeB": {
+        "version": 1,
+        "states": {
+          "estrutura-menus": "done"
+        },
+        "updated": {
+          "estrutura-menus": "2026-10-12T03:16:08.843Z"
+        }
+      },
+      "afterA": {
+        "version": 1,
+        "states": {
+          "estrutura-navtest": "progress"
+        },
+        "updated": {
+          "estrutura-navtest": "2026-10-12T03:16:08.875Z"
+        }
+      },
+      "scope": "Tarefas diferentes; importação é substituição explícita e não união."
+    }
+  },
+  {
+    "id": "T-A4-26",
+    "ids_originais": "P1-3; A1-40/41/42/43; C-46",
+    "problemas": "D-A4-06",
+    "cenario_ficticio": "Forçar corrida de duas abas na comparação+escrita, por módulo",
+    "oraculo_independente": "Somente sequência serial válida ou recusa; nunca ambos salvam snapshots antigos apagando a operação anterior. Testar clínico, livro, Academia, Sanitária e escritores diretos.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "clinicalStaleRefused": true,
+      "clinicalMessage": "Cadastro modificado por outra aba. Recarregue; nenhum pagamento/cadastro foi sobrescrito.",
+      "ledgerA": true,
+      "ledgerB": false,
+      "ledgerPreserved": true,
+      "unprotectedWritersLostChanges": true,
+      "limitation": "Não foi forçada janela de corrida entre comparação/escrita nos módulos CAS; escritores diretos taxas/checklist já falham sem corrida forçada."
+    }
+  },
+  {
+    "id": "T-A4-31",
+    "ids_originais": "P1-7b; P1-3 (regressões A5)",
+    "problemas": "D-A4-06",
+    "cenario_ficticio": "Restore com duas DEV.4 abertas e tentativa de gravar estado de epoch antigo",
+    "oraculo_independente": "Restore continua recusado com outra aba; páginas/ações obsoletas não ganham permissão por refresh de UI. Testar também operação assíncrona iniciada em revisão anterior.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "APROVADO",
+    "observado": {
+      "message": "RESTAURAÇÃO RECUSADA/FALHOU: Outra aba DEV.4 está aberta. Feche-a antes de restaurar; nenhum dado foi substituído.",
+      "scope": "Bloqueio restore duas abas executado; ação assíncrona com epoch antigo não foi forçada."
+    }
+  },
+  {
+    "id": "T-A4-33",
+    "ids_originais": "A1-56/57 como referência",
+    "problemas": "D-A4-07",
+    "cenario_ficticio": "Cota real e erro de storage ao salvar taxa e configuração",
+    "oraculo_independente": "Tela/status não afirmam salvo; confirmado não muda; rascunho pode ser mantido mas marcado. Recalcular estimativa não cria taxa persistida fictícia.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "persisted": "{\"5\":3.1,\"10\":5.2}",
+      "before": "{\"5\":3.1,\"10\":5.2}",
+      "status": "Não foi possível salvar taxas. Faça backup dos seus dados.",
+      "label": "3x Personalizada · salva %",
+      "value": "4.5",
+      "limitation": "Erro QuotaExceededError injetado; preenchimento físico da quota do navegador não executado."
+    }
+  },
+  {
+    "id": "T-A4-36",
+    "ids_originais": "BKP-02; B-101 (regressões e escopos)",
+    "problemas": "D-A4-07",
+    "cenario_ficticio": "Após falha, baixar exportação específica e backup v3 e ler os arquivos",
+    "oraculo_independente": "Bases confirmadas coincidem; qualquer rascunho separado está identificado como tal. V3 continua incluindo proteções e declarando parcial/ausente corretamente; não usar somente console.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "specific": "downloads/3001-Manfrin-Arnez-Modulos-5.5-2026-10-12.json",
+      "unified": "downloads/3002-Manfrin-Arnez-BACKUP-COMPLETO_ESTADO_PERSISTIDO-V3-2026-10-12.json",
+      "specificMaterials": 2,
+      "persistedMaterials": 1,
+      "specificNotLabelledDraft": true
+    }
+  },
+  {
+    "id": "T-A4-34",
+    "ids_originais": "Sem ID histórico específico",
+    "problemas": "D-A4-07",
+    "cenario_ficticio": "Falhar ao incluir material/equipamento/análise e depois repetir salvamento",
+    "oraculo_independente": "Modelo confirmado permanece anterior; retry gera uma única inclusão desejada, sem acumular duas entradas por mutações anteriores em memória.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "after": {
+        "version": 1,
+        "settings": {
+          "monthly": 100,
+          "hours": 20,
+          "target": 25,
+          "minimum": 10,
+          "tax": 0,
+          "rates": {}
+        },
+        "materials": [
+          {
+            "id": "mA",
+            "name": "Material fictício",
+            "price": 10,
+            "size": 100,
+            "unit": "g",
+            "category": "Teste"
+          },
+          {
+            "id": "idmv4okyqtqwus2",
+            "name": "Material Fictício retry",
+            "brand": "",
+            "category": "Cimento",
+            "size": 100,
+            "unit": "g",
+            "price": 10,
+            "supplier": "",
+            "date": "2026-10-12"
+          },
+          {
+            "id": "idmv4okysw9pr9d",
+            "name": "Material Fictício retry",
+            "brand": "",
+            "category": "Cimento",
+            "size": 100,
+            "unit": "g",
+            "price": 10,
+            "supplier": "",
+            "date": "2026-10-12"
+          }
+        ],
+        "equipment": [],
+        "sessions": [],
+        "customPops": [],
+        "checks": {},
+        "training": [],
+        "ma58": {
+          "version": 1,
+          "kind": "anterior",
+          "base": "A2",
+          "target": "A2",
+          "step": {
+            "anterior": 0,
+            "posterior": 0
+          },
+          "checks": {
+            "anterior": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "posterior": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          }
+        },
+        "ma59": {
+          "version": 1,
+          "checks": {},
+          "step": {},
+          "current": "crown",
+          "filter": "Todas",
+          "search": ""
+        },
+        "ma60": {
+          "version": 1,
+          "kind": "crown",
+          "material": {
+            "crown": "onx",
+            "model": "acqua",
+            "splint": "cosmos"
+          },
+          "washStage": 0,
+          "blastMaterial": "printed",
+          "blastStage": 0,
+          "colorZone": {
+            "anterior": "cervical",
+            "posterior": "cervical"
+          },
+          "washChecks": {},
+          "blastChecks": {}
+        }
+      },
+      "failedPersisted": {
+        "version": 1,
+        "settings": {
+          "monthly": 100,
+          "hours": 20,
+          "target": 25,
+          "minimum": 10,
+          "tax": 0,
+          "rates": {}
+        },
+        "materials": [
+          {
+            "id": "mA",
+            "name": "Material fictício",
+            "price": 10,
+            "size": 100,
+            "unit": "g",
+            "category": "Teste"
+          }
+        ],
+        "equipment": [],
+        "sessions": [],
+        "customPops": [],
+        "checks": {},
+        "training": [],
+        "ma58": {
+          "version": 1,
+          "kind": "anterior",
+          "base": "A2",
+          "target": "A2",
+          "step": {
+            "anterior": 0,
+            "posterior": 0
+          },
+          "checks": {
+            "anterior": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "posterior": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          }
+        },
+        "ma59": {
+          "version": 1,
+          "checks": {},
+          "step": {},
+          "current": "crown",
+          "filter": "Todas",
+          "search": ""
+        },
+        "ma60": {
+          "version": 1,
+          "kind": "crown",
+          "material": {
+            "crown": "onx",
+            "model": "acqua",
+            "splint": "cosmos"
+          },
+          "washStage": 0,
+          "blastMaterial": "printed",
+          "blastStage": 0,
+          "colorZone": {
+            "anterior": "cervical",
+            "posterior": "cervical"
+          },
+          "washChecks": {},
+          "blastChecks": {}
+        }
+      },
+      "scope": "Inclusão material/retry; equipamento e análise usam outros handlers e não foram executados."
+    }
+  },
+  {
+    "id": "T-A4-35",
+    "ids_originais": "MA61-1 (escopo distinto); P1-3",
+    "problemas": "D-A4-07",
+    "cenario_ficticio": "Falha/quota/stale ao alterar cor e anotação sanitária",
+    "oraculo_independente": "Nenhum selo de sucesso para edição recusada; contadores confirmados e arquivo oficial seguem a base persistida. Preservar texto não salvo de modo explícito.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "REPROVADO",
+    "observado": {
+      "persisted": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}",
+      "export": {
+        "format": "manfrin-arnez-sanitary-checklist",
+        "version": 1,
+        "createdAt": "2026-10-12T03:17:16.556Z",
+        "data": {
+          "version": 1,
+          "states": {},
+          "evidence": {},
+          "notes": {
+            "docs-visa": "Anotação fictícia recusada"
+          },
+          "responsible": {},
+          "due": {},
+          "updated": {
+            "docs-visa": "2026-10-12T03:17:16.546Z"
+          }
+        }
+      },
+      "download": "downloads/3003-Manfrin-Arnez-Checklist-Sanitario-6.1.json",
+      "scope": "Texto sanitário após falha, não cor."
+    }
+  },
+  {
+    "id": "T-A4-30",
+    "ids_originais": "A1-45; navegação 18 telas",
+    "problemas": "D-A4-09",
+    "cenario_ficticio": "Abrir as 18 telas pelo menu, atalhos, ações internas e após merge",
+    "oraculo_independente": "Uma página/menu ativos coerentes; projeções dependentes atualizam; navegar não grava clínico ou duplica listeners/ações. Rascunhos e filtros preservados.",
+    "estado": "○ Pendente — não executado",
+    "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+    "status": "APROVADO",
+    "observado": {
+      "pages": [
+        "ma56-home",
+        "dash",
+        "quick",
+        "accounting",
+        "ma55-cost",
+        "sim",
+        "ledger",
+        "ma55-contador",
+        "sources",
+        "patients",
+        "notes",
+        "tcle",
+        "ma55-academy",
+        "ma55-training",
+        "ma55-materials",
+        "ma61-sanitary",
+        "ma56-project",
+        "backup"
+      ],
+      "observed": [
+        {
+          "pages": [
+            "ma56-home"
+          ],
+          "menu": [
+            "ma56-home"
+          ]
+        },
+        {
+          "pages": [
+            "dash"
+          ],
+          "menu": [
+            "dash"
+          ]
+        },
+        {
+          "pages": [
+            "quick"
+          ],
+          "menu": [
+            "quick"
+          ]
+        },
+        {
+          "pages": [
+            "accounting"
+          ],
+          "menu": [
+            "accounting"
+          ]
+        },
+        {
+          "pages": [
+            "ma55-cost"
+          ],
+          "menu": [
+            "ma55-cost"
+          ]
+        },
+        {
+          "pages": [
+            "sim"
+          ],
+          "menu": [
+            "sim"
+          ]
+        },
+        {
+          "pages": [
+            "ledger"
+          ],
+          "menu": [
+            "ledger"
+          ]
+        },
+        {
+          "pages": [
+            "ma55-contador"
+          ],
+          "menu": [
+            "ma55-contador"
+          ]
+        },
+        {
+          "pages": [
+            "sources"
+          ],
+          "menu": [
+            "sources"
+          ]
+        },
+        {
+          "pages": [
+            "patients"
+          ],
+          "menu": [
+            "patients"
+          ]
+        },
+        {
+          "pages": [
+            "notes"
+          ],
+          "menu": [
+            "notes"
+          ]
+        },
+        {
+          "pages": [
+            "tcle"
+          ],
+          "menu": [
+            "tcle"
+          ]
+        },
+        {
+          "pages": [
+            "ma55-academy"
+          ],
+          "menu": [
+            "ma55-academy"
+          ]
+        },
+        {
+          "pages": [
+            "ma55-training"
+          ],
+          "menu": [
+            "ma55-training"
+          ]
+        },
+        {
+          "pages": [
+            "ma55-materials"
+          ],
+          "menu": [
+            "ma55-materials"
+          ]
+        },
+        {
+          "pages": [
+            "ma61-sanitary"
+          ],
+          "menu": [
+            "ma61-sanitary"
+          ]
+        },
+        {
+          "pages": [
+            "ma56-project"
+          ],
+          "menu": [
+            "ma56-project"
+          ]
+        },
+        {
+          "pages": [
+            "backup"
+          ],
+          "menu": [
+            "backup"
+          ]
+        }
+      ],
+      "scope": "Menu18 telas; atalhos e navegação depois merge não cobertos por esta amostra."
+    }
+  }
+]

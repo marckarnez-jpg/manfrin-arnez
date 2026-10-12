@@ -1,0 +1,63 @@
+{
+  "format": "manfrin-arnez-backup",
+  "version": 2,
+  "createdAt": "2026-10-12T03:14:09.349Z",
+  "care": {
+    "version": 2,
+    "patients": [
+      {
+        "id": "pA",
+        "name": "Paciente Fictício A",
+        "cpf": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "cep": ""
+      }
+    ],
+    "records": [
+      {
+        "id": "rA",
+        "patientId": "pA",
+        "date": "2026-10-10",
+        "month": "2026-10",
+        "amount": 12345,
+        "service": "Serviço fictício A",
+        "payment": "Pix",
+        "status": "Recebido",
+        "snapshot": {
+          "name": "Paciente Fictício A",
+          "cpf": "",
+          "phone": "",
+          "email": "",
+          "address": "",
+          "cep": ""
+        }
+      }
+    ],
+    "notes": [
+      {
+        "id": "nA",
+        "patientId": "pA",
+        "date": "2026-10-10",
+        "tooth": "11",
+        "text": "Evolução fictícia A",
+        "done": false
+      }
+    ]
+  },
+  "ledger": [
+    {
+      "id": "Cora:F1",
+      "date": "2026-10-10",
+      "bank": "Cora",
+      "description": "Fictício 1",
+      "amount": 1001,
+      "kind": "Receita"
+    }
+  ],
+  "rateSettings": {
+    "5": 3.1,
+    "10": 5.2
+  }
+}

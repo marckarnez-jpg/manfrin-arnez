@@ -1,0 +1,59 @@
+{
+  "timestampUTC": "2026-10-12T03:32:51.155597+00:00",
+  "python": "3.12.14",
+  "node": "v24.19.0",
+  "chromium": "Chromium 154.0.8037.57 built on Debian GNU/Linux 13 (trixie)",
+  "machine": {
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "cpu": [
+      "Architecture:                            x86_64",
+      "CPU op-mode(s):                          32-bit, 64-bit",
+      "Address sizes:                           46 bits physical, 57 bits virtual",
+      "Byte Order:                              Little Endian",
+      "CPU(s):                                  5",
+      "On-line CPU(s) list:                     0-4",
+      "Vendor ID:                               GenuineIntel",
+      "Model name:                              INTEL(R) XEON(R) PLATINUM 8573C",
+      "CPU family:                              6",
+      "Model:                                   207",
+      "Thread(s) per core:                      1",
+      "Core(s) per socket:                      5",
+      "Socket(s):                               1",
+      "Stepping:                                2",
+      "BogoMIPS:                                4600.00",
+      "Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 arat avx512vbmi umip waitpkg avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid cldemote movdiri movdir64b fsrm serialize tsxldtrk avx512_fp16 arch_capabilities",
+      "Hypervisor vendor:                       KVM",
+      "Virtualization type:                     full",
+      "L1d cache:                               144 KiB (3 instances)",
+      "L1i cache:                               96 KiB (3 instances)"
+    ]
+  },
+  "files": [
+    {
+      "path": "/workspace/manfrin-arnez/entregas-a5/Manfrin-Arnez-Dashboard-6.2-DEV-04-A5.html",
+      "bytes": 4128851,
+      "sha256": "cc1da21a717db0e2f2bd7303284a3fd0b3af4c14be8638abb71741bfddc5fcbb"
+    },
+    {
+      "path": "/workspace/manfrin-arnez/entregas-a5/referencias/Manfrin-Arnez-Dashboard-6.2-DEV-03-A1.2.html",
+      "bytes": 4077003,
+      "sha256": "e4e4f49ca37e85cd9c83c67aa79b4e9d2fcb74b11137c387a5692ea8727bcc3f"
+    },
+    {
+      "path": "/workspace/manfrin-arnez/manfrin-arnez.html",
+      "bytes": 550833,
+      "sha256": "4b6789de6fdae19e79eeddd310c5f9c680fe7758438b57a38987587f74f4d8e3"
+    }
+  ],
+  "gitStatus": "",
+  "head": "206bd06f24db985fbc9ecb92ed2eea7a270b5f01",
+  "branch": "dev/a5-dev4-local",
+  "remoteRefs": [
+    "778e0b66610e1478432fc297fc91ae78a9bb497b\trefs/heads/dev/a1.2-dev3-entrega",
+    "206bd06f24db985fbc9ecb92ed2eea7a270b5f01\trefs/heads/dev/a5-dev4-local",
+    "d85b944d2fdb029e9b7afd57c6baa28938765330\trefs/heads/main"
+  ],
+  "noPublication": true,
+  "noImplementation": true,
+  "isolatedSyntheticOnly": true
+}

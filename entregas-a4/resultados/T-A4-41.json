@@ -1,0 +1,54 @@
+{
+  "id": "T-A4-41",
+  "ids_originais": "Sem ID histórico específico",
+  "problemas": "D-A4-09",
+  "cenario_ficticio": "Cadastro muda mas pagamento antigo tem snapshot; taxa manual diverge da automática",
+  "oraculo_independente": "Distinguir histórico e atual com rótulo; não reescrever snapshot ou input manual para uniformizar aparência. Provar consistência de IDs e origem.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "patientBefore": {
+      "id": "pA",
+      "name": "Paciente Fictício A",
+      "cpf": "",
+      "phone": "",
+      "email": "",
+      "address": "",
+      "cep": ""
+    },
+    "patientAfter": {
+      "id": "pA",
+      "name": "Paciente Fictício A atualizado",
+      "cpf": "",
+      "phone": "",
+      "email": "",
+      "address": "",
+      "cep": "",
+      "source": "Cadastro no aplicativo"
+    },
+    "snapshotBefore": {
+      "name": "Paciente Fictício A",
+      "cpf": "",
+      "phone": "",
+      "email": "",
+      "address": "",
+      "cep": ""
+    },
+    "snapshotAfter": {
+      "name": "Paciente Fictício A",
+      "cpf": "",
+      "phone": "",
+      "email": "",
+      "address": "",
+      "cep": ""
+    },
+    "clinicalMessage": "Cadastro salvo. Pagamentos anteriores mantêm os dados da época; edite o pagamento para atualizá-los.",
+    "manualFeeBefore": "12.34",
+    "feeAfter": "10",
+    "feeSourceAfter": "true"
+  },
+  "execucao_principal": "resultados-grupo11.json",
+  "resumo_observado": "Snapshot histórico é preservado e explicado; taxa manual 12.34 vira automática 10 após salvar apuração ma57, sem confirmação específica do campo.",
+  "evidencia_individual": "resultados/T-A4-41.json"
+}

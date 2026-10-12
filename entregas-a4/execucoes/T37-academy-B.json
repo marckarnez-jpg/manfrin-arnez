@@ -1,0 +1,83 @@
+{
+  "format": "manfrin-arnez-academy-backup",
+  "data": {
+    "version": 1,
+    "settings": {
+      "monthly": 100,
+      "hours": 20,
+      "target": 25,
+      "minimum": 10,
+      "tax": 0,
+      "rates": {}
+    },
+    "materials": [
+      {
+        "id": "mB",
+        "name": "Material fictício",
+        "price": 10,
+        "size": 100,
+        "unit": "g",
+        "category": "Teste"
+      }
+    ],
+    "equipment": [],
+    "sessions": [],
+    "customPops": [],
+    "checks": {},
+    "training": [],
+    "ma58": {
+      "version": 1,
+      "kind": "anterior",
+      "base": "A3",
+      "target": "A1",
+      "step": {
+        "anterior": 0,
+        "posterior": 0
+      },
+      "checks": {
+        "anterior": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "posterior": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    "ma59": {
+      "version": 1,
+      "checks": {},
+      "step": {},
+      "current": "crown",
+      "filter": "Clínica",
+      "search": ""
+    },
+    "ma60": {
+      "version": 1,
+      "kind": "crown",
+      "material": {
+        "crown": "onx",
+        "model": "acqua",
+        "splint": "cosmos"
+      },
+      "washStage": 0,
+      "blastMaterial": "zirconia",
+      "blastStage": 0,
+      "colorZone": {
+        "anterior": "cervical",
+        "posterior": "cervical"
+      },
+      "washChecks": {},
+      "blastChecks": {}
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "T-A4-31",
+  "ids_originais": "P1-7b; P1-3 (regressões A5)",
+  "problemas": "D-A4-06",
+  "cenario_ficticio": "Restore com duas DEV.4 abertas e tentativa de gravar estado de epoch antigo",
+  "oraculo_independente": "Restore continua recusado com outra aba; páginas/ações obsoletas não ganham permissão por refresh de UI. Testar também operação assíncrona iniciada em revisão anterior.",
+  "estado": "✓ APROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "APROVADO",
+  "observado": {
+    "asyncOldEpochSave": false,
+    "ledgerPreserved": true,
+    "guard": "O estado foi restaurado por outra aba. Recarregue antes de editar.",
+    "method": "Troca sintética de epoch durante await de captura de preimage da operação bancária. Bloqueio de restore duas abas já testado grupo3."
+  },
+  "execucao_principal": "resultados-grupo11.json",
+  "resumo_observado": "Restore com duas abas é recusado; escrita bancária assíncrona com epoch sinteticamente trocado é bloqueada e preserva livro.",
+  "evidencia_individual": "resultados/T-A4-31.json"
+}

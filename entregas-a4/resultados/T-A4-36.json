@@ -1,0 +1,20 @@
+{
+  "id": "T-A4-36",
+  "ids_originais": "BKP-02; B-101 (regressões e escopos)",
+  "problemas": "D-A4-07",
+  "cenario_ficticio": "Após falha, baixar exportação específica e backup v3 e ler os arquivos",
+  "oraculo_independente": "Bases confirmadas coincidem; qualquer rascunho separado está identificado como tal. V3 continua incluindo proteções e declarando parcial/ausente corretamente; não usar somente console.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "specific": "downloads/3001-Manfrin-Arnez-Modulos-5.5-2026-10-12.json",
+    "unified": "downloads/3002-Manfrin-Arnez-BACKUP-COMPLETO_ESTADO_PERSISTIDO-V3-2026-10-12.json",
+    "specificMaterials": 2,
+    "persistedMaterials": 1,
+    "specificNotLabelledDraft": true
+  },
+  "execucao_principal": "resultados-grupo3.json",
+  "resumo_observado": "Após falha de inclusão, export Academia contém 2 materiais; backup v3 confirmado contém apenas 1.",
+  "evidencia_individual": "resultados/T-A4-36.json"
+}

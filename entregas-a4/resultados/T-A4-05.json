@@ -1,0 +1,83 @@
+{
+  "id": "T-A4-05",
+  "ids_originais": "A1-56/57; P1-7b (regressão A5)",
+  "problemas": "D-A4-01",
+  "cenario_ficticio": "Falha de gravação na segunda e terceira base do merge",
+  "oraculo_independente": "Original recuperado byte a byte ou bloqueio recuperável mantido; nenhum receipt de sucesso; históricos não são removidos. Separar falha simulada de cota real.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "result": {
+      "message": "Não foi possível mesclar: Falha ao salvar a mesclagem; o aplicativo tentou restaurar os dados anteriores. Confira o backup baixado.",
+      "downloads": [
+        "downloads/13002-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+      ]
+    },
+    "before": [
+      {
+        "key": "ma-academy-v55",
+        "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+      },
+      {
+        "key": "ma-account-month-last-v1",
+        "raw": "2026-10"
+      },
+      {
+        "key": "ma-care-v2",
+        "raw": "{\"version\": 2, \"patients\": [{\"id\": \"pA\", \"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}], \"records\": [{\"id\": \"rA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"month\": \"2026-10\", \"amount\": 12345, \"service\": \"Serviço fictício A\", \"payment\": \"Pix\", \"status\": \"Recebido\", \"snapshot\": {\"name\": \"Paciente Fictício A\", \"cpf\": \"\", \"phone\": \"\", \"email\": \"\", \"address\": \"\", \"cep\": \"\"}}], \"notes\": [{\"id\": \"nA\", \"patientId\": \"pA\", \"date\": \"2026-10-10\", \"tooth\": \"11\", \"text\": \"Evolução fictícia A\", \"done\": false}]}"
+      },
+      {
+        "key": "ma-installment-rates-v1",
+        "raw": "{\"5\":3.1,\"10\":5.2}"
+      },
+      {
+        "key": "ma-ledger-v1",
+        "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+      },
+      {
+        "key": "ma56-project-checklist-v1",
+        "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+      },
+      {
+        "key": "ma61-sanitary-checklist-v1",
+        "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+      }
+    ],
+    "after": [
+      {
+        "key": "ma-academy-v55",
+        "raw": "{\"version\": 1, \"settings\": {\"monthly\": 100, \"hours\": 20, \"target\": 25, \"minimum\": 10, \"tax\": 0, \"rates\": {}}, \"materials\": [{\"id\": \"mA\", \"name\": \"Material fictício\", \"price\": 10, \"size\": 100, \"unit\": \"g\", \"category\": \"Teste\"}], \"equipment\": [], \"sessions\": [], \"customPops\": [], \"checks\": {}, \"training\": [], \"ma58\": {\"version\": 1, \"kind\": \"anterior\", \"base\": \"A2\", \"target\": \"A2\", \"step\": {\"anterior\": 0, \"posterior\": 0}, \"checks\": {\"anterior\": [false, false, false, false, false, false], \"posterior\": [false, false, false, false, false, false]}}, \"ma59\": {\"version\": 1, \"checks\": {}, \"step\": {}, \"current\": \"crown\", \"filter\": \"Todas\", \"search\": \"\"}, \"ma60\": {\"version\": 1, \"kind\": \"crown\", \"material\": {\"crown\": \"onx\", \"model\": \"acqua\", \"splint\": \"cosmos\"}, \"washStage\": 0, \"blastMaterial\": \"printed\", \"blastStage\": 0, \"colorZone\": {\"anterior\": \"cervical\", \"posterior\": \"cervical\"}, \"washChecks\": {}, \"blastChecks\": {}}}"
+      },
+      {
+        "key": "ma-account-month-last-v1",
+        "raw": "2026-10"
+      },
+      {
+        "key": "ma-care-v2",
+        "raw": "{\"version\":2,\"patients\":[{\"id\":\"pA\",\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"},{\"id\":\"pB\",\"name\":\"Paciente Fictício B\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}],\"records\":[{\"id\":\"rA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício A\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício A\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}},{\"id\":\"rB\",\"patientId\":\"pB\",\"date\":\"2026-10-10\",\"month\":\"2026-10\",\"amount\":12345,\"service\":\"Serviço fictício B\",\"payment\":\"Pix\",\"status\":\"Recebido\",\"snapshot\":{\"name\":\"Paciente Fictício B\",\"cpf\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"cep\":\"\"}}],\"notes\":[{\"id\":\"nA\",\"patientId\":\"pA\",\"date\":\"2026-10-10\",\"tooth\":\"11\",\"text\":\"Evolução fictícia A\",\"done\":false},{\"id\":\"nB\",\"patientId\":\"pB\",\"date\":\"2026-10-10\",\"tooth\":\"11\",\"text\":\"Evolução fictícia B\",\"done\":false}]}"
+      },
+      {
+        "key": "ma-installment-rates-v1",
+        "raw": "{\"5\":3.1,\"10\":5.2}"
+      },
+      {
+        "key": "ma-ledger-v1",
+        "raw": "[{\"id\": \"Cora:F1\", \"date\": \"2026-10-10\", \"bank\": \"Cora\", \"description\": \"Fict\\u00edcio 1\", \"amount\": 1001, \"kind\": \"Receita\"}]"
+      },
+      {
+        "key": "ma56-project-checklist-v1",
+        "raw": "{\"version\":1,\"states\":{},\"updated\":{}}"
+      },
+      {
+        "key": "ma61-sanitary-checklist-v1",
+        "raw": "{\"version\":1,\"states\":{},\"evidence\":{},\"notes\":{},\"responsible\":{},\"due\":{},\"updated\":{}}"
+      }
+    ],
+    "guard": "",
+    "history": []
+  },
+  "execucao_principal": "resultados-grupo13.json",
+  "resumo_observado": "Falhas transitórias na segunda/terceira escrita fazem rollback exato; falha também no rollback deixa clínico aplicado, livro antigo e guard vazio.",
+  "evidencia_individual": "resultados/T-A4-05.json"
+}

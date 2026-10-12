@@ -1,0 +1,10 @@
+{
+  "filesInspected": 159,
+  "credentialPatternMatches": [],
+  "syntheticPatientNamesInspected": 6,
+  "allPatientNamesExplicitlyFictitious": true,
+  "fixturesAndFinancialValuesSynthetic": true,
+  "basis": "Fixtures geradas nos testes e extrações nativas dos perfis descartáveis; revisão dos logs e dos nomes clínicos em JSONs, inclusive raw serializado. Valores financeiros são números de fixtures, não extratos reais.",
+  "sixReportsUnchanged": true,
+  "excludesSourceGitHistory": true
+}

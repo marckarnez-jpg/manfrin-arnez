@@ -1,0 +1,101 @@
+{
+  "id": "T-A4-39",
+  "ids_originais": "BKP-02; B-123 (regressões A5)",
+  "problemas": "D-A4-08",
+  "cenario_ficticio": "Restore v3 e recarga com progressos distintos; exportar PDFs",
+  "oraculo_independente": "Filhos carregam estado restaurado após recuperação/boot; PDFs Exocad/maquiagem/manual continuam byte a byte intactos; nenhum init escritor anterior à proteção.",
+  "estado": "✓ APROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "APROVADO",
+  "observado": {
+    "restoredParent": {
+      "version": 1,
+      "settings": {
+        "monthly": 100,
+        "hours": 20,
+        "target": 25,
+        "minimum": 10,
+        "tax": 0,
+        "rates": {}
+      },
+      "materials": [
+        {
+          "id": "mA",
+          "name": "Material fictício",
+          "price": 10,
+          "size": 100,
+          "unit": "g",
+          "category": "Teste"
+        }
+      ],
+      "equipment": [],
+      "sessions": [],
+      "customPops": [],
+      "checks": {},
+      "training": [],
+      "ma58": {
+        "version": 1,
+        "kind": "anterior",
+        "base": "A2",
+        "target": "A2",
+        "step": {
+          "anterior": 0,
+          "posterior": 0
+        },
+        "checks": {
+          "anterior": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "posterior": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      },
+      "ma59": {
+        "version": 1,
+        "checks": {},
+        "step": {},
+        "current": "crown",
+        "filter": "Todas",
+        "search": ""
+      },
+      "ma60": {
+        "version": 1,
+        "kind": "crown",
+        "material": {
+          "crown": "onx",
+          "model": "acqua",
+          "splint": "cosmos"
+        },
+        "washStage": 0,
+        "blastMaterial": "printed",
+        "blastStage": 0,
+        "colorZone": {
+          "anterior": "cervical",
+          "posterior": "cervical"
+        },
+        "washChecks": {},
+        "blastChecks": {}
+      }
+    },
+    "pdfHashes": {
+      "exocad": "6cdb600205bee45c53595396cf308818c0dc8142da6a43a521f3e2b2a704b960",
+      "maquiagem": "7992351915741a07703b45303bb872ead9002d8f4800b8b18ac33f53ec47c73f",
+      "livro": "bdcf3e6ad86ccb279eeebb5b8377ab2e400507f590d7ffc623e2771b36b48466"
+    },
+    "scope": "V3 restore/reload e payloads incorporados; downloads dos três PDFs não executados ainda."
+  },
+  "execucao_principal": "resultados-grupo4.json",
+  "resumo_observado": "Restore v3 e reload mantêm Academia; três PDFs baixados são idênticos aos payloads incorporados, com SHA-256 registrados.",
+  "evidencia_individual": "resultados/T-A4-39.json"
+}

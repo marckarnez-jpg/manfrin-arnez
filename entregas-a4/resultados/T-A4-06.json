@@ -1,0 +1,23 @@
+{
+  "id": "T-A4-06",
+  "ids_originais": "N-1; A1-48 (regressão A5)",
+  "problemas": "D-A4-01",
+  "cenario_ficticio": "IndexedDB indisponível, put abortado ou releitura da preimage divergente",
+  "oraculo_independente": "Zero alteração das bases ativas; explicar recusa de proteção; não substituir journal por download apenas solicitado.",
+  "estado": "✗ REPROVADO",
+  "evidencia_exigida": "Raw/hash antes/depois, IDs/contagens/valores, DOM e arquivo baixado quando aplicável; log de fases e protocolo; ausência de erro é auxiliar.",
+  "status": "REPROVADO",
+  "observado": {
+    "result": {
+      "message": "Backup mesclado sem substituir lançamentos anteriores. Adicionados 1 pagamento(s), inclusive 1 de outubro/2026. Confira a relação e faça novo backup.",
+      "downloads": [
+        "downloads/4-Manfrin-Arnez-ANTES-MESCLAR-PRINCIPAL-NAO-INCLUI-QUARENTENAS-2026-10-12.json"
+      ]
+    },
+    "history": [],
+    "captureUnavailable": true
+  },
+  "execucao_principal": "resultados-grupo1.json",
+  "resumo_observado": "Merge prossegue apesar de captureOperation sinteticamente indisponível, sem criar journal/preimage A5.",
+  "evidencia_individual": "resultados/T-A4-06.json"
+}

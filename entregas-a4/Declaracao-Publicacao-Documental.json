@@ -1,0 +1,17 @@
+{
+  "classification": "RISCO CRÍTICO CONFIRMADO NOS TESTES",
+  "recommendation": "Suspender o uso de Mesclar backup até correção autorizada e auditoria",
+  "scope": "Somente documentos, harness de reprodução, fixtures sintéticas e evidências sanitizadas",
+  "excludedDashboardHTML": true,
+  "excludedTechnicalPDFs": [
+    "downloads/11002-Manfrin-Arnez-Livro-Completo.pdf",
+    "downloads/11003-Manfrin-Arnez-Guia-Maquiagem.pdf",
+    "downloads/11001-Manfrin-Arnez-Exocad-3.2.pdf"
+  ],
+  "targetBranch": "dev/a4-testes-reproducao",
+  "historyPolicy": "Um commit raiz independente; nenhum ancestral do site ou Dashboard",
+  "timestampUTC": "2026-10-12T03:50:04.412857+00:00",
+  "noCodeChange": true,
+  "noPRMergeDeployment": true,
+  "claudeAuditUnaffected": true
+}
